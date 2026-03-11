@@ -45,7 +45,7 @@
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };
         modules = [
-          ./appearence.nix
+          ./appearences.nix
           ./configuration.nix
           ./dev.nix
           ./flatpak.nix
