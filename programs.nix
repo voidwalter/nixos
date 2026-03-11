@@ -30,11 +30,11 @@
 
     grim
     slurp
-    sarry
+    satty
     pamixer
     playerctl
     pavucontrol
-    libnotif
+    libnotify
     wl-screenrec
     wl-clipboard
     wl-clip-persist
@@ -56,15 +56,6 @@
           source ~/.bashrc
       fi
     '';
-  };
-
-  programs.git = {
-    enable = true;
-    settings.user = {
-      name = "voidwalter";
-      email = "codeacean@proton.me";
-      defaultBranch = "main";
-    };
   };
 
   programs.direnv.enable = true;
