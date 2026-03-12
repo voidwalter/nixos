@@ -14,7 +14,7 @@
         inputs.nixpkgs.follows = "nixpkgs";
       };
 
-	    zen-browser = {
+      zen-browser = {
         url = "github:0xc000022070/zen-browser-flake";
         inputs = {
             nixpkgs.follows = "nixpkgs";
@@ -33,6 +33,8 @@
 	      inputs.nixpkgs.follows = "nixpkgs";
 	    };
 
+      spicetify-nix.url = "github:Gerg-L/spicetify-nix";
+
       # hyprland = {
       #   url = "github:hyprwm/Hyprland";
       #   inputs.nixpkgs.follows = "nixpkgs";
@@ -45,27 +47,30 @@
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };
         modules = [
-          ./appearences.nix
-          ./configuration.nix
-          ./dev.nix
-          ./flatpak.nix
-          ./graphical.nix
-          ./hyprland.nix
-          ./programs.nix
-          ./settings.nix
-          ./services.nix
-          ./security.nix
-          ./module/noctalia.nix
-
           home-manager.nixosModules.home-manager
           # hyprland.nixosModules.default
           nix-flatpak.nixosModules.nix-flatpak
+
+          ./configuration.nix
+          ./modules/appearences.nix
+          ./modules/dev.nix
+          ./modules/flatpak.nix
+          ./modules/hyprland.nix
+          ./modules/programs.nix
+          ./modules/settings.nix
+          ./modules/services.nix
+          ./modules/security.nix
 
           {
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
-              users.rafid = import ./home.nix;
+              users.rafid = import [
+                inputs.noctalia.homeModules.default
+                inputs.spicetify-nix.homeManagerModules.default              
+                
+                ./home/main.nix
+              ];
               backupFileExtension = "backup";
             };
           }

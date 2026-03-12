@@ -3,12 +3,22 @@
 {
 
   environment.systemPackages = with pkgs; [
+    # CLIs
     bat     kitty         pipes
-    eza     zoxide
-    fzf     starship
+    eza     zoxide        cava
+    fzf     starship      tree
     btop    fastfetch
-    yazi    cmatrix
+    cava    cmatrix
     bash    blesh
+
+    # graphical
+    rofi
+    firefox
+    nautilus
+    qutebrowser
+    thunderbird
+    bitwarden-desktop
+    inputs.zen-browser.packages.${pkgs.system}.twilight
 
     psmisc
     wlrctl
