@@ -16,7 +16,6 @@
     firefox
     nautilus
     qutebrowser
-    thunderbird
     bitwarden-desktop
     inputs.zen-browser.packages.${pkgs.system}.twilight
 

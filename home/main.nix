@@ -1,22 +1,28 @@
-{ config, lib, pkgs, modulesPath, inputs, ... }:
+{ config, pkgs, modulesPath, inputs, ... }:
 
 let
   system = pkgs.stdenv.hostPlatform.system;
 in
 {
+  
+
   home.username = "rafid";
   home.homeDirectory = "/home/rafid";
+
+  imports = [
+    inputs.noctalia.homeModules.default
+    inputs.spicetify-nix.homeManagerModules.default              
+  ];
 
   home.packages = with pkgs; [
     gh
     git
+    todoist
     ghostty
     newsboat
     newsflash
     vicinae
     zed-editor
-    
-    # sfl
     obs-studio
     gimp
     discord
@@ -70,7 +76,7 @@ in
 
     theme = spicePkgs.themes.catppuccin;
     colorScheme = "mocha";
-  }
+  };
 
   # Home Manager state version
   home.stateVersion = "25.05";

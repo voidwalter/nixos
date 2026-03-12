@@ -65,12 +65,8 @@
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
-              users.rafid = import [
-                inputs.noctalia.homeModules.default
-                inputs.spicetify-nix.homeManagerModules.default              
-                
-                ./home/main.nix
-              ];
+              users.rafid = { config, lib, pkgs, modulesPath, ... }@args:
+                import ./home/main.nix (args // { inherit inputs; });
               backupFileExtension = "backup";
             };
           }
