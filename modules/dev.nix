@@ -1,15 +1,12 @@
 { pkgs, ... }:
 
 {
-  programs.direnv.enable = true;
-
   environment.systemPackages = with pkgs; [
     gcc
     clang
     lld
     lldb
     rustup
-    ruby
     lua
 
     vim
@@ -25,4 +22,12 @@
     devenv
     lazygit
   ];
+
+  programs.direnv = {
+    enable = true;
+    nix-direnv = {
+      enable = true;
+    };
+    enableBashIntegration = true;
+  };
 }

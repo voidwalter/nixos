@@ -14,6 +14,16 @@
         inputs.nixpkgs.follows = "nixpkgs";
       };
 
+      # nixvim = {
+      #   url = "github:nix-community/nixvim";
+      #   inputs.nixpkgs.follows = "nixpkgs";
+      # };
+      #
+      # nixila = {
+      #   url = "./config/nixvim/nixila.nix";
+      #   inputs.nixpkgs.follows = "nixpkgs";
+      # };
+
       zen-browser = {
         url = "github:0xc000022070/zen-browser-flake";
         inputs = {
@@ -41,36 +51,43 @@
       # };
 	};
 
-	outputs = { self, nixpkgs, home-manager, nix-flatpak, zen-browser, ... } @ inputs: 
-	  {
-	    nixosConfigurations.nixie = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = { inherit inputs; };
-        modules = [
-          home-manager.nixosModules.home-manager
-          # hyprland.nixosModules.default
-          nix-flatpak.nixosModules.nix-flatpak
+	outputs = { 
+      self, nixpkgs, home-manager,
+      nix-flatpak, zen-browser, 
+      ...
+  } @inputs: 
+	{
+    nixosConfigurations.nixie = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      specialArgs = { inherit inputs; };
+      modules = [
+        home-manager.nixosModules.home-manager
+        # hyprland.nixosModules.default
+        nix-flatpak.nixosModules.nix-flatpak
 
-          ./configuration.nix
-          ./modules/appearences.nix
-          ./modules/dev.nix
-          ./modules/flatpak.nix
-          ./modules/hyprland.nix
-          ./modules/programs.nix
-          ./modules/settings.nix
-          ./modules/services.nix
-          ./modules/security.nix
+        ./configuration.nix
+        ./modules/appearences.nix
+        ./modules/dev.nix
+        ./modules/flatpak.nix
+        ./modules/hyprland.nix
+        ./modules/programs.nix
+        ./modules/settings.nix
+        ./modules/services.nix
+        ./modules/security.nix
 
-          {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              users.rafid = { config, lib, pkgs, modulesPath, ... }@args:
-                import ./home/main.nix (args // { inherit inputs; });
-              backupFileExtension = "backup";
-            };
-          }
-        ];
-	  };
+        ./config/nixvim/flake.nix
+        {
+          home-manager = {
+            users.rafid = { config, lib, pkgs, modulesPath, ... }@args:
+              import ./home/main.nix (args // { inherit inputs; });
+            
+            useGlobalPkgs = true;
+            useUserPackages = true;
+            enableNixpkgsReleaseCheck = false;
+            backupFileExtension = "backup";
+          };
+        }
+      ];
+    };
 	};
 }

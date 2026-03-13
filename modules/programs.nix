@@ -7,9 +7,9 @@
     bat     kitty         pipes
     eza     zoxide        cava
     fzf     starship      tree
-    btop    fastfetch
-    cava    cmatrix
-    bash    blesh
+    btop    fastfetch     ripgrep
+    cava    cmatrix       fd delta
+    bash    blesh         
 
     # graphical
     rofi
@@ -67,6 +67,5 @@
     '';
   };
 
-  programs.direnv.enable = true;
   programs.dconf.enable = true;
 }

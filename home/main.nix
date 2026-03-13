@@ -18,6 +18,7 @@ in
     gh
     git
     todoist
+    element
     ghostty
     newsboat
     newsflash
@@ -28,6 +29,7 @@ in
     discord
     ferdium
     obsidian
+    element-desktop
     onlyoffice-desktopeditors
   ];
   
@@ -53,6 +55,7 @@ in
       enable = true;
   };
 
+  
   programs.spicetify =
   let
     spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.stdenv.hostPlatform.system};
@@ -61,11 +64,21 @@ in
     enable = true;
 
     enabledExtensions = with spicePkgs.extensions; [
+      oneko
+      wikify
+      writeify
+      shuffle
       adblock
-      hidePodcasts
-      shuffle # shuffle+ (special characters are sanitized out of extension names)
+      allOfArtist
+      powerBar
+      history
+      songStats
+      spicyLyrics
+      keyboardShortcut
     ];
     enabledCustomApps = with spicePkgs.apps; [
+      reddit
+      betterLibrary
       newReleases
       ncsVisualizer
     ];
@@ -74,8 +87,8 @@ in
       pointer
     ];
 
-    theme = spicePkgs.themes.catppuccin;
-    colorScheme = "mocha";
+    theme = spicePkgs.themes.defaultDynamic;
+    # colorScheme = "mocha";
   };
 
   # Home Manager state version
