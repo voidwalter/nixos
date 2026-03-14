@@ -58,6 +58,7 @@
         {
           home-manager = {
             users.rafid = import ./modules/home-manager/home.nix;
+            extraSpecialArgs = { inherit inputs; };
             
             sharedModules = [ nixvim.homeManagerModules.nixvim ];
             useGlobalPkgs = true;

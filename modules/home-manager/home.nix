@@ -13,9 +13,9 @@ in
     inputs.noctalia.homeModules.default
     inputs.spicetify-nix.homeManagerModules.default              
 
+    ./config/neovim/default.nix
     ./config/tmux.nix
     ./config/starship.nix
-    ./config/nixvim.nix
   ];
 
   home.packages = with pkgs; [

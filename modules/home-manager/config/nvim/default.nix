@@ -1,12 +1,14 @@
-{ config, pkgs, ... }:
-
+{ inputs, ... }:
 {
   imports = [
+    inputs.nixvim.homeModules.nixvim
+
     ./plugins
-    ./autocmds.nix
+    ./autocommands.nix
     ./completion.nix
-    ./keymap.nix
+    ./keymappings.nix
     ./options.nix
+    ./performance.nix
   ];
 
   home.shellAliases.v = "nvim";
@@ -19,13 +21,5 @@
 
     viAlias = true;
     vimAlias = true;
-
-    colorschemes.everforest.enable = true;
-    plugins.lightline.enable = true;
-
-    extraConfigLua = ''
-      -- Set leader key to space
-      vim.g.mapleader = " "
-    '';
   };
 }
