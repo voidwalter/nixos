@@ -14,7 +14,7 @@
         inputs.nixpkgs.follows = "nixpkgs";
       };
 
-      nixila.url = "path:./config/nixvim";
+      nixvim-config.url = "path:./config/nixvim";
 
       zen-browser = {
         url = "github:0xc000022070/zen-browser-flake";
@@ -45,7 +45,8 @@
 
 	outputs = { 
       self, nixpkgs, home-manager,
-      nix-flatpak, zen-browser, 
+      nix-flatpak, nixvim-config,
+      zen-browser, 
       ...
   } @inputs: 
 	{

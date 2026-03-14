@@ -1,42 +1,48 @@
 {
-  description = "A Nixvim configuration";
+  description = "A nixvim configuration";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-    nixvim.url = "github:nix-community/nixvim";
-    flake-parts.url = "github:hercules-ci/flake-parts";
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    flake-utils.url = "github:numtide/flake-utils";
   };
 
   outputs =
-    { nixvim, flake-parts, ... }@inputs:
-    flake-parts.lib.mkFlake { inherit inputs; } {
-      systems = [
-        "x86_64-linux"
-        "aarch64-linux"
-      ];
-
-      perSystem =
-        { system, ... }:
-        let
-          nixvimLib = nixvim.lib.${system};
-          nixvim' = nixvim.legacyPackages.${system};
-          nixvimModule = {
-            inherit system; # or alternatively, set `pkgs`
-            module = import ./config; # import the module directly
-            extraSpecialArgs = {
-              inherit (inputs) foo;
-            };
-          };
-          nvim = nixvim'.makeNixvimWithModule nixvimModule;
-        in
-        {
-          checks = {
-            default = nixvimLib.check.mkTestDerivationFromNixvimModule nixvimModule;
-          };
-
-          packages = {
-            default = nvim;
-          };
+    {
+      nixvim,
+      flake-utils,
+      nixpkgs,
+      self,
+      ...
+    }@inputs:
+    flake-utils.lib.eachDefaultSystem (
+      system:
+      let
+        nixvimLib = nixvim.lib.${system};
+        pkgs = import nixpkgs {
+          inherit system;
+          config.allowUnfree = true;
         };
-    };
+        nixvim' = nixvim.legacyPackages.${system};
+        nixvimModule = {
+          inherit pkgs;
+          module = import ./config; # import the module directly
+          # Use `extraSpecialArgs` to pass additional arguments to your module files
+          extraSpecialArgs = {
+            inherit inputs self;
+          } // import ./lib { inherit pkgs; };
+        };
+        nvim = nixvim'.makeNixvimWithModule nixvimModule;
+      in
+      {
+        checks = {
+          default = nixvimLib.check.mkTestDerivationFromNixvimModule nixvimModule;
+        };
+
+        packages.default = nvim;
+      }
+    );
 }

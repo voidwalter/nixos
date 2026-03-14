@@ -1,4 +1,18 @@
+{ pkgs, ... }:
 {
-  # Import all configuration modules here
-  imports = [ ./bufferline.nix ];
+  enableMan = false;
+  # Import all your configuration modules here
+  imports = [
+    ./autocmd.nix
+    ./keymaps.nix
+    ./settings.nix
+    ./plugins
+  ];
+
+  extraPackages = with pkgs; [
+    ripgrep
+    lazygit
+    fzf
+    fd
+  ];
 }

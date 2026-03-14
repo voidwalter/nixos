@@ -15,11 +15,13 @@ in
 
     ./config/tmux.nix
     ./config/starship.nix
+    ./config/cli.nix
   ];
 
   home.packages = with pkgs; [
     gh
     git
+    blesh
     todoist
     element
     ghostty

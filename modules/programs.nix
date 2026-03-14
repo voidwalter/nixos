@@ -1,10 +1,10 @@
-{ inputs, pkgs, ... }:
+{ inputs, pkgs, nixvim-config, ... }:
 
 {
 
   # details config for programs
   imports = [
-    ./../config/tmux/default.nix
+    # ./../config/tmux/default.nix
   ];
 
   environment.systemPackages = with pkgs; [
@@ -15,7 +15,7 @@
     btop    fastfetch     ripgrep
     cava    cmatrix       fd delta
     bash    blesh         
-    inputs.nixila.packages.${system}.default
+    nixvim-config.packages.${pkgs.system}.default
 
     # graphical
     rofi
@@ -62,6 +62,16 @@
     brightnessctl
     #libfido2
   ];
+  
+  programs.bash = {
+    enable = true; 
+    blesh.enable = true;
+    interactiveShellInit = ''
+      if [ -f ~/.bashrc ]; then
+          source ~/.bashrc
+      fi
+    '';
+  };
 
   programs.dconf.enable = true;
 }

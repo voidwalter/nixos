@@ -4,14 +4,12 @@
   programs.tmux = {
     enable = true;
     package = pkgs.tmux;
-    shell = "${pkgs.bash}/bin/bash";
     mouse = false;
     clock24 = true;
     terminal = "screen-256color";
     baseIndex = 0;
     prefix = "M-Space";
     historyLimit = 50000;
-    focusEvents = true;
     escapeTime = 0;
     sensibleOnTop = true;
     
@@ -44,14 +42,14 @@
           TMUX_FZF_SWITCH_CURRENT=1
         '';
       }
-      { plugin = fzf-url-opener;
+      { plugin = fzf-tmux-url;
         extraConfig = ''
           set -g @fzf-url-bind 'u'
           set -g @fzf-url-history-limit '2000'
           set -g @fzf-url-open "zen"
         '';
       }
-      { plugin = sessionx;
+      { plugin = tmux-sessionx;
         extraConfig = ''
         set -g @sessionx-bind 'o'
         '';
