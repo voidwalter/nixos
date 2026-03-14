@@ -49,7 +49,7 @@
         {
           home-manager = {
             users.rafid = { config, lib, pkgs, modulesPath, ... }@args:
-              import ./home/main.nix (args // { inherit inputs; });
+              import ./modules/home-manager/main.nix (args // { inherit inputs; });
             
             useGlobalPkgs = true;
             useUserPackages = true;

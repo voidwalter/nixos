@@ -156,7 +156,7 @@
 
       cmd_duration = {
         format = "[⏱ $duration]($style)";
-        show_milliseconds = true;
+        show_milliseconds = false;
       };
 
       status = {
