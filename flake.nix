@@ -8,6 +8,15 @@
 		    url = "github:nix-community/home-manager";
 		    inputs.nixpkgs.follows = "nixpkgs";
 	    };
+      
+      flake-parts = {
+        url = "github:hercules-ci/flake-parts";
+        inputs.nixpkgs-lib.follows = "nixpkgs";
+      };
+
+      nixvim = {
+        url = "github:nix-community/nixvim";
+      };
 
       zen-browser = {
         url = "github:0xc000022070/zen-browser-flake";
@@ -48,9 +57,9 @@
 
         {
           home-manager = {
-            users.rafid = { config, lib, pkgs, modulesPath, ... }@args:
-              import ./modules/home-manager/main.nix (args // { inherit inputs; });
+            users.rafid = import ./modules/home-manager/home.nix;
             
+            sharedModules = [ nixvim.homeManagerModules.nixvim ];
             useGlobalPkgs = true;
             useUserPackages = true;
             backupFileExtension = "backup";

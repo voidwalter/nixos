@@ -15,6 +15,7 @@ in
 
     ./config/tmux.nix
     ./config/starship.nix
+    ./config/nixvim.nix
   ];
 
   home.packages = with pkgs; [
