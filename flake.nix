@@ -14,15 +14,7 @@
         inputs.nixpkgs.follows = "nixpkgs";
       };
 
-      # nixvim = {
-      #   url = "github:nix-community/nixvim";
-      #   inputs.nixpkgs.follows = "nixpkgs";
-      # };
-      #
-      # nixila = {
-      #   url = "./config/nixvim/nixila.nix";
-      #   inputs.nixpkgs.follows = "nixpkgs";
-      # };
+      nixila.url = "path:./config/nixvim";
 
       zen-browser = {
         url = "github:0xc000022070/zen-browser-flake";
@@ -75,7 +67,7 @@
         ./modules/services.nix
         ./modules/security.nix
 
-        ./config/nixvim/flake.nix
+        # ./config/nixvim/flake.nix
         {
           home-manager = {
             users.rafid = { config, lib, pkgs, modulesPath, ... }@args:
@@ -83,7 +75,6 @@
             
             useGlobalPkgs = true;
             useUserPackages = true;
-            enableNixpkgsReleaseCheck = false;
             backupFileExtension = "backup";
           };
         }

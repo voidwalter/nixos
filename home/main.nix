@@ -12,6 +12,9 @@ in
   imports = [
     inputs.noctalia.homeModules.default
     inputs.spicetify-nix.homeManagerModules.default              
+
+    ./config/tmux.nix
+    ./config/starship.nix
   ];
 
   home.packages = with pkgs; [
