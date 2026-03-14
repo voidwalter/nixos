@@ -14,8 +14,7 @@
     fzf     starship      tree
     btop    fastfetch     ripgrep
     cava    cmatrix       fd delta
-    bash    blesh         
-    nixvim-config.packages.${pkgs.system}.default
+    bash    blesh         yazi
 
     # graphical
     rofi
