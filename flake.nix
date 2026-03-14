@@ -9,13 +9,6 @@
 		    inputs.nixpkgs.follows = "nixpkgs";
 	    };
 
-      nix-flatpak = {
-        url = "github:gmodena/nix-flatpak";
-        inputs.nixpkgs.follows = "nixpkgs";
-      };
-
-      nixvim-config.url = "path:./config/nixvim";
-
       zen-browser = {
         url = "github:0xc000022070/zen-browser-flake";
         inputs = {
@@ -36,17 +29,11 @@
 	    };
 
       spicetify-nix.url = "github:Gerg-L/spicetify-nix";
-
-      # hyprland = {
-      #   url = "github:hyprwm/Hyprland";
-      #   inputs.nixpkgs.follows = "nixpkgs";
-      # };
 	};
 
 	outputs = { 
       self, nixpkgs, home-manager,
-      nix-flatpak, nixvim-config,
-      zen-browser, 
+      nixvim, zen-browser, 
       ...
   } @inputs: 
 	{
@@ -55,20 +42,10 @@
       specialArgs = { inherit inputs; };
       modules = [
         home-manager.nixosModules.home-manager
-        # hyprland.nixosModules.default
-        nix-flatpak.nixosModules.nix-flatpak
 
         ./configuration.nix
-        ./modules/appearences.nix
-        ./modules/dev.nix
-        ./modules/flatpak.nix
-        ./modules/hyprland.nix
-        ./modules/programs.nix
-        ./modules/settings.nix
-        ./modules/services.nix
-        ./modules/security.nix
+        ./modules/common/default.nix
 
-        # ./config/nixvim/flake.nix
         {
           home-manager = {
             users.rafid = { config, lib, pkgs, modulesPath, ... }@args:
