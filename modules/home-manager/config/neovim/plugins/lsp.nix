@@ -1,49 +1,67 @@
-{ lib, ... }:
+{ lib, config, pkgs, ... }:
 {
   programs.nixvim = {
-    diagnostic.settings.virtual_text = true;
-
-    lsp = {
-      inlayHints.enable = true;
-      servers = {
-        clangd.enable = true;
-        lua_ls = {
-          enable = true;
-          config.settings.diagnostics.globals = [ "vim" ];
+    plugins.lspkind.enable = true;
+    plugins.lsp = {
+      enable = true;
+      
+      # LSP keybindings
+      keymaps = {
+        silent = true;
+        lspBuf = {
+          "gd" = "definition";
+          "gD" = "declaration";
+          "gr" = "references";
+          "gi" = "implementation";
+          "gt" = "type_definition";
+          "K" = "hover";
+          "<F2>" = "rename";
+          "<leader>ca" = "code_action";
+          "<leader>e" = "next_diagnostic";
+          "<leader>E" = "prev_diagnostic";
+          "[d" = "diagnostic_next";
+          "]d" = "diagnostic_prev";
         };
       };
-
-      keymaps =
-        lib.mapAttrsToList
-          (
-            key: props:
-            {
-              inherit key;
-              options.silent = true;
-            }
-            // props
-          )
-          {
-            "<leader>k".action.__raw = "function() vim.diagnostic.jump({ count=-1, float=true }) end";
-            "<leader>j".action.__raw = "function() vim.diagnostic.jump({ count=1, float=true }) end";
-            gd.lspBufAction = "definition";
-            gD.lspBufAction = "references";
-            gt.lspBufAction = "type_definition";
-            gi.lspBufAction = "implementation";
-            K.lspBufAction = "hover";
-            "<F2>".lspBufAction = "rename";
-            "<leader>f".lspBufAction = "format";
+      
+      # LSP servers configuration
+      servers = {
+        # C/C++ LSP - clangd
+        clangd = {
+          enable = true;
+          cmd = [
+            "clangd"
+            "--background-index"
+            "--clang-tidy"
+            "--header-insertion=iwyu"
+            "--completion-style=detailed"
+            "--function-arg-placeholders"
+            "--fallback-style=llvm"
+          ];
+          installGcc = true;  # Installs gcc for standard libraries
+          extraOptions = {
+            capabilities = {
+              textDocument = {
+                completion = {
+                  completionItem = {
+                    snippetSupport = true;
+                  };
+                };
+              };
+            };
+            init_options = {
+              usePlaceholders = true;
+              completeUnimported = true;
+              clangdFileStatus = true;
+            };
           };
-    };
-
-    plugins = {
-      lsp-format = {
-        enable = true;
-        lspServersToEnable = "all";
+        };
+        
+        cmake = {
+          enable = true;
+          cmd = [ "cmake-language-server" ];
+        };
       };
-
-      # Sane defaults for all servers
-      lspconfig.enable = true;
     };
   };
 }

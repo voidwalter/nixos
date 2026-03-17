@@ -4,6 +4,8 @@
   environment.systemPackages = with pkgs; [
     gcc
     clang
+    meson
+    cmake
     lld
     lldb
     rustup

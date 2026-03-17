@@ -26,17 +26,6 @@
         };
 	    };
 
-	    noctalia = {
-	      url = "github:noctalia-dev/noctalia-shell";
-	      inputs.nixpkgs.follows = "nixpkgs";
-	      inputs.noctalia-qs.follows = "noctalia-qs";
-	    };
-
-	    noctalia-qs = {
-	      url = "github:noctalia-dev/noctalia-qs";
-	      inputs.nixpkgs.follows = "nixpkgs";
-	    };
-
       spicetify-nix.url = "github:Gerg-L/spicetify-nix";
 	};
 
@@ -50,17 +39,16 @@
       system = "x86_64-linux";
       specialArgs = { inherit inputs; };
       modules = [
-        home-manager.nixosModules.home-manager
 
-        ./configuration.nix
-        ./modules/common/default.nix
+				./modules/core/default.nix
+        home-manager.nixosModules.home-manager
 
         {
           home-manager = {
             users.rafid = import ./modules/home-manager/home.nix;
             extraSpecialArgs = { inherit inputs; };
             
-            sharedModules = [ nixvim.homeManagerModules.nixvim ];
+            sharedModules = [ nixvim.homeModules.nixvim ];
             useGlobalPkgs = true;
             useUserPackages = true;
             backupFileExtension = "backup";

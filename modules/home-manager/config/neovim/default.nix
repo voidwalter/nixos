@@ -3,9 +3,10 @@
 {
   imports = [
     ./plugins
+    ./ui
+    ./misc
     ./autocmds.nix
-    ./completion.nix
-    ./keymap.nix
+    ./keymaps.nix
     ./options.nix
   ];
 
@@ -20,12 +21,11 @@
     viAlias = true;
     vimAlias = true;
 
-    colorschemes.everforest.enable = true;
-    plugins.lightline.enable = true;
-
-    extraConfigLua = ''
-      -- Set leader key to space
-      vim.g.mapleader = " "
-    '';
+    
+    globals = {
+        mapleader = " ";
+        maplocalleader = " ";
+        have_nerd_font = true;
+    };
   };
 }

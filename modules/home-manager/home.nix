@@ -4,18 +4,12 @@ let
   system = pkgs.stdenv.hostPlatform.system;
 in
 {
-  
-
   home.username = "rafid";
   home.homeDirectory = "/home/rafid";
 
   imports = [
-    inputs.noctalia.homeModules.default
-    inputs.spicetify-nix.homeManagerModules.default              
-
-    ./config/neovim/default.nix
-    ./config/tmux.nix
-    ./config/starship.nix
+    inputs.spicetify-nix.homeManagerModules.default
+    ./config/default.nix
   ];
 
   home.packages = with pkgs; [
@@ -55,11 +49,6 @@ in
       git_protocol = "ssh"; # Use SSH for Git operations [citation:9]
     };
   };
-
-  programs.noctalia-shell = {
-      enable = true;
-  };
-
   
   programs.spicetify =
   let

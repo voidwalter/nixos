@@ -1,10 +1,8 @@
-{ inputs, pkgs, nixvim-config, ... }:
+{ inputs, pkgs, ... }:
 
 {
-
-  # details config for programs
   imports = [
-    # ./../config/tmux/default.nix
+    ./../system/default.nix
   ];
 
   environment.systemPackages = with pkgs; [
@@ -70,6 +68,23 @@
           source ~/.bashrc
       fi
     '';
+  };
+
+  programs.dms-shell = {
+    enable = true;
+
+    systemd = {
+      enable = true;             # Systemd service for auto-start
+      restartIfChanged = true;   # Auto-restart dms.service when dms-shell changes
+    };
+
+    # Core features
+    enableSystemMonitoring = true;     # System monitoring widgets (dgop)
+    enableVPN = true;                  # VPN management widget
+    enableDynamicTheming = true;       # Wallpaper-based theming (matugen)
+    enableAudioWavelength = true;      # Audio visualizer (cava)
+    enableCalendarEvents = true;       # Calendar integration (khal)
+    enableClipboardPaste = true;       # Pasting from the clipboard history (wtype)
   };
 
   programs.dconf.enable = true;

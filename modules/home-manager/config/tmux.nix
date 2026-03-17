@@ -1,34 +1,24 @@
 { pkgs, lib, ...}:
 
-{ 
+{
   programs.tmux = {
     enable = true;
     package = pkgs.tmux;
     mouse = false;
     clock24 = true;
     terminal = "screen-256color";
-    baseIndex = 0;
+    baseIndex = 1;
     prefix = "M-Space";
     historyLimit = 50000;
     escapeTime = 0;
     sensibleOnTop = true;
     
     plugins = with pkgs.tmuxPlugins; [
-      # Some quality of life settings
+			nord
       sensible
-      nord
+			resurrect
       tmux-which-key
 
-      { plugin = resurrect;
-        extraConfig = ''
-          set -g @resurrect-dir '~/.config/tmux/resurrect'
-          set -g @resurrect-capture-pane-contents 'on'        # Capture full pane contents (scrollback) — very useful!
-
-          set -g @resurrect-processes 'ssh vim nvim yazi btop newsboat'
-          set -g @resurrect-strategy-vim 'session'
-          set -g @resurrect-strategy-nvim 'session'
-        '';
-      }
       {
         plugin = tmux-fzf;
         extraConfig = ''
@@ -54,18 +44,6 @@
         set -g @sessionx-bind 'o'
         '';
       }
-      { plugin = jump;
-        extraConfig = ''
-          set -g @jump-key 'z'
-          set -g @jump-bg-color '\e[0m\e[90m'
-          set -g @jump-fg-color '\e[1m\e[31m'
-          # keys will overlap with the word (default)
-          set -g @jump-keys-position 'left'
-
-          # keys will be at the left of the word without overlap
-          set -g @jump-keys-position 'off_left'
-        '';
-      }
       { plugin = continuum;
         extraConfig = ''
           set -g @continuum-restore 'off'
@@ -81,6 +59,8 @@
     extraConfig = ''
       set -g detach-on-destroy off
       set -g renumber-windows on    # renumber if closed a window
+			set -g automatic-rename
+      set -g automatic-rename-format '#{pane_current_command}'
 
       # ICONS
       terminal_icon=""
@@ -142,9 +122,16 @@
       set -g status-left-length 100
       set -g status-right-length 80
       set -g status-right '#{cpu_bg_color} CPU: #{cpu_icon} #{cpu_percentage} | %a %h-%d %H:%M '
-      set -g status-style "bg=default,fg=default"         # Optional: make status style very minimal/transparent-ish
+      set -g status-style "bg=default,fg=default"
 
 
     '';
+  };
+	home.shellAliases = {
+    tm = "tmux";
+    tms = "tmux new -s";
+    tml = "tmux list-sessions";
+    tma = "tmux attach -t";
+    tmk = "tmux kill-session -t";
   };
 }

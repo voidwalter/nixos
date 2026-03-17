@@ -2,13 +2,13 @@
   imports = [
     ./barbar.nix
     ./lsp.nix
+    ./completion.nix
+    ./conform.nix
     ./lualine.nix
     ./telescope.nix
   ];
 
   programs.nixvim = {
-    colorschemes.gruvbox.enable = true;
-
     plugins = {
       # Lazy loading
       lz-n.enable = true;
@@ -28,11 +28,6 @@
       colorizer = {
         enable = true;
         settings.user_default_options.names = false;
-      };
-
-      oil = {
-        enable = true;
-        lazyLoad.settings.cmd = "Oil";
       };
 
       trim = {

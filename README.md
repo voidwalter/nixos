@@ -1,6 +1,8 @@
-### NixOS Configuration
+## ❄️ NixOS Configuration
+
+This configuration relies on the [Dendritic pattern](https://github.com/mightyiam/dendritic).
 
 > [!NOTE]
-> If you think this configuration is well formed (and might 'has no problem'), Think Again.
+> If you think this configuration is well formed, Think Again.
 > Coping someone else's configuration or large part of it, without understanding it' - is a 
-> horrible idea(s). 
+> horrible idea. 

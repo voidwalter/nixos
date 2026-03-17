@@ -17,10 +17,27 @@
 
     opts = {
       updatetime = 100; # Faster completion
+      
+      # Tabbing && Indenting options
+      tabstop = 4;
+      shiftwidth = 4;
+      expandtab = true;
+      autoindent = true;
+      smartindent = true;
+      grepprg = "rg --vimgrep";
+      grepformat = "%f:%l:%c:%m";
+      guicursor = [
+        "n-v-c:block"           # Normal, Visual, Command: block
+        "i-ci-ve:ver25"         # Insert modes: vertical bar at 25%
+        "r-cr:hor20"            # Replace modes: horizontal bar at 20%
+        "o:hor50"               # Operator-pending: horizontal bar at 50%
+        "a:blinkwait700-blinkoff400-blinkon250"  # Default blinking
+        "sm:block-blinkwait175-blinkoff150-blinkon175"  # Showmatch blinking
+      ];
 
       # Line numbers
-      relativenumber = true; # Relative line numbers
-      number = true; # Display the absolute line number of the current line
+      relativenumber = true;
+      number = true;
       hidden = true; # Keep closed buffer open in the background
       mouse = "a"; # Enable mouse control
       mousemodel = "extend"; # Mouse right-click extends the current selection
@@ -34,8 +51,8 @@
       incsearch = true; # Incremental search: show match for partly typed search command
       inccommand = "split"; # Search and replace: preview changes in quickfix list
       ignorecase = true; # When the search query is lower-case, match both lower and upper-case
-      #   patterns
       smartcase = true; # Override the 'ignorecase' option if the search pattern contains upper
+
       #   case characters
       scrolloff = 8; # Number of screen lines to show around the cursor
       cursorline = false; # Highlight the screen line of the cursor
@@ -45,14 +62,8 @@
       laststatus = 3; # When to use a status line for the last window
       fileencoding = "utf-8"; # File-content encoding for the current buffer
       termguicolors = true; # Enables 24-bit RGB color in the |TUI|
-      spell = false; # Highlight spelling mistakes (local to window)
+      spell = true; # Highlight spelling mistakes (local to window)
       wrap = false; # Prevent text from wrapping
-
-      # Tab options
-      tabstop = 4; # Number of spaces a <Tab> in the text stands for (local to buffer)
-      shiftwidth = 4; # Number of spaces used for each step of (auto)indent (local to buffer)
-      expandtab = true; # Expand <Tab> to spaces in Insert mode (local to buffer)
-      autoindent = true; # Do clever autoindenting
 
       textwidth = 0; # Maximum width of text that is being inserted.  A longer line will be
       #   broken after white space to get this width.
