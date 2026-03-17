@@ -7,20 +7,31 @@
 
   environment.systemPackages = with pkgs; [
     # CLIs
-    bat     kitty         pipes
-    eza     zoxide        cava
-    fzf     starship      tree
-    btop    fastfetch     ripgrep
-    cava    cmatrix       fd delta
-    bash    blesh         yazi
+		fd
+    bat
+		eza
+		fzf
+		bash
+		cava
+		yazi
+		blesh
+		delta
+		kitty
+		pipes
+		zoxide
+		starship
+		fastfetch
+		ripgrep
+		cmatrix
 
     # graphical
-    rofi
-    firefox
-    nautilus
-    qutebrowser
-    bitwarden-desktop
+    rofi			# launcher
+    firefox		# web-browser
+    nautilus	# file-browser
+    qutebrowser		# keyboard-based-browser
+    bitwarden-desktop			# password-manager
     inputs.zen-browser.packages.${pkgs.system}.twilight
+		inputs.zen-browser.packages.${pkgs.system}.default
 
     psmisc
     wlrctl

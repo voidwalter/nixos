@@ -45,8 +45,9 @@
   time.timeZone = "Asia/Dhaka";
   
   nixpkgs.config.allowUnfree = true;
-
-  xdg.portal = {
+	programs.nix-ld.enable = true;
+  
+	xdg.portal = {
     enable = true;
     xdgOpenUsePortal = true;
     configPackages = [ pkgs.hyprland ];

@@ -19,6 +19,8 @@
         # 59010
       ];
     };
+		useNetworkd = true;
+		dhcpcd.enable = false;
   };
 
   # Enable Security Services

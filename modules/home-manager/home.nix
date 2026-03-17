@@ -15,8 +15,8 @@ in
   home.packages = with pkgs; [
     gh
     git
+		gimp
     blesh
-    todoist
     element
     ghostty
     newsboat
@@ -24,10 +24,10 @@ in
     vicinae
     zed-editor
     obs-studio
-    gimp
     discord
     ferdium
     obsidian
+		todoist-electron
     element-desktop
     onlyoffice-desktopeditors
   ];
