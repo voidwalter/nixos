@@ -31,13 +31,8 @@
     ];
   };
 
-	environment.loginShellInit = ''
-		if uwsm check may-start; then
-			exec uwsm start hyprland.desktop
-		fi
-'';
 
-    # Define a user account.
+  # Define a user account.
   users.users.rafid = {
     isNormalUser = true;
     description = "rafid";

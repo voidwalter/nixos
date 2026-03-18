@@ -29,6 +29,18 @@
     };
   };
 
+	services.getty = { 
+		autologinUser = "rafid";
+  	autologinOnce = false;
+	};
+
+	environment.loginShellInit = ''
+    # Launch Hyprland on TTY1, return to TTY when exiting
+    if [ "$(tty)" = "/dev/tty1" ]; then
+      exec Hyprland # Use `exec Hyprland` to auto-restart on exit/crash instead
+    fi
+  '';
+
   services.pipewire = {
     enable = true;
     pulse.enable = true;
@@ -38,13 +50,7 @@
 
   # Display Manager 
 	services.greetd = {
-    enable = true;
-    settings = {
-      default_session = {
-        command = "${pkgs.tuigreet}/bin/tuigreet --time";
-        user = "greeter";
-      };
-    };
+    enable = false;
   };
 
   services.dbus = {

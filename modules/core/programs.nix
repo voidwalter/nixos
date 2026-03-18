@@ -51,9 +51,6 @@
     zathura
     imagemagick
 
-    grim
-    slurp
-    satty
     pamixer
     playerctl
     pavucontrol
