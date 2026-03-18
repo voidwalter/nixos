@@ -26,8 +26,9 @@ in
     obs-studio
     discord
     ferdium
+		vivaldi
     obsidian
-		todoist-electron
+		# todoist-electron
     element-desktop
     onlyoffice-desktopeditors
   ];
