@@ -22,11 +22,11 @@ in
     qt6Packages.qt6ct
     ghostty
     newsboat
+		superfile
     newsflash
     vicinae
-    zed-editor
     obs-studio
-    discord
+		vesktop
     ferdium
 		vivaldi
     obsidian

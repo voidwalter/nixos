@@ -1,0 +1,3 @@
+#!/bin/sh
+
+dms run

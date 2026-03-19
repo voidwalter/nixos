@@ -1,4 +1,5 @@
 { ... }:
+# https://wiki.hypr.land/Configuring/Window-Rules/
 {
   wayland.windowManager.hyprland.settings = {
     windowrule = [
@@ -26,7 +27,7 @@
       "match:title ^(Picture-in-Picture)$, pin on"
       "match:title ^(Picture-in-Picture)$, float on"
 
-      "match:class ^(zen-beta)$, workspace 1"
+      "match:class ^(zen-twilight)$, workspace 1"
       "match:class ^(Gimp-2.10)$, workspace 4"
       "match:class ^(Aseprite)$, workspace 4"
       "match:class ^(Audacious)$, workspace 5"
@@ -45,10 +46,10 @@
       "match:xwayland true, rounding 0"
 
       # No gaps when only
-      "border_size 0, match:float 0, match:workspace w[tv1]"
-      "rounding 0, match:float 0, match:workspace w[tv1]"
-      "border_size 0, match:float 0, match:workspace f[1]"
-      "rounding 0, match:float 0, match:workspace f[1]"
+      # "border_size 0, match:float 0, match:workspace w[tv1]"
+      # "rounding 0, match:float 0, match:workspace w[tv1]"
+      # "border_size 0, match:float 0, match:workspace f[1]"
+      # "rounding 0, match:float 0, match:workspace f[1]"
     ];
 
     layerrule = [
@@ -57,9 +58,9 @@
     ];
 
     # No gaps when only
-    workspace = [
-      "w[tv1], gapsout:0, gapsin:0"
-      "f[1], gapsout:0, gapsin:0"
-    ];
+    # workspace = [
+    #   "w[tv1], gapsout:0, gapsin:0"
+    #   "f[1], gapsout:0, gapsin:0"
+    # ];
   };
 }

@@ -5,6 +5,7 @@
     grimblast
     grim
     slurp
+		satty
     wl-clip-persist
     cliphist
     wf-recorder

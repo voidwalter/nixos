@@ -37,7 +37,7 @@
 	environment.loginShellInit = ''
     # Launch Hyprland on TTY1, return to TTY when exiting
     if [ "$(tty)" = "/dev/tty1" ]; then
-      exec Hyprland # Use `exec Hyprland` to auto-restart on exit/crash instead
+      exec start-hyprland
     fi
   '';
 

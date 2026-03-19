@@ -26,7 +26,7 @@
 
     # graphical
     rofi			# launcher
-    firefox		# web-browser
+    librewolf		# web-browser
     nautilus	# file-browser
     qutebrowser		# keyboard-based-browser
     bitwarden-desktop			# password-manager

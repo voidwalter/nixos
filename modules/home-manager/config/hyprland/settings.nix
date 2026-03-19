@@ -20,8 +20,8 @@
 		general = {
       layout = "dwindle";
 
-      gaps_in = 6;
-      gaps_out = 4;
+      gaps_in = 8;
+      gaps_out = 5;
       border_size = 3;
 
       "col.active_border" = "rgb(3d334f)";
