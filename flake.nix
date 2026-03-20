@@ -44,7 +44,7 @@
 
         {
           home-manager = {
-            users.rafid = import ./modules/home-manager/home.nix;
+            users.rafid = import ./modules/home-manager/default.nix;
             extraSpecialArgs = { inherit inputs; };
             
             sharedModules = [ nixvim.homeModules.nixvim ];

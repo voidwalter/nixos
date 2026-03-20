@@ -4,7 +4,7 @@
 	imports = [
 		./hyprland/default.nix
 		./neovim/default.nix
-		./starship.nix
-		./tmux.nix
+		./terminal/starship.nix
+		./terminal/tmux.nix
 	];
 }
