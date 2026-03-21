@@ -12,7 +12,7 @@
 
       background = [
         {
-          path = "${../../../../src/walls/117497448_p0.jpg}";
+          path = "${../../../src/walls/117497448_p0.jpg}";
 
           color = "rgba(29, 32, 33, 255)";
           blur_passes = 0;
@@ -30,7 +30,7 @@
           color = "rgba(102, 92, 84, 0.33)";
           border_color = "rgba(168, 153, 132, 0.95)";
 
-          position = "0, 270";
+          position = "0, 370";
           halign = "center";
           valign = "bottom";
         }
@@ -68,7 +68,7 @@
           font_size = 15;
           font_family = "SF Pro Display Bold";
           color = "rgba(235, 219, 178, 1)";
-          position = "0, 250";
+          position = "0, 384";
           halign = "center";
           valign = "bottom";
         }
@@ -92,7 +92,7 @@
           hide_input = false;
           fade_on_empty = false;
           placeholder_text = ''<i><span foreground="##fbf1c7">Enter Password</span></i>'';
-          position = "0, 200";
+          position = "0, 300";
           halign = "center";
           valign = "bottom";
         }
