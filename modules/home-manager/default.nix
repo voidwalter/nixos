@@ -8,8 +8,9 @@ in
   home.homeDirectory = "/home/rafid";
 
   imports = [
-		./hyprland/default.nix
-		./neovim/default.nix
+		./hyprland
+		# ./quickshell
+		./neovim
 		./terminal
 		./programs
   ];

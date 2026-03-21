@@ -15,6 +15,10 @@
       };
 
 			hyprland.url = "github:hyprwm/Hyprland";
+			quickshell = {
+      	url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
+      	inputs.nixpkgs.follows = "nixpkgs";
+    	};
       nixvim.url = "github:nix-community/nixvim";
 
       zen-browser = {
@@ -28,6 +32,7 @@
       spicetify-nix.url = "github:Gerg-L/spicetify-nix";
 			vicinae.url = "github:vicinaehq/vicinae";
     	vicinae-extensions.url = "github:vicinaehq/extensions";
+			catppuccin.url = "github:catppuccin/nix";
 	};
 
 	outputs = { 
