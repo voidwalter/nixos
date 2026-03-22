@@ -20,7 +20,7 @@
 		general = {
       layout = "dwindle";
 
-      gaps_in = 8;
+      gaps_in = 6;
       gaps_out = 5;
       border_size = 3;
 

@@ -8,13 +8,12 @@
 		    url = "github:nix-community/home-manager";
 		    inputs.nixpkgs.follows = "nixpkgs";
 	    };
-      
+
       flake-parts = {
         url = "github:hercules-ci/flake-parts";
         inputs.nixpkgs-lib.follows = "nixpkgs";
       };
 
-			hyprland.url = "github:hyprwm/Hyprland";
 			quickshell = {
       	url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
       	inputs.nixpkgs.follows = "nixpkgs";
@@ -33,10 +32,22 @@
 			vicinae.url = "github:vicinaehq/vicinae";
     	vicinae-extensions.url = "github:vicinaehq/extensions";
 			catppuccin.url = "github:catppuccin/nix";
+
+
+			### Hyprland
+			hyprland.url = "github:hyprwm/Hyprland";
+			hy3 = {
+				url = "github:outfoxxed/hy3";
+				inputs.hyprland.follows = "hyprland";
+			};
+			hyprland-easymotion = {
+				url = "github:zakk4223/hyprland-easymotion";
+				inputs.hyprland.follows = "hyprland";
+			};
 	};
 
 	outputs = { 
-      self, nixpkgs, home-manager, hyprland,
+      self, nixpkgs, home-manager, hyprland, hy3,
       nixvim, zen-browser,
       ...
   } @inputs: 

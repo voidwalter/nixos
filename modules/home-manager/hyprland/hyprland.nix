@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
   home.packages = with pkgs; [
     swww
@@ -24,6 +24,10 @@
     enable = true;
     package = null;
     portalPackage = null;
+
+		plugins = [
+			# inputs.hyprland-easymotion.packages.${pkgs.stdenv.hostPlatform.system}.hyprland-easymotion
+  	];
 
     xwayland = {
       enable = true;
