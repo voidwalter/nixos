@@ -27,15 +27,15 @@
       "match:title ^(Picture-in-Picture)$, pin on"
       "match:title ^(Picture-in-Picture)$, float on"
 
-      "match:class ^(zen-twilight)$, workspace 1"
+      "match:class ^(zen-twilight)$, workspace 2"
       "match:class ^(Gimp-2.10)$, workspace 4"
       "match:class ^(Aseprite)$, workspace 4"
-      "match:class ^(Audacious)$, workspace 5"
-      "match:class ^(Spotify)$, workspace 5"
+			"match:class ^(nautilus)$, workspace 4"
+      "match:class ^(spotify)$, workspace 7"
       "match:class ^(com.obsproject.Studio)$, workspace 8"
-      "match:class ^(discord)$, workspace 10"
-      "match:class ^(WebCord)$, workspace 10"
-      "match:class ^(vesktop)$, workspace 10"
+      "match:class ^(discord)$, workspace 6"
+      "match:class ^(vesktop)$, workspace 6"
+			"match:class ^(obsidian)$, workspace 3"
 
       "match:class ^(mpv)$, idle_inhibit focus"
       "match:class ^(zen-beta)$, match:title ^(.*YouTube.*)$, idle_inhibit focus"
@@ -43,7 +43,7 @@
 
       "match:class ^(xdg-desktop-portal-gtk)$, dim_around on"
 
-      "match:xwayland true, rounding 0"
+      "match:xwayland true, rounding 4"
 
       # No gaps when only
       # "border_size 0, match:float 0, match:workspace w[tv1]"
@@ -55,6 +55,7 @@
     layerrule = [
       "match:namespace rofi, dim_around on"
       "match:namespace swaync-control-center, dim_around on"
+			"match:namespace vicinae toggle, dim_around on"
     ];
 
     # No gaps when only

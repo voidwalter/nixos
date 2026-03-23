@@ -3,7 +3,7 @@
 {
 	wayland.windowManager.hyprland.settings = {
 		"$mod" = "SUPER";
-		"$dms" = "dms ipc call";
+		"$ipc" = "dms ipc call";
 
 		input = {
 			kb_layout = "us,bd";
@@ -20,11 +20,11 @@
 		general = {
       layout = "dwindle";
 
-      gaps_in = 6;
-      gaps_out = 5;
+      gaps_in = 4;
+      gaps_out = 4;
       border_size = 3;
 
-      "col.active_border" = "rgb(3d334f)";
+      "col.active_border" = "rgb(8a9acc)";
       "col.inactive_border" = "0x00000000";
     };
 		misc = {

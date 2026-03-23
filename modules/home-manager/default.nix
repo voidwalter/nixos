@@ -9,7 +9,7 @@ in
 
   imports = [
 		./hyprland
-		# ./quickshell
+		./quickshell
 		./neovim
 		./terminal
 		./programs
@@ -29,6 +29,8 @@ in
     newsflash
 		vesktop
     obsidian
+		obs-studio
+		aseprite
 		# todoist-electron
     element-desktop
     onlyoffice-desktopeditors

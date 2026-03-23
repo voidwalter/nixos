@@ -34,12 +34,12 @@
   	autologinOnce = false;
 	};
 
-	environment.loginShellInit = ''
-    # Launch Hyprland on TTY1, return to TTY when exiting
-    if [ "$(tty)" = "/dev/tty1" ]; then
-      exec start-hyprland
-    fi
-  '';
+	# environment.loginShellInit = ''
+	#    # Launch Hyprland on TTY1, return to TTY when exiting
+	#    if [ "$(tty)" = "/dev/tty1" ]; then
+	#      exec start-hyprland
+	#    fi
+	#  '';
 
   services.pipewire = {
     enable = true;
