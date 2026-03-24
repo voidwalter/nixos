@@ -24,16 +24,14 @@
       gaps_out = 4;
       border_size = 3;
 
-      "col.active_border" = "rgb(8a9acc)";
+      "col.active_border" = "rgb(3e4554)";
       "col.inactive_border" = "0x00000000";
     };
 		misc = {
       disable_hyprland_logo = true;
       disable_splash_rendering = false;
-
       focus_on_activate = true;
-      middle_click_paste = false;
-
+      middle_click_paste = true;
       disable_autoreload = false;
     };
 

@@ -2,8 +2,7 @@
 
 {
   imports = [
-		./dunst.nix
-		# ./foot.nix
-		# ./cli_programs.nix
+		./program/dunst.nix
+		./program/bash.nix
 	];
 }

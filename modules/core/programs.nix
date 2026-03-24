@@ -68,16 +68,6 @@
     #libfido2
   ];
   
-  programs.bash = {
-    enable = true; 
-    blesh.enable = true;
-    interactiveShellInit = ''
-      if [ -f ~/.bashrc ]; then
-          source ~/.bashrc
-      fi
-    '';
-  };
-
   programs.dms-shell = {
     enable = true;
 

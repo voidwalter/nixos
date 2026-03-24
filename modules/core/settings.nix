@@ -47,7 +47,7 @@
   
   nixpkgs.config.allowUnfree = true;
 	programs.nix-ld.enable = true;
-  
+
 	xdg.portal = {
     enable = true;
     xdgOpenUsePortal = true;
