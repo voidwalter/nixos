@@ -29,17 +29,22 @@
     librewolf		# web-browser
     nautilus	# file-browser
     qutebrowser		# keyboard-based-browser
-    bitwarden-desktop			# password-manager
     inputs.zen-browser.packages.${pkgs.system}.twilight
-		inputs.zen-browser.packages.${pkgs.system}.default
+
+		# qt and quickshell
+		inputs.quickshell.packages.${system}.default
+		qt5.qtbase qt5.qtsvg 
+		qt5.qtimageformats qt5.qtmultimedia 
+		libsForQt5.qt5ct
+    qt6Packages.qt6ct
 
     psmisc
     wlrctl
     gifsicle
     ffmpeg
+		cachix
     ffmpegthumbnailer
 
-    quickshell
     at-spi2-atk
     qt6.qtwayland
 
@@ -70,8 +75,9 @@
   
   programs.dms-shell = {
     enable = true;
-
-    systemd = {
+		quickshell.package = inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.quickshell;
+    
+		systemd = {
       enable = true;             # Systemd service for auto-start
       restartIfChanged = true;   # Auto-restart dms.service when dms-shell changes
     };

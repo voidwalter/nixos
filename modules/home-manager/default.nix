@@ -20,20 +20,18 @@ in
     git
 		gimp
     blesh
-    element
 		tesseract
-		libsForQt5.qt5ct
-    qt6Packages.qt6ct
+		element					# Predic-table element
     ghostty
-		superfile
-    newsflash
-		vesktop
-    obsidian
-		obs-studio
-		aseprite
-		# todoist-electron
-    element-desktop
-    onlyoffice-desktopeditors
+		superfile				# file-browser
+    newsflash				# (gnome)newsfeed
+		vesktop					# discord client
+    obsidian				# markdown notes
+		obs-studio			# recorder/broadcaster
+		bitwarden-desktop	# password-manager
+		aseprite				# Animated sprite editor
+    element-desktop	# matrix client
+    libreoffice			# THE Best Office suite
   ];
 
   home.stateVersion = "25.05";
