@@ -32,6 +32,7 @@ in
 		aseprite				# Animated sprite editor
     element-desktop	# matrix client
     libreoffice			# THE Best Office suite
+		zed-editor
   ];
 
   home.stateVersion = "25.05";

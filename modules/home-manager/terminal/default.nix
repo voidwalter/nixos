@@ -6,8 +6,12 @@
 		./git.nix
 		./btop.nix
 		./tmux.nix
-		./kitty.nix
 		./starship.nix
   ];
+
+	programs.alacritty.enable = true;
+	xdg.configFile = {
+    "alacritty/alacritty.toml".source = ./alacritty/alacritty.toml;
+  };
 }
 

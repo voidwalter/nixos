@@ -16,7 +16,6 @@
 		yazi
 		blesh
 		delta
-		kitty
 		pipes
 		zoxide
 		starship

@@ -17,6 +17,5 @@
 		"hyprcursor"
 
     "[workspace 2 silent] zen-twilight"
-    "[workspace 3 silent] kitty"
   ];
 }

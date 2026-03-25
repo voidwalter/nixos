@@ -10,12 +10,12 @@
 			"$mod, F1, exec, show-keybinds"
 
 		  # Launch Applications
-			"$mod, T, exec, kitty"
+			"$mod, T, exec, alacritty"
 			"$mod, G, exec, ghostty"
 			"$mod, W, exec, zen-twilight"
 			"$mod, B, exec, firefox"
 			"$mod, F, exec, nautilus"
-			"$mod , Return, exec, [float; size 1111 700] kitty"
+			"$mod , Return, exec, [float; size 1111 700] alacritty"
 			
 			# Window Management
 			"$mod, Q, killactive"
