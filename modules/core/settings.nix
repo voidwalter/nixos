@@ -13,10 +13,10 @@
 
     plymouth = {
       enable = true;
-      theme = "hexagon_dots_alt";
+      theme = "deus_ex";
       themePackages = with pkgs; [			# https://github.com/adi1090x/plymouth-themes/
         (adi1090x-plymouth-themes.override {
-          selected_themes = [ "hexagon_dots_alt" ];
+          selected_themes = [ "deus_ex" ];
         })
       ];
     };

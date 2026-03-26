@@ -2,8 +2,11 @@
 
 {
   imports = [
+		./mpv.nix
+		./yazi.nix
     ./zatura.nix
-		./vicinae.nix
+		./neovim.nix
 		./spicetify.nix
+		./librewolf.nix
   ];
 }

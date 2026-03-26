@@ -5,10 +5,11 @@
     options = {
       recolor-lightcolor = "rgba(0,0,0,0)";
       default-bg = "rgba(0,0,0,0.7)";
-
+      guioptions = "v";
+      statusbar-basename = true;
+      render-loading = false;
       font = "Inter 12";
       selection-notification = true;
-
       selection-clipboard = "clipboard";
       adjust-open = "best-fit";
       pages-per-row = "1";

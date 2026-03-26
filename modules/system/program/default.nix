@@ -2,6 +2,7 @@
 
 {
   imports = [
-		./program
+		./dunst.nix
+		./bash.nix
 	];
 }

@@ -15,6 +15,7 @@
 		"hypridle"
 		"hyprpaper"
 		"hyprcursor"
+		"vicinae server"
 
     "[workspace 2 silent] zen-twilight"
   ];

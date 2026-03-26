@@ -26,7 +26,7 @@ unfocused_hollow = true
 [bell]
 animation = "EaseOut"
 duration = 10
-color = "0xfff456"
+color = "0x0ff4a6"
 
 [selection]
 save_to_clipboard = true
@@ -36,7 +36,7 @@ save_to_clipboard = true
 size = 12.0
 
 [font.normal]
-family = "FiraCode Nerd Font"
+family = "CodeNewRoman Nerd Font"
 style = "Regular"
 
 [font.bold]
@@ -44,11 +44,11 @@ family = "CodeNewRoman Nerd Font"
 style = "Bold"
 
 [font.italic]
-family = "FiraCode Nerd Font"
+family = "CodeNewRoman Nerd Font"
 style = "Italic"
 
 [font.bold_italic]
-family = "FiraCode Nerd Font"
+family = "CodeNewRoman Nerd Font"
 style = "Bold Italic"
 
 [font.offset]

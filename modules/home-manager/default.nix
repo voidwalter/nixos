@@ -10,7 +10,7 @@ in
   imports = [
 		./hyprland
 		./quickshell
-		./neovim
+		# ./neovim
 		./terminal
 		./programs
   ];

@@ -30,10 +30,7 @@
 	    };
 
       spicetify-nix.url = "github:Gerg-L/spicetify-nix";
-			vicinae.url = "github:vicinaehq/vicinae";
-    	vicinae-extensions.url = "github:vicinaehq/extensions";
 			catppuccin.url = "github:catppuccin/nix";
-
 
 			### Hyprland
 			hyprland.url = "github:hyprwm/Hyprland";
@@ -47,11 +44,11 @@
 			};
 	};
 
-	outputs = { 
+	outputs = {
       self, nixpkgs, home-manager, hyprland, hy3,
       nixvim, zen-browser,
       ...
-  } @inputs: 
+  } @inputs:
 	{
     nixosConfigurations.nixie = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
@@ -65,7 +62,7 @@
           home-manager = {
             users.rafid = import ./modules/home-manager/default.nix;
             extraSpecialArgs = { inherit inputs; };
-            
+
             sharedModules = [ nixvim.homeModules.nixvim ];
             useGlobalPkgs = true;
             useUserPackages = true;

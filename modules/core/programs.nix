@@ -22,6 +22,7 @@
 		fastfetch
 		ripgrep
 		cmatrix
+		vicinae
 
     # graphical
     rofi			# launcher
@@ -48,7 +49,6 @@
     qt6.qtwayland
 
     imv
-    vlc
     mpv
     mpvpaper
     mpv-handler

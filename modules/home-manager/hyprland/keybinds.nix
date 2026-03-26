@@ -13,9 +13,11 @@
 			"$mod, T, exec, alacritty"
 			"$mod, G, exec, ghostty"
 			"$mod, W, exec, zen-twilight"
-			"$mod, B, exec, firefox"
+			"$mod, B, exec, librewolf"
 			"$mod, F, exec, nautilus"
-			"$mod , Return, exec, [float; size 1111 700] alacritty"
+			"$mod, V, exec, vesktop"
+			"$mod, Return, exec, [float; size 1111 700] alacritty"
+			"$mod, -, exec, [float; size 1411 900] nautilus"
 			
 			# Window Management
 			"$mod, Q, killactive"
