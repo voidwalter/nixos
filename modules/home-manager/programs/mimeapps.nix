@@ -1,7 +1,6 @@
 {
   xdg.mimeApps = {
     enable = true;
-		force = true;
 
     defaultApplications = {
       "inode/directory" = "nautilus.desktop";

@@ -11,7 +11,7 @@
     "init-wallpaper &"
 
 		"dms run"
-		"hyprlock"
+		"hyprlok"
 		"hypridle"
 		"hyprpaper"
 		"hyprcursor"
