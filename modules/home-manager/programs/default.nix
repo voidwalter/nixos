@@ -3,6 +3,7 @@
 {
   imports = [
 		./mpv.nix
+		./dms.nix
 		./yazi.nix
     ./zatura.nix
 		./neovim.nix

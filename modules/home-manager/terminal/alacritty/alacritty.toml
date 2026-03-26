@@ -1,5 +1,3 @@
-live_config_reload = true
-
 [env]
 TERM = "alacritty"
 
@@ -15,7 +13,20 @@ padding = { x = 10, y = 10 }
 [mouse]
 hide_when_typing = true
 bindings = [
-	{ mouse = "Middle", mods = "Control", action = "Paste" },
+  { mouse = "Left", action = "ExpandSelection" },
+	{ mouse = "Left", mods = "Shift", action = "Copy" },
+  { mouse = "Middle", action = "PasteSelection" },
+
+  # Ctrl + Wheel for scroll
+  { mouse = "Left",   mods = "Alt", action = "ScrollPageUp" },
+  { mouse = "Right", mods = "Alt", action = "ScrollPageDown" },
+]
+
+[keyboard]
+bindings = [
+	{ key = "K", mods = "Control|Shift",      action = "IncreaseFontSize" },
+  { key = "J",  mods = "Control|Shift",      action = "DecreaseFontSize" },
+  { key = "Equals",   mods = "Control",      action = "ResetFontSize" },
 ]
 
 [cursor]
