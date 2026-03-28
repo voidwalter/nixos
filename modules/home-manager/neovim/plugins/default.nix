@@ -1,48 +1,61 @@
 {
-  imports = [
-    ./barbar.nix
-    ./lsp.nix
-    ./completion.nix
-    ./conform.nix
-    ./lualine.nix
+  # Import all your configuration modules here
+  imports = [ 
     ./telescope.nix
+    ./bufferline.nix
+    ./oil.nix
+    ./cmp.nix
+    ./treesitter.nix
+    ./lsp.nix
+    ./which-key.nix
+    ./markdown-preview.nix
+    ./autopairs.nix
+    #./neo-tree.nix
+    ./lualine.nix
+    ./colorizer.nix
+    ./conform.nix
+    # ./harpoon.nix
+    ./trouble.nix
+    ./noice.nix
+    ./lint.nix
+    ./lspkind.nix
+    ./vimtex.nix
+    ./typst.nix
+    ./luasnip.nix
+    ./lspsaga.nix
   ];
 
-  programs.nixvim = {
-    plugins = {
-      # Lazy loading
-      lz-n.enable = true;
+  programs.nixvim.plugins = {
+    lz-n.enable = true;
 
-      web-devicons.enable = true;
+    web-devicons.enable = true;
 
-      gitsigns = {
-        enable = true;
-        settings.signs = {
-          add.text = "+";
-          change.text = "~";
-        };
-      };
-
-      nvim-autopairs.enable = true;
-
-      colorizer = {
-        enable = true;
-        settings.user_default_options.names = false;
-      };
-
-      trim = {
-        enable = true;
-        settings = {
-          highlight = true;
-          ft_blocklist = [
-            "checkhealth"
-            "floaterm"
-            "lspinfo"
-            "neo-tree"
-            "TelescopePrompt"
-          ];
-        };
+    gitsigns = {
+      enable = true;
+      settings.signs = {
+        add.text = "+";
+        change.text = "~";
       };
     };
+
+    luasnip.enable = true;
+    nix.enable = true;
+    lazygit.enable = true;
+
+    codecompanion.enable = true;
   };
+  
+  programs.nixvim.keymaps = [
+    {
+      action = ":CodeCompanionChat<CR>";
+      key = "jt";
+      mode = "n";
+    }
+    {
+      action = "<Esc>$<CR>";
+      key = "jk";
+      mode = "i";
+    }
+  ];
 }
+

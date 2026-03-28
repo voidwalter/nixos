@@ -8,9 +8,10 @@ in
   home.homeDirectory = "/home/rafid";
 
   imports = [
+		./xdg
+		./neovim
 		./hyprland
 		./quickshell
-		# ./neovim
 		./terminal
 		./programs
   ];
@@ -33,6 +34,7 @@ in
     element-desktop	# matrix client
     libreoffice			# THE Best Office suite
 		zed-editor
+		kdePackages.kapman
   ];
 
   home.stateVersion = "25.05";

@@ -1,79 +1,76 @@
 {
-  programs.nixvim = {
-    plugins.telescope = {
-      enable = true;
-      extensions.fzf-native = { enable = true; };
+  programs.nixvim.plugins.telescope = {
+    enable = true;
 
-      keymaps = {
-        "<leader>ff" = {
-          action = "find_files";
-          options = { desc = "Find Files"; };
-        };
-        "<leader>fg" = {
-          action = "live_grep";
-          options = { desc = "Live Grep"; };
-        };
-        "<leader>fb" = {
-          action = "buffers";
-          options = { desc = "Buffers"; };
-        };
-        "<leader>fh" = {
-          action = "help_tags";
-          options = { desc = "Help Tags"; };
-        };
-        "<leader>fk" = {
-          action = "keymaps";
-          options = { desc = "Keymaps"; };
-        };
-        "<leader>fc" = {
-          action = "commands";
-          options = { desc = "Commands"; };
-        };
-        "<leader>fo" = {
-          action = "oldfiles";
-          options = { desc = "Oldfiles"; };
-        };
-        "<leader>fs" = {
-          action = "lsp_document_symbols";
-          options = { desc = "Document Symbols (LSP)"; };
-        };
+    keymaps = {
+      "<leader>ff" = "find_files";
+      "<leader>fg" = "live_grep";
+      "<leader>b" = "buffers";
+      "<leader>fh" = "help_tags";
+      "<leader>fc" = "command_history";
+      "<leader>fd" = "diagnostics";
+      "<leader>fk" = "keymaps";
+      "<leader>fw" = "grep_string";
+      "<leader>fs" = "builtin";
+      "<leader>f." = "oldfiles";
 
-        # FZF like bindings
-        "<C-p>" = "git_files";
-        "<leader>p" = "oldfiles";
-        "<C-f>" = "live_grep";
-      };
-
-      settings.defaults = {
-        file_ignore_patterns = [
-          "^.git/"
-          "^.mypy_cache/"
-          "^__pycache__/"
-          "^output/"
-          "^data/"
-          "%.ipynb"
-          "%.pdf"
-          "%.lock"
-        ];
-        set_env.COLORTERM = "truecolor";
-      };
+      "<C-p>" = "git_files";
+      "<leader>p" = "oldfiles";
+      "<C-f>" = "live_grep";
     };
 
-    # Find TODOs
-    keymaps = [
-      {
-        mode = "n";
-        key = "<C-t>";
-        action.__raw = ''
-          function()
-            require('telescope.builtin').live_grep({
-              default_text="TODO",
-              initial_mode="normal"
-            })
-          end
-        '';
-        options.silent = true;
-      }
-    ];
+    settings.defaults = {
+      file_ignore_patterns = [
+        "^.git/"
+        "^.mypy_cache/"
+        "^__pycache__/"
+        "^output/"
+        "^data/"
+      ];
+      set_env.COLORTERM = "truecolor";
+    };
   };
+
+  programs.nixvim.keymaps = [
+    {
+      mode = "n";
+      key = "<C-t>";
+      action.__raw = ''
+	function()
+	  require('telescope.builtin').live_grep({
+	    default_text="TODO",
+	    initial_mode="normal"
+	  })
+	end
+      '';
+      options.silent = true;
+      options.desc = "Search for TODO string";
+    }
+    {
+      mode = "n";
+      key = "<leader>/";
+      action.__raw = ''
+      function()
+	require('telescope.builtin').current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
+				      winblend = 10,
+				      previewer = false,
+			      }))
+      end
+      '';
+      options.desc = "Fuzzily search in current buffer";
+    }
+    {
+      mode = "n";
+      key = "<leader>f/";
+      action.__raw = ''
+      function()
+	require('telescope.builtin').live_grep({
+	  grep_open_files = true,
+	  prompt_title = "Live Grep in Open Files"
+	})
+	end
+      '';
+      options.desc = "Fuzzily search in open files";
+    }
+  ];
 }

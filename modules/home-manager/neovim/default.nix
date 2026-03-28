@@ -1,11 +1,9 @@
-{ config, pkgs, ... }:
-
+{inputs, ...}:
 {
-  imports = [
+  # Import all your configuration modules here
+  imports = [ 
+    inputs.nixvim.homeManagerModules.nixvim
     ./plugins
-    ./ui
-    ./misc
-    ./autocmds.nix
     ./keymaps.nix
     ./options.nix
   ];
@@ -18,14 +16,21 @@
 
     nixpkgs.useGlobalPackages = true;
 
+    # performance = {
+    #   combinePlugins = {
+    #     enable = true;
+    #     standalonePlugins = [
+    #       "hmts.nvim"
+    #       "neorg"
+    #       "nvim-treesitter"
+    #     ];
+    #   };
+    #   byteCompileLua.enable = true;
+    # };
+
     viAlias = true;
     vimAlias = true;
 
-    
-    globals = {
-        mapleader = " ";
-        maplocalleader = " ";
-        have_nerd_font = true;
-    };
+    luaLoader.enable = true;
   };
 }

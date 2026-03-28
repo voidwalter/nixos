@@ -6,7 +6,7 @@
 		./dms.nix
 		./yazi.nix
     ./zatura.nix
-		./neovim.nix
+		# ./neovim.nix
 		./spicetify.nix
 		./librewolf.nix
   ];

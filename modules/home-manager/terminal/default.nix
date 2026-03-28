@@ -6,9 +6,9 @@
 		./git.nix
 		./btop.nix
 		./tmux.nix
-		./starship.nix
   ];
 
+	programs.starship.enable = true;
   programs.ripgrep = {
     enable = true;
 

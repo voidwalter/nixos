@@ -1,17 +1,40 @@
 {
-  plugins = {
+  programs.nixvim.plugins = {
     treesitter = {
       enable = true;
-      nixGrammars = true;
+
+      nixvimInjections = true;
+
       settings = {
         highlight.enable = true;
         indent.enable = true;
+        autotag.enable = true;
+        folding.enable = true;
+        ensure_installed = [
+          "bash"
+          "c"
+          "cpp"
+          "css"
+          "html"
+          "javascript"
+          "json"
+          "lua"
+          "markdown"
+          "markdown_inline"
+          "python"
+          "regex"
+          "rust"
+          "toml"
+          "tsx"
+          "typescript"
+          "vimdoc"
+          "yaml"
+          "nix"
+          "vim"
+        ];
+        autoinstall = true;
+        nixvimInjections = true;
       };
     };
-    treesitter-context = {
-      enable = true;
-      settings = { max_lines = 2; };
-    };
-    rainbow-delimiters.enable = true;
   };
 }

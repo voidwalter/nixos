@@ -11,7 +11,6 @@
       title = "\${filename} - mpv";
       script-opts = "osc-title=\${filename},osc-boxalpha=150,osc-visibility=never,osc-boxvideo=yes";
 
-      osc = "no";
       osd-on-seek = "yes";
       osd-bar = "yes";
       osd-bar-w = 30;

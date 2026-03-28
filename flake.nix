@@ -24,7 +24,10 @@
       	inputs.nixpkgs.follows = "nixpkgs";
     	};
 
-      nixvim.url = "github:nix-community/nixvim";
+      nixvim = {
+				url = "github:nix-community/nixvim";
+				inputs.nixpkgs.follows = "nixpkgs";
+			};
 
       zen-browser = {
         url = "github:0xc000022070/zen-browser-flake";
@@ -67,8 +70,6 @@
           home-manager = {
             users.rafid = import ./modules/home-manager/default.nix;
             extraSpecialArgs = { inherit inputs; };
-
-            sharedModules = [ nixvim.homeModules.nixvim ];
             useGlobalPkgs = true;
             useUserPackages = true;
             backupFileExtension = "backup";
