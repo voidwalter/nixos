@@ -4,16 +4,16 @@
     "dbus-update-activation-environment --all --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
     "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
     "nm-applet &"
-		"bash ../../../../src/scripts/exec.sh"
+		"bash ../../other/scripts/exec.sh"
 
     "wl-clip-persist --clipboard both &"
     "wl-paste --watch cliphist store &"
+		"swww-daemon"
+		"swww img /home/rafid/customs/assets/nixos3.png"
     "hyprctl setcursor Bibata-Modern-Ice 20 &"
-    "init-wallpaper &"
 
 		"hyprlock"
 		"hypridle"
-		"hyprpaper"
 		"hyprcursor"
 		"vicinae server"
 

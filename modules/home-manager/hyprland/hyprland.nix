@@ -14,7 +14,6 @@
     hyprpicker
 		hyprlock
 		hypridle
-		hyprpaper
 		hyprsysteminfo
   ];
 

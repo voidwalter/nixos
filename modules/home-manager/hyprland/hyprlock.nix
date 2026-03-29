@@ -12,7 +12,7 @@
 
       background = [
         {
-          path = "${../../../src/walls/117497448_p0.jpg}";
+          path = "${../../other/walls/117497448_p0.jpg}";
 
           color = "rgba(29, 32, 33, 255)";
           blur_passes = 2;

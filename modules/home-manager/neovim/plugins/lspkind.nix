@@ -1,10 +1,10 @@
 {
   programs.nixvim.plugins.lspkind = {
     enable = true;
-    symbolMap = {
+    symbol_map = {
       Copilot = " ";
     };
-    extraOptions = {
+    settings = {
       maxwidth = 50;
       ellipsis_char = "...";
     };

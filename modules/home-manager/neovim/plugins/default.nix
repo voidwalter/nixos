@@ -1,6 +1,7 @@
 {
   # Import all your configuration modules here
   imports = [ 
+		./alpha.nix
     ./telescope.nix
     ./bufferline.nix
     ./oil.nix
@@ -14,7 +15,6 @@
     ./lualine.nix
     ./colorizer.nix
     ./conform.nix
-    # ./harpoon.nix
     ./trouble.nix
     ./noice.nix
     ./lint.nix
@@ -23,6 +23,7 @@
     ./typst.nix
     ./luasnip.nix
     ./lspsaga.nix
+		./ui.nix
   ];
 
   programs.nixvim.plugins = {
