@@ -20,11 +20,42 @@ let
   groups_left = [
     "BufferTabpageFill"
     "BufferTabpages"
+		"BufferLineTabClose"
+    "BufferLineBufferSelected"
+    "BufferLineFill"
+    "BufferLineBackground"
+    "BufferLineSeparator"
+    "BufferLineIndicatorSelected"
     "TabLine"
     "TabLineSel"
-    "TabLineFill"
-    "NormalFloat"
-    "FloatBorder"
+    "Telescope"
+		"Normal"
+		"NormalNC"
+		"Comment"
+		"Constant"
+		"Special"
+		"Identifier"
+		"Statement"
+		"PreProc"
+		"Type"
+		"Underlined"
+		"Todo"
+		"String"
+		"Function"
+		"Conditional"
+		"Repeat"
+		"Operator"
+		"Structure"
+		"LineNr"
+		"NonText"
+		"SignColumn"
+		"CursorLine"
+		"CursorLineNr"
+		"StatusLine"
+		"StatusLineNC"
+		"EndOfBuffer"
+		"NormalFloat"
+		"FloatBorder"
   ];
 
   buffer_status =
@@ -44,7 +75,6 @@ in {
       };
     };
 
-    # Toggle transparency keymap
     keymaps = [
       {
         mode = "n";

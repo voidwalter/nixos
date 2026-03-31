@@ -5,7 +5,6 @@
     keymaps = {
       "<leader>ff" = "find_files";
       "<leader>fg" = "live_grep";
-      "<leader>b" = "buffers";
       "<leader>fh" = "help_tags";
       "<leader>fc" = "command_history";
       "<leader>fd" = "diagnostics";

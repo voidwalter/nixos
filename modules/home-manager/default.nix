@@ -28,7 +28,6 @@ in
     newsflash				# (gnome)newsfeed
 		vesktop					# discord client
     obsidian				# markdown notes
-		obs-studio			# recorder/broadcaster
 		bitwarden-desktop	# password-manager
 		aseprite				# Animated sprite editor
     element-desktop	# matrix client

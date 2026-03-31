@@ -28,6 +28,8 @@
       # ];
     };
   };
+	
+	systemd.network.wait-online.enable = false;
 
 	services.getty = { 
 		autologinUser = "rafid";

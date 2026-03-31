@@ -16,37 +16,28 @@ let
 
   settings = {
     "extensions.autoDisableScopes" = 0;
-
-    "middlemouse.paste" = false;
-
+    "middlemouse.paste" = true;
     "browser.download.useDownloadDir" = true;
     "browser.tabs.insertAfterCurrent" = true;
     "browser.tabs.warnOnClose" = true;
     "browser.toolbars.bookmarks.visibility" = "never";
     "browser.quitShortcut.disabled" = true;
     "browser.sessionstore.restore_pinned_tabs_on_demand" = true;
-
     "browser.urlbar.suggest.bookmark" = true;
     "browser.urlbar.suggest.engines" = false;
     "browser.urlbar.suggest.history" = true;
     "browser.urlbar.suggest.openpage" = false;
     "browser.urlbar.suggest.topsites" = false;
     "browser.urlbar.trimHttps" = true;
-
     "sidebar.position_start" = false;
     "findbar.highlightAll" = true;
-
     "xpinstall.signatures.required" = false;
-
     "apz.overscroll.enabled" = false;
     "browser.tabs.hoverPreview.enabled" = true;
-
     "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
   };
 in
 {
-  # stylix.targets.librewolf.profileNames = [ "default" ];
-
   programs.librewolf = {
     enable = true;
 

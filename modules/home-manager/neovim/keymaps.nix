@@ -5,7 +5,6 @@
     keymaps = [
       { key = "<Space>"; action = "<NOP>"; options.desc = "Disable space key"; }
       { key = "<esc>"; action = ":noh<CR>"; options.silent = true; options.desc = "Clear search highlighting"; }
-      { key = "<C-c>"; action = ":b#<CR>"; options.desc = "Switch to previous buffer"; }
       { key = "<C-x>"; action = ":close<CR>"; options.desc = "Close current window"; }
       { key = "<C-s>"; action = ":w<CR>"; options.desc = "Save file"; }
       { key = "<leader>h"; action = "<C-w>h"; options.desc = "Go to left window"; }
@@ -18,7 +17,6 @@
       { key = "<C-Right>"; action = ":vertical resize -2<CR>"; options.desc = "Decrease window width"; }
       { key = "<M-k>"; action = ":move-2<CR>"; options.desc = "Move line up"; }
       { key = "<M-j>"; action = ":move+<CR>"; options.desc = "Move line down"; }
-      { key = "<leader>bn"; action = "<Cmd>bnext<CR>"; options.desc = "Next buffer"; }
 
       { key = "<C-s>"; action = "<Esc>:w<CR>"; options.desc = "Save file from insert mode"; }
 
@@ -29,10 +27,6 @@
 
       {mode = "n"; key = "<C-d>"; action = "<C-d>zz"; options.desc = "Half page down (centered)";}
       {mode = "n"; key = "<C-u>"; action = "<C-u>zz"; options.desc = "Half page up (centered)";}
-
-      # Buffer navigation
-      {mode = "n"; key = "<leader>bn"; action = "<Cmd>bnext<CR>"; options.desc = "Next buffer";}
-      {mode = "n"; key = "<leader>bp"; action = "<Cmd>bprevious<CR>"; options.desc = "Previous buffer";}
 
       # Splitting & Resizing
       {mode = "n"; key = "<leader>sv"; action = "<Cmd>vsplit<CR>"; options.desc = "Split window vertically";}

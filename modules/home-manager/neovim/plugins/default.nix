@@ -1,17 +1,18 @@
 {
   # Import all your configuration modules here
   imports = [ 
-		./alpha.nix
     ./telescope.nix
-    ./bufferline.nix
+    ./buffer.nix
     ./oil.nix
     ./cmp.nix
+		./dashboard.nix
     ./treesitter.nix
     ./lsp.nix
     ./which-key.nix
     ./markdown-preview.nix
     ./autopairs.nix
     #./neo-tree.nix
+		./hlchunk.nix
     ./lualine.nix
     ./colorizer.nix
     ./conform.nix
@@ -39,24 +40,17 @@
       };
     };
 
-    luasnip.enable = true;
-    nix.enable = true;
-    lazygit.enable = true;
+		smear-cursor = {
+			enable = true;
+			settings = {
+				distance_stop_animating = 0.5;
+				hide_target_hack = false;
+				stiffness = 0.8;
+				trailing_stiffness = 0.5;
+			};
+		};
 
-    codecompanion.enable = true;
+    luasnip.enable = true;
   };
-  
-  programs.nixvim.keymaps = [
-    {
-      action = ":CodeCompanionChat<CR>";
-      key = "jt";
-      mode = "n";
-    }
-    {
-      action = "<Esc>$<CR>";
-      key = "jk";
-      mode = "i";
-    }
-  ];
 }
 

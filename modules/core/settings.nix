@@ -13,10 +13,10 @@
 
     plymouth = {
       enable = true;
-      theme = "deus_ex";
+      theme = "cuts_alt";
       themePackages = with pkgs; [			# https://github.com/adi1090x/plymouth-themes/
         (adi1090x-plymouth-themes.override {
-          selected_themes = [ "deus_ex" ];
+          selected_themes = [ "cuts_alt" ];
         })
       ];
     };
