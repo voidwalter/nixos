@@ -125,7 +125,7 @@
       set -g status-right ' %H:%M '
       set -g status-style "bg=default,fg=default"
 			setw -g window-status-format "#[bg=brightblack]#[fg=black] #I #[bg=black]#[fg=white] #W "
-      setw -g window-status-current-format "#[bg=brightblue]#[fg=black] #I #[bg=white]#[fg=black] #W "
+      setw -g window-status-current-format "#[bg=brightcyan]#[fg=black] #I #[bg=brightwhite]#[fg=black] #W "
     '';
   };
 }

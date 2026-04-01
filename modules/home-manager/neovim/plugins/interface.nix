@@ -109,41 +109,93 @@
 			};
 
 			transparent = {
-        enable = true;
-        settings = {
-        	extra_groups = [
-						"BufferLineBackground"
-						"BufferLineTab"
-						"BufferLineTabSelected"
-						"BufferLineTabClose"
-						"BufferLineFill"
-						"BufferLineSeparator"
-						"BufferLineIndicatorSelected"
-						"BufferLineCloseButton"
-						"BufferLineModified"
-						"BufferLineModifiedSelected"
+				enable = true;
+				settings = {
+					extra_groups = [
+						# --- Standard UI ---
+						"Normal"
+						"NormalNC"
+						"NormalFloat"
+						"FloatBorder"
+						"FloatTitle"
+						"LineNr"
+						"SignColumn"
+						"CursorLine"
+						"CursorLineNr"
+						"EndOfBuffer"
+						"NonText"
+						
+						# --- Status & Tabs ---
 						"StatusLine"
 						"StatusLineNC"
 						"WinBar"
 						"WinBarNC"
-						"NormalFloat"
+						"TabLine"
+						"TabLineSel"
+						"TabLineFill"
+
+						# --- Popups & Menus ---
 						"Pmenu"
 						"PmenuSel"
 						"PmenuSbar"
 						"PmenuThumb"
-						"FloatBorder"
-						"FloatTitle"
 						"NvimTreeNormal"
 						"NvimTreeNormalNC"
-						"NvimTreeEndOfBuffer"
-						"NeoTreeNormal"
-						"NeoTreeNormalNC"
-						"NeoTreeEndOfBuffer"
-						"TabLine"
-						"TabLineSel"
-						"Telescope"
-						"Normal"
-						"NormalNC"
+
+						# --- barbar.nvim
+						"BufferCurrent"
+						"BufferCurrentSign"
+						"BufferCurrentMod"
+						"BufferVisible"
+						"BufferVisibleSign"
+						"BufferVisibleMod"
+						"BufferInactive"
+						"BufferInactiveSign"
+						"BufferInactiveMod"
+						"BufferTabpages"
+						"BufferTabpageFill"
+
+						# --- oil.nvim ---
+						"OilFile"
+						"OilDir"
+						"OilLink"
+						"OilPreview"
+						"OilHidden"
+
+						# --- telescope.nvim ---
+						"TelescopeNormal"
+						"TelescopeBorder"
+						"TelescopePromptNormal"
+						"TelescopePromptBorder"
+						"TelescopeResultsNormal"
+						"TelescopeResultsBorder"
+						"TelescopePreviewNormal"
+						"TelescopePreviewBorder"
+
+						# --- dap-ui.nvim ---
+						"DapUIScope"
+						"DapUIType"
+						"DapUIValue"
+						"DapUIModifiedValue"
+						"DapUIDecoration"
+						"DapUIThread"
+						"DapUIStoppedThread"
+						"DapUISource"
+						"DapUILineNumber"
+						"DapUIFloatBorder"
+						"DapUIWatchesEmpty"
+						"DapUIWatchesValue"
+						"DapUIWatchesError"
+						"DapUIBreakpointsPath"
+						"DapUIBreakpointsInfo"
+						"DapUIBreakpointsDisabledLine"
+						"DapUIBreakpointsCurrentLine"
+
+						# --- floatterm.nvim ---
+						"FTermNormal" 
+						"FTermBorder"
+
+						# --- Syntax
 						"Comment"
 						"Constant"
 						"Special"
@@ -159,18 +211,8 @@
 						"Repeat"
 						"Operator"
 						"Structure"
-						"LineNr"
-						"NonText"
-						"SignColumn"
-						"CursorLine"
-						"CursorLineNr"
-						"StatusLine"
-						"StatusLineNC"
-						"EndOfBuffer"
-						"NormalFloat"
-						"FloatBorder"
-        	];
-      	};
+					];
+				};
 			};
 		};
   };

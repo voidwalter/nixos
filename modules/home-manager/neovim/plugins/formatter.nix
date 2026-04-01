@@ -37,6 +37,7 @@
 						"shellharden"
 						"shfmt"
 					];
+					c = [ "clang_format" ];
 					cpp = [ "clang_format" ];
 					nix = [
 						"nix_fmt"

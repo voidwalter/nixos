@@ -1,6 +1,6 @@
 {
   programs.nixvim.plugins = {
-		which_key.enable = true;
+		which-key.enable = true;
 		nvim-autopairs.enable = true;
     lz-n.enable = true;
 
@@ -26,12 +26,19 @@
 				keymaps = {
 					"<C-r>" = "actions.refresh";
 					"<leader>qq" = "actions.close";
+					"y." = "actions.copy_entry_path";
 				};
 				skip_confirm_for_simple_edits = true;
 				constrain_cursor = "editable";
 				default_file_explorer = true;
 				view_options = {
 					show_hidden = true;
+				};
+				float = {
+					padding = 2;
+					max_width = 90;
+					max_height = 0.9;
+					border = "rounded";
 				};
 				win_options = {
 					concealcursor = "ncv";
@@ -43,6 +50,30 @@
 					spell = false;
 					wrap = false;
 				};
+			};
+		};
+
+		floatterm = {
+			enable = true;
+			settigns = {
+				height = 0.9;
+				autoclose = 0;
+				keymap_kill = "<Leader>fk";
+				keymap_new = "<Leader>ft";
+				keymap_next = "<Leader>fn";
+				keymap_prev = "<Leader>fp";
+				keymap_toggle = "<Leader>t";
+				opener = "edit ";
+				rootmarkers = [
+					"build/CMakeFiles"
+					".project"
+					".git"
+					".hg"
+					".svn"
+					".root"
+				];
+				title = "";
+				width = 0.9;
 			};
 		};
 
@@ -179,12 +210,6 @@
 				max_height = 7;
 				max_width = 60;
 				minimum_width = 40;
-				on_close = {
-					__raw = "function() print('Window closed') end";
-				};
-				on_open = {
-					__raw = "function() print('Window opened') end";
-				};
 				render = "default";
 				stages = "fade_in_slide_out";
 				timeout = 5000;

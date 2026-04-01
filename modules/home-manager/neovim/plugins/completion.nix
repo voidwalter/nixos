@@ -4,10 +4,11 @@
   programs.nixvim = {
 		plugins = {
 			luasnip.enable = true;
-			cmp-buffer = { enable = true; };
-			cmp-emoji = { enable = true; };
+			cmp-calc.enable = true;
+			cmp-path.enable = true;
+			cmp-cmdline.enable = true;
+			cmp-buffer.enable = true;
 			cmp-nvim-lsp = { enable = true; };
-			cmp-path = { enable = true; };
 			cmp_luasnip = { enable = true; };
 			cmp = {
 				enable = true;
@@ -102,7 +103,7 @@
 						"<C-k>" = "cmp.mapping.select_prev_item()";
 						"<C-d>" = "cmp.mapping.scroll_docs(-4)";
 						"<C-f>" = "cmp.mapping.scroll_docs(4)";
-						"<C-Space>" = "cmp.mapping.complete()";
+						"<C-x>" = "cmp.mapping.complete()";
 						"<C-e>" = "cmp.mapping.abort()";
 						"<Tab>" = ''
               cmp.mapping(function(fallback)

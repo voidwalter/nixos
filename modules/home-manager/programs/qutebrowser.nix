@@ -27,31 +27,15 @@ in {
 				ddg = "https://duckduckgo.com/?q={}";
 			};
 
-			quickmarks = {
-				cppl = "https://www.learncpp.com/";
-				weebcentral = "https://weebcentral.com/";
-				youtube = "https://inv.nadeko.net/";
-				urlvoid = "https://www.urlvoid.com/";
-				waybackmachine = "https://web.archive.org/";
-				annaarchive = "https://annas-archive.gl/";
-				chatb = "https://duck.ai/";
-			};
-
       colors.webpage.darkmode.enabled = true;
       tabs.show = "multiple";
-      url.default_page = homepage;
-      url.start_pages = homepage;
-
-      content.headers.accept_language = "pt-BR,pt;q=0.9";
-      content.local_content_can_access_remote_urls = true; # so the homepage's search works
+      url.default_page = "duckduckgo.com";
+      url.start_pages = "duckduckgo.com";
 
       content.blocking.adblock.lists = [
-				# basic
         "https://easylist.to/easylist/easylist.txt"
         "https://easylist.to/easylist/easyprivacy.txt"
         "https://easylist-downloads.adblockplus.org/easylistportuguese.txt"
-
-        # spam/ads
         "https://s3.amazonaws.com/lists.disconnect.me/simple_ad.txt"
         "https://raw.githubusercontent.com/Yhonay/antipopads/master/hosts"
         "https://easylist-downloads.adblockplus.org/fanboy-notifications.txt"
