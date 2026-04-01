@@ -11,7 +11,6 @@ in
 		./xdg
 		./neovim
 		./hyprland
-		./quickshell
 		./terminal
 		./programs
   ];

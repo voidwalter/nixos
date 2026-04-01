@@ -8,25 +8,40 @@
 		./tmux.nix
   ];
 
-	programs.starship.enable = true;
-  programs.ripgrep = {
-    enable = true;
+	programs = {
+		fzf.enable = true;
+		starship.enable = true;
+    atuin = {
+      enable = true;
+      daemon.enable = true;
+      settings = {
+        auto_sync = true;
+        sync_frequency = "5m";
+        style = "compact"; # compact | full | auto
+        filter_mode = "workspace";
+        filter_mode_shell_up_key_binding = "workspace";
+        workspaces = true;
+        secret_filter = true;
+      };
+    };
+		ripgrep = {
+			enable = true;
+			arguments = [
+				"--max-columns=2000"
+				"--smart-case"
+			];
+		};
 
-    arguments = [
-      "--max-columns=2000"
-      "--smart-case"
-    ];
-  };
+		eza = {
+			enable = true;
+			icons = "auto";
 
-  programs.eza = {
-    enable = true;
-    icons = "auto";
-
-    extraOptions = [
-      "--group-directories-first"
-      "--no-quotes"
-    ];
-  };
+			extraOptions = [
+				"--group-directories-first"
+				"--no-quotes"
+			];
+		};
+	};
 
 	programs.alacritty.enable = true;
 	xdg.configFile = {

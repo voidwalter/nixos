@@ -4,7 +4,6 @@
   programs.bash = {
     enable = true;
 		blesh.enable = true;
-    
     shellAliases = {
       ll = "exa -l --icons";
 			xv = "NVIM_APPNAME='xvim' nvim";
@@ -26,7 +25,7 @@
 				local file
 				file=$(fzf --preview 'bat --style=numbers --color=always {}' --layout reverse --border --select-1 --exit-0)
 				if [[ -n "$file" ]]; then
-					xv "$file"
+					nv "$file"
 				fi
 			}
 

@@ -5,7 +5,6 @@
 		./dms.nix
 		./yazi.nix
 		./browsers.nix
-		# ./neovim.nix
 		# ./spicetify.nix
 		./qutebrowser.nix
 		./media-viewer.nix

@@ -9,7 +9,6 @@
   ];
 
   home.shellAliases.v = "nvim";
-
 	home.packages = with pkgs; [
     ripgrep
     fd
@@ -27,13 +26,16 @@
   programs.nixvim = {
     enable = true;
     defaultEditor = true;
-		globals.mapleader = " ";
     nixpkgs.useGlobalPackages = true;
     viAlias = true;
     vimAlias = true;
-    luaLoader.enable = true;
+		globals = {
+        mapleader = " ";
+        maplocalleader = "\\";
+        loaded_netrw = 1;
+        loaded_netrwPlugin = 1;
+    };
 
-    # Install colorschemes as regular plugins
     extraPlugins = with pkgs.vimPlugins; [
       gruvbox
       everforest

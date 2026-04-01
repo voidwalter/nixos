@@ -117,21 +117,15 @@
 
       # Status Bar
       set -g status-position top
-      set -g status-justify left
+      set -g status on
+			set -g status-justify centre
       set -g status-left ""
-      set -g status-left-length 100
-      set -g status-right-length 80
-      set -g status-right '#{cpu_bg_color} CPU: #{cpu_icon} #{cpu_percentage} | %a %h-%d %H:%M '
+      set -g status-left-length 50
+      set -g status-right-length 50
+      set -g status-right ' %H:%M '
       set -g status-style "bg=default,fg=default"
-
-
+			setw -g window-status-format "#[bg=brightblack]#[fg=black] #I #[bg=black]#[fg=white] #W "
+      setw -g window-status-current-format "#[bg=brightblue]#[fg=black] #I #[bg=white]#[fg=black] #W "
     '';
-  };
-	home.shellAliases = {
-    tm = "tmux";
-    tms = "tmux new -s";
-    tml = "tmux list-sessions";
-    tma = "tmux attach -t";
-    tmk = "tmux kill-session -t";
   };
 }

@@ -4,6 +4,16 @@
       enable = true;
       lspServersToEnable = "all";
     };
+		lspsaga = {
+			enable = false;
+		};
+		lspkind = {
+			enable = true;
+			settings = {
+				maxwidth = 50;
+				ellipsis_char = "...";
+			};
+		};
 
     lsp = {
       enable = true;

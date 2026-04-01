@@ -17,9 +17,10 @@
       { key = "<C-Right>"; action = ":vertical resize -2<CR>"; options.desc = "Decrease window width"; }
       { key = "<M-k>"; action = ":move-2<CR>"; options.desc = "Move line up"; }
       { key = "<M-j>"; action = ":move+<CR>"; options.desc = "Move line down"; }
+			{ key = "<leader>tt"; action = "<cmd>TransparentToggle<CR>"; options.desc = "Transparency"; }
 
-      { key = "<C-s>"; action = "<Esc>:w<CR>"; options.desc = "Save file from insert mode"; }
 
+			{ key = "<C-s>"; action = "<Esc>:w<CR>"; options.desc = "Save file from insert mode"; }
       { key = "H"; action = "^"; options.desc = "Go to first non-blank character (visual)"; }
       { key = "L"; action = "$"; options.desc = "Go to end of line (visual)"; }
       { key = "<M-k>"; action = ":move-2<CR>"; options.desc = "Move selected lines up"; }

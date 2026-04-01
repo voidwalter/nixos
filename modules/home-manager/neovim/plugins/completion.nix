@@ -11,7 +11,6 @@
 			cmp_luasnip = { enable = true; };
 			cmp = {
 				enable = true;
-
 				settings = {
 					experimental = { ghost_text = true; };
 					snippet.expand = ''
@@ -99,26 +98,35 @@
 					};
 
 					mapping = {
-						"<C-n>" = "cmp.mapping.select_next_item()";
-						"<C-p>" = "cmp.mapping.select_prev_item()";
 						"<C-j>" = "cmp.mapping.select_next_item()";
 						"<C-k>" = "cmp.mapping.select_prev_item()";
 						"<C-d>" = "cmp.mapping.scroll_docs(-4)";
 						"<C-f>" = "cmp.mapping.scroll_docs(4)";
 						"<C-Space>" = "cmp.mapping.complete()";
-						"<S-Tab>" = "cmp.mapping.close()";
-						"<Tab>" =	''
-							function(fallback)
-								local line = vim.api.nvim_get_current_line()
-								if line:match("^%s*$") then
-									fallback()
-								elseif cmp.visible() then
-									cmp.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = true })
-								else
-									fallback()
-								end
-							end
-						'';
+						"<C-e>" = "cmp.mapping.abort()";
+						"<Tab>" = ''
+              cmp.mapping(function(fallback)
+                if cmp.visible() then
+                  cmp.select_next_item()
+                elseif luasnip.expand_or_jumpable() then
+                  luasnip.expand_or_jump()
+                else
+                  fallback()
+                end
+              end, { "i", "s" })
+            '';
+
+            "<S-Tab>" = ''
+              cmp.mapping(function(fallback)
+                if cmp.visible() then
+                  cmp.select_prev_item()
+                elseif luasnip.locally_jumpable(-1) then
+                  luasnip.jump(-1)
+                else
+                  fallback()
+                end
+              end, { "i", "s" })
+            '';
 					};
 				};
 			};

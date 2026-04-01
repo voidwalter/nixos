@@ -4,6 +4,7 @@
 
     keymaps = {
       "<leader>ff" = "find_files";
+      "<leader>fr" = "oldfiles";
       "<leader>fg" = "live_grep";
       "<leader>fh" = "help_tags";
       "<leader>fc" = "command_history";
@@ -11,10 +12,8 @@
       "<leader>fk" = "keymaps";
       "<leader>fw" = "grep_string";
       "<leader>fs" = "builtin";
-      "<leader>f." = "oldfiles";
 
       "<C-p>" = "git_files";
-      "<leader>p" = "oldfiles";
       "<C-f>" = "live_grep";
     };
 
