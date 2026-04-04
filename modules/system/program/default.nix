@@ -2,7 +2,6 @@
 
 {
   imports = [
-		./dunst.nix
 		./bash.nix
 	];
 }

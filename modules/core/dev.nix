@@ -2,7 +2,6 @@
 
 {
   environment.systemPackages = with pkgs; [
-		clang-tools          # Provides clangd, clang-format
     gdb                  # GNU debugger
     lldb                 # LLVM debugger (alternative)
     cmake                # Build system generator
@@ -12,23 +11,10 @@
     gcc
     clang
 		clang-tools
-    meson
     lld
     rustup
+		ruby
     lua
-
-    vim
-    tmux
-    curl
-    wget
-    neovim
-
-    gh
-    jq
-    git
-    devenv
-    lazygit
-		vulkan-tools
   ];
 
   programs.direnv = {

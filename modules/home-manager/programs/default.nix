@@ -2,10 +2,7 @@
 
 {
   imports = [
-		./dms.nix
-		./yazi.nix
 		./browsers.nix
-		# ./spicetify.nix
 		./qutebrowser.nix
 		./media-viewer.nix
   ];

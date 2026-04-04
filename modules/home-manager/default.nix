@@ -11,18 +11,17 @@ in
 		./xdg
 		./neovim
 		./hyprland
-		./terminal
 		./programs
+		./commandline
   ];
 
   home.packages = with pkgs; [
-    gh
     git
 		gimp
     blesh
 		tesseract
 		element					# Predic-table element
-    ghostty
+    ghostty					# terminal emulator
 		superfile				# file-browser
     newsflash				# (gnome)newsfeed
 		vesktop					# discord client

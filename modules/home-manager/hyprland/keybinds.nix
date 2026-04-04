@@ -1,4 +1,3 @@
-{ ... }:
 {
   wayland.windowManager.hyprland.settings = {
     binds = {
@@ -7,72 +6,42 @@
     };
 
     bind = [
-			"$mod, F1, exec, show-keybinds"
-
-		  # Launch Applications
 			"$mod, T, exec, alacritty"
 			"$mod, G, exec, ghostty"
 			"$mod, W, exec, zen-twilight"
-			"$mod, B, exec, librewolf"
-			"$mod, F, exec, nautilus"
+			"$mod, B, exec, qutebrowser"
 			"$mod, Return, exec, [float; size 1111 700] alacritty"
-			"$mod, -, exec, [float; size 1411 900] nautilus"
 			
-			# Window Management
 			"$mod, Q, killactive"
 			"$mod SHIFT, F, fullscreen, 0"
-			"$mod CTRL, F, fullscreen, 1"
+			"$mod ALT, F, fullscreen, 1"
 			"$mod, SPACE, togglefloating"
 			"$mod ALT, SPACE, exec, hyprctl dispatch workspaceopt allfloat"
 			"ALT, Tab, cyclenext"
 			"ALT, Tab, bringactivetotop"
 			"ALT, Escape, exec, hyprlock"
 			
-			# Launchers & Menus
 			"$mod, X, exec, vicinae toggle"
 			"$mod, C, exec, rofi -show drun"
 			"$mod, V, exec, vicinae vicinae://extensions/vicinae/clipboard/history"
 			
-			# Shell Controls
-			", F1, exec, $ipc spotlight toggle"
-			", F2, exec, $ipc hypr toggleOverview"
-			", F3, exec, $ipc"
-			", F4, exec, $ipc keybinds toggle hyprland"
-			", F5, exec, $ipc notepad toggle"
-			", F6, exec, $ipc keyboard-layout toggle"
-			", F7, exec, $ipc clipboard toggle"
-			", F8, exec, $ipc processlist toggle"
-			", F9, exec, $ipc keybinds toggleWithPath hyprland $config/"
-			", F10, exec, $ipc notifications toggle"
-			", F12, exec, $ipc control-center toggle"
-			"CTRL, F12, exec, $ipc powermenu toggle"
-			"CTRL, F9, exec, $ipc wallpaper next"
-			"ALT, F9, exec, $ipc theme toggle"
-			"ALT, F12, exec, $ipc dock toggle"
-			"SHIFT, F12, exec, $ipc bar toggle name \"Main Bar\""
-			
-			# Media & Hardware Keys
-			", XF86AudioRaiseVolume, exec, $ipc audio increment 5"
-			", XF86AudioLowerVolume, exec, $ipc audio decrement 5"
-			", XF86AudioMute, exec, $ipc audio mute"
-			", XF86AudioPlay, exec, $ipc mpris playPause"
-			", xf86AudioNext, exec, $ipc mpris next"
-			", xf86AudioPrev, exec, $ipc mpris previous"
-			", xf86AudioStop, exec, $ipc mpris pause"
-			"ALT, F3, exec, $ipc brightness increment 5 \"\""
-			"ALT, F2, exec, $ipc brightness decrement 5 \"\""
-			
-			# Screenshots
-			"$mod, PRINT, exec, grim -g \"$(slurp)\" - | wl-copy"
-			"$mod CTRL, PRINT, exec, grim -g \"$(slurp)\" - | satty --filename -"
-			"SHIFT, PRINT, exec, grim ~/Pictures/Shots/$(date +'freeze-%m%d-%H%M%S').png"
-			"CTRL, PRINT, exec, grim - | satty --filename -"
-			", PRINT, exec, grim - | wl-copy"
-			
-			# Layout & Workspace Navigation
-			"CTRL ALT, up, exec, hyprctl dispatch focuswindow floating"
-      "CTRL ALT, down, exec, hyprctl dispatch focuswindow tiled"
+			", XF86AudioRaiseVolume, exec, pamixer --increase 5"
+      ", XF86AudioLowerVolume, exec, pamixer --decrease 5"
+      ", XF86AudioMute, exec, pamixer --toggle-mute"
+      ", XF86AudioPlay, exec, playerctl play-pause"
+      ", XF86AudioNext, exec, playerctl next"
+      ", XF86AudioPrev, exec, playerctl previous"
+      "ALT, F3, exec, brightnessctl set +5%"
+      "ALT, F2, exec, brightnessctl set 5%-"
 
+			"CTRL, F9, exec, waypaper"
+			
+			"$mod, PRINT, exec, grim -g \"$(slurp)\" - | satty --filename -"					# select region > edit satty
+			"$mod CTRL, PRINT, exec, grim -g \"$(slurp)\" - | wl-copy"								# select region > copy to clipboard
+			"SHIFT, PRINT, exec, grim ~/Pictures/Shots/$(date +'freeze-%m%d-%H%M%S').png"				# save screenshot directly
+			"CTRL, PRINT, exec, grim - | satty --filename -"			# screenshot + edit satty
+			", PRINT, exec, grim - | wl-copy"				# copy to clipboard
+			
 			"$mod, H, movefocus, l"
 			"$mod, L, movefocus, r"
 			"$mod, K, movefocus, u"
@@ -106,7 +75,6 @@
 			"$mod, 9, workspace, 9"
 			"$mod, 0, workspace, 10"
 			"$mod, O, togglespecialworkspace, stash"
-
 			
 			"$mod SHIFT, 1, movetoworkspacesilent, 1" # movetoworkspacesilent
       "$mod SHIFT, 2, movetoworkspacesilent, 2"

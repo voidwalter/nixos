@@ -2,8 +2,9 @@
 
 {
   imports = [
+		./yazi
     ./bat.nix
-		./git.nix
+		./bash.nix
 		./btop.nix
 		./tmux.nix
   ];

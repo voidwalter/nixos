@@ -8,11 +8,14 @@
   environment.systemPackages = with pkgs; [
     # CLIs
 		fd
+		jq
     bat
 		eza
 		fzf
+		git
 		bash
 		cava
+		tree
 		yazi
 		blesh
 		delta
@@ -25,10 +28,16 @@
 		vicinae
 		alacritty
 
+		vim
+    curl
+    wget
+		tmux
+    neovim
+
     # graphical
     rofi			# launcher
     librewolf		# web-browser
-    nautilus	# file-browser
+    # nautilus	# file-browser
     qutebrowser		# keyboard-based-browser
     inputs.zen-browser.packages.${pkgs.system}.twilight
 
@@ -45,19 +54,20 @@
     ffmpeg
 		cachix
     ffmpegthumbnailer
+		vulkan-tools
 
     at-spi2-atk
     qt6.qtwayland
 
     imv
     mpv
-    mpvpaper
     mpv-handler
     zathura
     imagemagick
 
     pamixer
     playerctl
+		brightnessctl
     pavucontrol
     libnotify
     wl-screenrec
@@ -68,8 +78,6 @@
     wtype
     dunst
     avizo
-    ddcutil
-    brightnessctl
     #libfido2
   ];
  
