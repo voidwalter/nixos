@@ -90,9 +90,6 @@
 
 			"$mod, bracketleft, movetoworkspace, -1"
 			"$mod, bracketright, movetoworkspace, +1"
-
-			"$mod, mouse_down, workspace, e-1"
-      "$mod, mouse_up, workspace, e+1"
 		];
 		bindm = [
 			"$mod, mouse:273, movewindow"
