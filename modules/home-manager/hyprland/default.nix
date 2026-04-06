@@ -13,23 +13,32 @@
 	];
 
 	home.packages = with pkgs; [
-    swww
-		waypaper
     grimblast
     grim
     slurp
 		satty
 		chafa
+		sqlite
     wl-clip-persist
     cliphist
 		swaynotificationcenter
     wf-recorder
     glib
+		ffmpeg
+		matugen
     wayland
     hyprpicker
 		hyprlock
 		hypridle
 		hyprsysteminfo
+		brightnessctl
+		nerd-fonts.symbols-only
+		qt6.qtmultimedia
+		qt5.qtbase qt5.qtsvg 
+		qt5.qtimageformats qt5.qtmultimedia 
+		libsForQt5.qt5ct
+    qt6Packages.qt6ct
+		inputs.awww.packages.${pkgs.stdenv.hostPlatform.system}.awww
   ];
 
   systemd.user.targets.hyprland-session.Unit.Wants = [

@@ -34,6 +34,22 @@
       "ALT, F3, exec, brightnessctl set +5%"
       "ALT, F2, exec, brightnessctl set 5%-"
 
+			# Shell Controls
+			", F1, exec, $ipc spotlight toggle"
+			", F2, exec, $ipc hypr toggleOverview"
+			"$mod, F1, exec, $ipc keybinds toggle hyprland"
+			", F5, exec, $ipc notepad toggle"
+			", F6, exec, $ipc keyboard-layout toggle"
+			", F7, exec, $ipc clipboard toggle"
+			", F8, exec, $ipc processlist toggle"
+			", F10, exec, $ipc notifications toggle"
+			", F12, exec, $ipc control-center toggle"
+			"CTRL, F12, exec, $ipc powermenu toggle"
+			"CTRL, F9, exec, $ipc wallpaper next"
+			"ALT, F9, exec, $ipc theme toggle"
+			"ALT, F12, exec, $ipc dock toggle"
+			"SHIFT, F12, exec, $ipc bar toggle name \"Main Bar\""
+
 			"CTRL, F9, exec, waypaper"
 			
 			"$mod, PRINT, exec, grim -g \"$(slurp)\" - | satty --filename -"					# select region > edit satty

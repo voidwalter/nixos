@@ -19,6 +19,8 @@
       	inputs.nixpkgs.follows = "nixpkgs";
     	};
 
+			awww.url = "git+https://codeberg.org/LGFae/awww";
+
 			dms = {
       	url = "github:AvengeMedia/DankMaterialShell/stable";
       	inputs.nixpkgs.follows = "nixpkgs";
@@ -38,7 +40,6 @@
 	    };
 
 			yazi.url = "github:sxyazi/yazi/0cedbd9c7bbc44b23d54306b3effa3fa68eacdd8";
-      spicetify-nix.url = "github:Gerg-L/spicetify-nix";
 			catppuccin.url = "github:catppuccin/nix";
 
 			### Hyprland
@@ -55,7 +56,7 @@
 
 	outputs = {
       self, nixpkgs, home-manager, hyprland, hy3,
-      nixvim, zen-browser, spicetify-nix,
+      nixvim, zen-browser,
       ...
   } @inputs:
 	{
@@ -66,7 +67,6 @@
 
 				./modules/core/default.nix
         home-manager.nixosModules.home-manager
-				spicetify-nix.nixosModules.spicetify
         {
           home-manager = {
             users.rafid = import ./modules/home-manager/default.nix;

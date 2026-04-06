@@ -8,7 +8,6 @@
 			tp = "tree .";
       ll = "exa -l --icons";
 			la = "exa -la --icons";
-			ls = "exa --icons";
       nix-switch = "nixos-rebuild switch";
 			nix-gen = "nixos-rebuild list-generations";
 			ncg = "nix-collect garbage --delete-older-than 2d";

@@ -43,10 +43,6 @@
 
 		# qt and quickshell
 		inputs.quickshell.packages.${system}.default
-		qt5.qtbase qt5.qtsvg 
-		qt5.qtimageformats qt5.qtmultimedia 
-		libsForQt5.qt5ct
-    qt6Packages.qt6ct
 
     psmisc
     wlrctl

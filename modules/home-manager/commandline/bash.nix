@@ -33,39 +33,37 @@
 			cdir() { cd $(find . -type d | fzf --layout reverse --border); }
 
       # blesh-specific Keybinds
-      if ((_ble_VERSION)); then
-        # Functions
-        ble-bind -x "C-h" histor
-        ble-bind -x "C-f" ofix
-        ble-bind -x "C-c" cdir
-        ble-bind -x "C-w" fk
+      # Functions
+      ble-bind -x "C-h" histor
+      ble-bind -x "C-f" ofix
+      ble-bind -x "C-c" cdir
+      ble-bind -x "C-w" fk
 
-        # Shell utilities
-        ble-bind -c "M-C-l" clear-screen
-        ble-bind -x "C-x c" clear
-        ble-bind -x "C-x u" "cd .."
-        
-        # Eza binds
-        ble-bind -x "C-z l" "eza -la"
-        ble-bind -x "C-z d" "eza --only-dirs"
-        ble-bind -x "C-z f" "eza --only-files"
-        ble-bind -x "C-z t" "eza -T"
-        ble-bind -x "C-z g" "eza --grid"
-        
-        # Git binds
-        ble-bind -x "C-g s" "git status"
-        ble-bind -x "C-g r" "git remote -v"
-        ble-bind -x "C-g a" "git add ."
+      # Shell utilities
+      ble-bind -c "M-C-l" clear-screen
+      ble-bind -x "C-x c" clear
+      ble-bind -x "C-x u" "cd .."
+      
+      # Eza binds
+      ble-bind -x "C-z l" "eza -la"
+      ble-bind -x "C-z d" "eza --only-dirs"
+      ble-bind -x "C-z f" "eza --only-files"
+      ble-bind -x "C-z t" "eza -T"
+      ble-bind -x "C-z g" "eza --grid"
+      
+      # Git binds
+      ble-bind -x "C-g s" "git status"
+      ble-bind -x "C-g r" "git remote -v"
+      ble-bind -x "C-g a" "git add ."
 
-        # Launch applications
-        ble-bind -x "C-a x" "xv"
-        ble-bind -x "C-a n" "nvim"
-        ble-bind -x "C-a y" "yazi"
-        ble-bind -x "C-a t" "tmux"
-        ble-bind -x "C-a b" "btop"
-        ble-bind -x "C-a c" "pipes.sh -p 2"
-        ble-bind -x "C-s h" "start-hyprland"
-      fi
+      # Launch applications
+      ble-bind -x "C-a x" "xv"
+      ble-bind -x "C-a n" "nvim"
+      ble-bind -x "C-a y" "yazi"
+      ble-bind -x "C-a t" "tmux"
+      ble-bind -x "C-a b" "btop"
+      ble-bind -x "C-a c" "pipes.sh -p 2"
+      ble-bind -x "C-s h" "start-hyprland"
 
       [[ $- == *i* ]] && ble-attach
     '';

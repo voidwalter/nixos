@@ -18,6 +18,8 @@ in
   home.packages = with pkgs; [
     git
 		gimp
+		zola					# SSG
+		nemo
     blesh
 		tesseract
 		element					# Predic-table element
