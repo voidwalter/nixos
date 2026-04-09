@@ -36,7 +36,7 @@
 
 			# Shell Controls
 			", F1, exec, $ipc spotlight toggle"
-			", F2, exec, $ipc hypr toggleOverview"
+			", F2, exec, qs ipc -c overview call overview toggle"
 			"$mod, F1, exec, $ipc keybinds toggle hyprland"
 			", F5, exec, $ipc notepad toggle"
 			", F6, exec, $ipc keyboard-layout toggle"

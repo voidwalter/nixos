@@ -14,6 +14,9 @@
 		"hypridle"
 		"hyprcursor"
 		"vicinae server"
+		"qs -c overview"
+
+		"hyprctl reload"
 
     "[workspace 2 silent] zen-twilight"
   ];

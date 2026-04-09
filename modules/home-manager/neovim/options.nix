@@ -17,13 +17,13 @@
 
     opts = {
       updatetime = 100; # Faster completion
-      
+
       # Tabbing && Indenting options
       tabstop = 4;
       shiftwidth = 4;
       expandtab = true;
-      autoindent = true;
-      smartindent = true;
+      autoindent = false;
+      smartindent = false;
       grepprg = "rg --vimgrep";
       grepformat = "%f:%l:%c:%m";
       guicursor = [

@@ -1,12 +1,25 @@
 {
+	home.file.".clang-format".text = ''
+    BasedOnStyle: LLVM
+    IndentWidth: 4
+    TabWidth: 4
+    UseTab: Always
+    ColumnLimit: 80
+    BreakBeforeBraces: Attach
+    AllowShortFunctionsOnASingleLine: None
+    AllowShortIfStatementsOnASingleLine: Never
+    IndentCaseLabels: true
+    PointerAlignment: Right
+  '';
+
   programs.nixvim.plugins = {
     treesitter = {
       enable = true;
+			highlight.enable = true;
+      indent.enable = false;
+      autotag.enable = true;
+      folding.enable = true;
       settings = {
-        highlight.enable = true;
-        indent.enable = false;
-        autotag.enable = true;
-        folding.enable = true;
         ensure_installed = [
           "bash"
           "c"
@@ -60,7 +73,7 @@
 
 						local function on_format(err)
 							if err and err:match("timeout$") then
-					slow_format_filetypes[vim.bo[bufnr].filetype] = true
+								slow_format_filetypes[vim.bo[bufnr].filetype] = true
 							end
 						end
 

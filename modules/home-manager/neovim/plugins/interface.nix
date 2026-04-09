@@ -3,11 +3,22 @@
     plugins = {
 			lualine.enable = true;
 	    web-devicons.enable = true;
- 			colorizer.enable = true;
-			
+			colorizer.enable = true;
+			modicator.enable = true;
+
 			todo-comments = {
 				enable = true;
 				settings.signs = true;
+			};
+
+			smear-cursor = {
+				enable = true;
+				settings = {
+					distance_stop_animating = 0.5;
+					hide_target_hack = false;
+					stiffness = 0.8;
+					trailing_stiffness = 0.5;
+				};
 			};
 
 			hlchunk = {

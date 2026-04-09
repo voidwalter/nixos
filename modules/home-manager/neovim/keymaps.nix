@@ -17,7 +17,7 @@
       { key = "<C-Right>"; action = ":vertical resize -2<CR>"; options.desc = "Decrease window width"; }
       { key = "<M-k>"; action = ":move-2<CR>"; options.desc = "Move line up"; }
       { key = "<M-j>"; action = ":move+<CR>"; options.desc = "Move line down"; }
-			{ key = "<leader>tt"; action = "<cmd>TransparentToggle<CR>"; options.desc = "Transparency"; }
+			{ key = "<leader>st"; action = "<cmd>TransparentToggle<CR>"; options.desc = "Transparency"; }
 
 
 			{ key = "<C-s>"; action = "<Esc>:w<CR>"; options.desc = "Save file from insert mode"; }
@@ -55,6 +55,10 @@
       {mode = "n"; key = "<leader>-"; action = "<CMD>Oil<CR>"; options.desc = "Oil: Open parent directory";}
       {mode = "n"; key = "<leader>e"; action.__raw = "function() require('oil').toggle_float() end"; options.desc = "Oil: Toggle float";}
 
+			# --- Compilor
+			{mode = "n"; key = "<leader>co"; action = "<Cmd>CompilerOpen<CR>"; options.desc = "Open Compiler";}
+			{mode = "n"; key = "<leader>ct"; action = "<Cmd>CompilerToggleResults<CR>"; options.desc = "Toggle Compiler Result";}
+			{mode = "n"; key = "<leader>cs"; action = "<Cmd>CompilerStop<CR>"; options.desc = "Compiler Dispose All Tasks";}
       # ── Trouble ──
       {mode = "n"; key = "<leader>xx"; action = "<cmd>Trouble diagnostics toggle<cr>"; options.desc = "Trouble: Diagnostics (Workspace)";}
       {mode = "n"; key = "<leader>d"; action = "<cmd>Trouble diagnostics toggle filter.buf=0<cr>"; options.desc = "Trouble: Buffer Diagnostics";}
