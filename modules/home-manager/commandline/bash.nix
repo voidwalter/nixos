@@ -7,7 +7,7 @@
 	programs.starship = {
 		enable = true;
 		package = pkgs.starship;
-		presets = ["jetpack"];
+		presets = ["pure-preset"];
 		
 		settings = {
     	package.disabled = true;

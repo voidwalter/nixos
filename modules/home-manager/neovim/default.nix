@@ -28,7 +28,7 @@
     defaultEditor = true;
     nixpkgs.useGlobalPackages = true;
     viAlias = true;
-    vimAlias = true;
+    vimAlias = false;
 		globals = {
         mapleader = " ";
         maplocalleader = "\\";

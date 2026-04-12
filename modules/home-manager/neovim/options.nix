@@ -21,7 +21,7 @@
       # Tabbing && Indenting options
       tabstop = 4;
       shiftwidth = 4;
-      expandtab = true;
+      expandtab = false;
       autoindent = false;
       smartindent = false;
       grepprg = "rg --vimgrep";

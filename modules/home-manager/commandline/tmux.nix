@@ -6,13 +6,15 @@
     package = pkgs.tmux;
     mouse = false;
     clock24 = true;
-    terminal = "screen-256color";
+		keyMode = "vi";
+    terminal = "$TERM";
     baseIndex = 1;
     prefix = "M-Space";
+		resizeAmount = 10;
     historyLimit = 50000;
     escapeTime = 0;
     sensibleOnTop = true;
-    
+
     plugins = with pkgs.tmuxPlugins; [
 			nord
       sensible
@@ -48,6 +50,9 @@
     ];
 
     extraConfig = ''
+			set -ga terminal-overrides ",alacritty:RGB"
+    	set -ga terminal-overrides ",alacritty:Tc"
+
       set -g detach-on-destroy off
       set -g renumber-windows on    # renumber if closed a window
 
