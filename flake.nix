@@ -14,6 +14,7 @@
         inputs.nixpkgs-lib.follows = "nixpkgs";
       };
 
+			hyprland.url = "github:hyprwm/Hyprland";
 			quickshell = {
       	url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
       	inputs.nixpkgs.follows = "nixpkgs";
@@ -39,23 +40,12 @@
         };
 	    };
 
-			yazi.url = "github:sxyazi/yazi/0cedbd9c7bbc44b23d54306b3effa3fa68eacdd8";
+			yazi.url = "github:sxyazi/yazi";
 			catppuccin.url = "github:catppuccin/nix";
-
-			### Hyprland
-			hyprland.url = "github:hyprwm/Hyprland";
-			hy3 = {
-				url = "github:outfoxxed/hy3";
-				inputs.hyprland.follows = "hyprland";
-			};
-			hyprland-easymotion = {
-				url = "github:zakk4223/hyprland-easymotion";
-				inputs.hyprland.follows = "hyprland";
-			};
 	};
 
 	outputs = {
-      self, nixpkgs, home-manager, hyprland, hy3,
+      self, nixpkgs, home-manager, hyprland, quickshell,
       nixvim, zen-browser,
       ...
   } @inputs:

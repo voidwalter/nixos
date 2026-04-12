@@ -7,14 +7,15 @@
 
     "wl-clip-persist --clipboard both &"
     "wl-paste --watch cliphist store &"
-		"swww-daemon"
-		"swww img /home/rafid/customs/assets/nixos3.png"
+		"awww-daemon"
+		"awww img /home/rafid/customs/assets/b-459.jpg"
     "hyprctl setcursor Bibata-Modern-Ice 20 &"
 		"hyprlock"
 		"hypridle"
 		"hyprcursor"
 		"vicinae server"
 		"qs -c overview"
+		"qs -c shell"
 
 		"hyprctl reload"
 

@@ -17,17 +17,16 @@ in
 
   home.packages = with pkgs; [
     git
-		gimp
 		zola					# SSG
 		nemo
     blesh
+		cliamp
 		tesseract
 		element					# Predic-table element
     ghostty					# terminal emulator
 		superfile				# file-browser
-    newsflash				# (gnome)newsfeed
 		vesktop					# discord client
-    obsidian				# markdown notes
+    logseq				# markdown notes
 		bitwarden-desktop	# password-manager
 		aseprite				# Animated sprite editor
     element-desktop	# matrix client

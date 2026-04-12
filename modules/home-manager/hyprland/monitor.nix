@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   wayland.windowManager.hyprland = {
-    settings.monitor = [ ",preferred,auto,auto" ];
+    settings.monitor = [ "HDMI-A-1,1920x1080@100.00Hz,0x0,1" ];
 
     extraConfig = ''
         # source = ~/.config/hypr/monitors.conf
@@ -10,5 +10,10 @@
     '';
   };
 
-  home.packages = with pkgs; [ nwg-displays ];
+  home.packages = with pkgs; [ 
+		ddcutil
+		ddcutil-service
+		nwg-displays
+		brightnessctl
+	];
 }

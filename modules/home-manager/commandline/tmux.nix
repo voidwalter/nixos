@@ -17,7 +17,7 @@
 			nord
       sensible
 			resurrect
-      tmux-which-key
+			fuzzback
 
       {
         plugin = tmux-fzf;
@@ -32,16 +32,9 @@
           TMUX_FZF_SWITCH_CURRENT=1
         '';
       }
-      { plugin = fzf-tmux-url;
-        extraConfig = ''
-          set -g @fzf-url-bind 'u'
-          set -g @fzf-url-history-limit '2000'
-          set -g @fzf-url-open "zen"
-        '';
-      }
       { plugin = tmux-sessionx;
         extraConfig = ''
-        set -g @sessionx-bind 'o'
+        	set -g @sessionx-bind 'o'
         '';
       }
       { plugin = continuum;
@@ -52,71 +45,14 @@
           set -g @resurrect-save 'S'
         '';
       }
-
-      fuzzback
     ];
 
     extraConfig = ''
       set -g detach-on-destroy off
       set -g renumber-windows on    # renumber if closed a window
-			set -g automatic-rename
-      set -g automatic-rename-format '#{pane_current_command}'
-
-      # ICONS
-      terminal_icon=""
-      active_terminal_icon=""
-      ssh_icon="󰣀"
-      left_edge_icon="󱞸"
-      right_edge_icon="󱞴"
-      prefix_on_icon="󰠠"
-      prefix_off_icon="󰤂"
-      paired_icon="⚇"
-      sync_icon="⚏"
-      mouse_icon="󰍽"
-      root_icon="!"
-      bell_icon=""
-      zoom_icon=""
-      last_icon="󰁯"
-
-      # COLOR
-      color_white="#E4E4E4"
-      color_blue="#00AFFF"
-      color_dim_blue="#008BCC"
-      color_dim_gray="#303030"
-      color_black="#080808"
-      color_red="#C04851"
-
-      unbind C-b
-      set -g prefix M-Space
-      bind M-Space send-prefix
-
-      bind h select-pane -L
-      bind j select-pane -D
-      bind k select-pane -U
-      bind l select-pane -R
-
-      # Bind Alt + number to select the corresponding window
-      bind-key -n M-0 select-window -t :=0
-      bind-key -n M-1 select-window -t :=1
-      bind-key -n M-2 select-window -t :=2
-      bind-key -n M-3 select-window -t :=3
-      bind-key -n M-4 select-window -t :=4
-      bind-key -n M-5 select-window -t :=5
-      bind-key -n M-6 select-window -t :=6
-      bind-key -n M-7 select-window -t :=7
-      bind-key -n M-8 select-window -t :=8
-
-      # Resize panes using Prefix + HJKL (repeatable with -r)
-      bind -r H resize-pane -L 5
-      bind -r J resize-pane -D 5
-      bind -r K resize-pane -U 5
-      bind -r L resize-pane -R 5
-
-      bind -n M-h previous-window
-      bind -n M-l next-window
 
       # Status Bar
-      set -g status-position top
+      set -g status-position bottom
       set -g status on
 			set -g status-justify centre
       set -g status-left ""
@@ -126,6 +62,32 @@
       set -g status-style "bg=default,fg=default"
 			setw -g window-status-format "#[bg=brightblack]#[fg=black] #I #[bg=black]#[fg=white] #W "
       setw -g window-status-current-format "#[bg=brightcyan]#[fg=black] #I #[bg=brightwhite]#[fg=black] #W "
+
+      unbind C-b
+      set -g prefix M-Space
+      bind M-Space send-prefix
+			bind-key l set-option status		# Toggle status bar
+
+
+      bind h select-pane -L
+      bind j select-pane -D
+      bind k select-pane -U
+      bind l select-pane -R
+			bind -r H resize-pane -L 5
+      bind -r J resize-pane -D 5
+      bind -r K resize-pane -U 5
+      bind -r L resize-pane -R 5
+      bind -n M-h next-window
+      bind -n M-l previous-window
+      bind-key -n M-0 select-window -t :=0
+      bind-key -n M-1 select-window -t :=1
+      bind-key -n M-2 select-window -t :=2
+      bind-key -n M-3 select-window -t :=3
+      bind-key -n M-4 select-window -t :=4
+      bind-key -n M-5 select-window -t :=5
+      bind-key -n M-6 select-window -t :=6
+      bind-key -n M-7 select-window -t :=7
+      bind-key -n M-8 select-window -t :=8
     '';
   };
 }

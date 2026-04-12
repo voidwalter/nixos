@@ -11,7 +11,6 @@
 
 	programs = {
 		fzf.enable = true;
-		starship.enable = true;
     atuin = {
       enable = true;
       daemon.enable = true;

@@ -101,7 +101,7 @@ y = 0
 
 ### Colors
 [colors.primary]
-background = "#282a36"
+background = "#000000"
 foreground = "#f8f8f2"
 bright_foreground = "#ffffff"
 
@@ -138,7 +138,7 @@ text = "CellForeground"
 background = "#44475a"
 
 [colors.normal]
-black   = "#21222c"
+black   = "#111111"
 red     = "#ff5555"
 green   = "#50fa7b"
 yellow  = "#f1fa8c"

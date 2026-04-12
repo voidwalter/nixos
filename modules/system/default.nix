@@ -3,6 +3,5 @@
 {
   imports = [
 		./program
-		./sway
 	];
 }

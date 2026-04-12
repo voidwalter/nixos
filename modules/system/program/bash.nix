@@ -1,6 +1,12 @@
 { pkgs, ... }:
 
 {
+	programs.starship = {
+		enable = true;
+		package = pkgs.starship;
+		presets = ["nerd-font-symbols"];
+	};
+
   programs.bash = {
     enable = true;
 		blesh.enable = true;
@@ -10,15 +16,13 @@
 			la = "exa -la --icons";
       nix-switch = "nixos-rebuild switch";
 			nix-gen = "nixos-rebuild list-generations";
-			ncg = "nix-collect garbage --delete-older-than 2d";
+			ncg = "nix-collect-garbage --delete-older-than 2d";
     };
 
 		interactiveShellInit = ''
-			set -o vi
-			eval "$(fzf --bash)"
 			eval "$(starship init bash)"
+			eval "$(fzf --bash)"
 			eval "$(zoxide init bash)"
-
 
 			ofix() {
 				local file
@@ -27,23 +31,22 @@
 					nvim "$file"
 				fi
 			}
+			
+      bat_show() {
+        local target_bat
+        target_bat=$(fzf --preview 'bat --style=numbers --color=always {}' --layout reverse --border --select-1 --exit-0)
+        [[ -n "$file" ]] && bat "$file"
+      }
 
 			####   Keybinds
-
-			# Functions
 			bind '"\C-f":"ofix\n"'
+			bind '"\C-b":"bat_show\n"'
 
 			# builtin function
 			bind '"\e\C-l": clear-screen'
-			bind -x '"\C-xs": source ~/.bashrc'
-			bind -x '"\C-xc": clear'
-			bind -x '"\C-xu": cd ..'
-			bind -x '"\C-ax": xv'
+			bind -x '"\C-xu": z ..'
 			bind -x '"\C-an": nvim'
 			bind -x '"\C-ay": yazi'
-			bind -x '"\C-at": tmux'
-			bind -x '"\C-sh": start-hyprland'
 		'';
   };
 }
-

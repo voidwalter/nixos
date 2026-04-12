@@ -30,13 +30,16 @@
     hyprpicker
 		hyprlock
 		hypridle
+		hyprshutdown
 		hyprsysteminfo
-		brightnessctl
 		nerd-fonts.symbols-only
 		qt6.qtmultimedia
-		qt5.qtbase qt5.qtsvg 
-		qt5.qtimageformats qt5.qtmultimedia 
-		libsForQt5.qt5ct
+		qt6.qtbase
+		qt6.qtdeclarative
+		qt6.qtsvg
+		qt6.qtimageformats
+		qt6.qtmultimedia
+		qt6.qt5compat
     qt6Packages.qt6ct
 		inputs.awww.packages.${pkgs.stdenv.hostPlatform.system}.awww
   ];

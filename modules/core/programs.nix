@@ -18,10 +18,8 @@
 		tree
 		yazi
 		blesh
-		delta
 		pipes
 		zoxide
-		starship
 		fastfetch
 		ripgrep
 		cmatrix
@@ -40,9 +38,6 @@
     # nautilus	# file-browser
     qutebrowser		# keyboard-based-browser
     inputs.zen-browser.packages.${pkgs.system}.twilight
-
-		# qt and quickshell
-		inputs.quickshell.packages.${system}.default
 
     psmisc
     wlrctl
@@ -78,4 +73,5 @@
   ];
  
   programs.dconf.enable = true;
+	programs.hyprland.enable = true;
 }

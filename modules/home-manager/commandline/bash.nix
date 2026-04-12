@@ -2,8 +2,18 @@
 { pkgs, ... }:
 
 {
-  home.packages = [ pkgs.blesh pkgs.eza pkgs.fzf pkgs.starship pkgs.zoxide pkgs.bat ];
+  home.packages = [ pkgs.blesh pkgs.eza pkgs.fzf pkgs.zoxide pkgs.bat ];
 
+	programs.starship = {
+		enable = true;
+		package = pkgs.starship;
+		presets = ["jetpack"];
+		
+		settings = {
+    	package.disabled = true;
+    	cmd_duration.min_time = 500;
+  	};
+	};
   programs.bash = {
     enable = true;
     shellAliases = {
@@ -11,16 +21,17 @@
 			la = "eza -la --icons";
       xv = "NVIM_APPNAME='xvim' nvim";
       nv = "NVIM_APPNAME='neovim' nvim";
+			ne = "sudo nvim /etc/nixos";
+			nrs = "sudo nixos-rebuild switch --flake /etc/nixos/#nixie --show-trace";
     };
 
     initExtra = ''
       # Initialize blesh
       [[ $- == *i* ]] && source ${pkgs.blesh}/share/blesh/ble.sh --attach=none
 
-      set -o vi
       eval "$(fzf --bash)"
-      eval "$(starship init bash)"
       eval "$(zoxide init bash)"
+			eval "$(starship init bash)"
 
       histor() { history | fzf; }
 
@@ -29,13 +40,20 @@
         file=$(fzf --preview 'bat --style=numbers --color=always {}' --layout reverse --border --select-1 --exit-0)
         [[ -n "$file" ]] && nv "$file"
       }
-      
+ 
+      bat_show() {
+        local target_bat
+        target_bat=$(fzf --preview 'bat --style=numbers --color=always {}' --layout reverse --border --select-1 --exit-0)
+        [[ -n "$file" ]] && bat "$file"
+      }
+
 			cdir() { cd $(find . -type d | fzf --layout reverse --border); }
 
       # blesh-specific Keybinds
       # Functions
       ble-bind -x "C-h" histor
       ble-bind -x "C-f" ofix
+			ble-bind -x "C-b" bat_show
       ble-bind -x "C-c" cdir
       ble-bind -x "C-w" fk
 

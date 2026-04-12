@@ -7,10 +7,13 @@
 
     bind = [
 			"$mod, T, exec, alacritty"
-			"$mod, G, exec, ghostty"
 			"$mod, W, exec, zen-twilight"
 			"$mod, B, exec, qutebrowser"
 			"$mod, Return, exec, [float; size 1111 700] alacritty"
+			"$mod, G, exec, [float; size 1111 700] alacritty -e tmux"
+			"$mod, Y, exec, alacritty -e yazi"
+			"$mod, N, exec, alacritty -e nvim"
+			"$mod, M, exec, alacritty -e vim"
 			
 			"$mod, Q, killactive"
 			"$mod SHIFT, F, fullscreen, 0"
@@ -20,10 +23,16 @@
 			"ALT, Tab, cyclenext"
 			"ALT, Tab, bringactivetotop"
 			"ALT, Escape, exec, hyprlock"
+			"$mod CTRL, A, exec, alacritty msg config window.opacity=1.0"
 			
 			"$mod, X, exec, vicinae toggle"
-			"$mod, C, exec, rofi -show drun"
+			"$mod, R, exec, rofi -show drun"
 			"$mod, V, exec, vicinae vicinae://extensions/vicinae/clipboard/history"
+
+			"$mod CTRL, S, exec, [float; size 1200 800] alacritty -e cliamp"
+			"$mod CTRL, B, exec, [float; size 1300 850] alacritty -e btop"
+			"$mod CTRL, B, exec, [float; size 1500 900] alacritty -e pipes.sh -p 2"
+			"$mod CTRL, C, exec, [fullscreen;] alacritty -e cmatrix"
 			
 			", XF86AudioRaiseVolume, exec, pamixer --increase 5"
       ", XF86AudioLowerVolume, exec, pamixer --decrease 5"
@@ -50,8 +59,6 @@
 			"ALT, F12, exec, $ipc dock toggle"
 			"SHIFT, F12, exec, $ipc bar toggle name \"Main Bar\""
 
-			"CTRL, F9, exec, waypaper"
-			
 			"$mod, PRINT, exec, grim -g \"$(slurp)\" - | satty --filename -"					# select region > edit satty
 			"$mod CTRL, PRINT, exec, grim -g \"$(slurp)\" - | wl-copy"								# select region > copy to clipboard
 			"SHIFT, PRINT, exec, grim ~/Pictures/Shots/$(date +'freeze-%m%d-%H%M%S').png"				# save screenshot directly
@@ -79,7 +86,9 @@
 			"$mod SHIFT, Tab, workspace, m-1"
 			"$mod, mouse_down, workspace, e+1"
 			"$mod, mouse_up, workspace, e-1"
-			
+			"$mod, bracketleft, movetoworkspace, -1"
+			"$mod, bracketright, movetoworkspace, +1"
+
 			"$mod, 1, workspace, 1"
 			"$mod, 2, workspace, 2"
 			"$mod, 3, workspace, 3"
@@ -102,10 +111,7 @@
       "$mod SHIFT, 8, movetoworkspacesilent, 8"
       "$mod SHIFT, 9, movetoworkspacesilent, 9"
       "$mod SHIFT, 0, movetoworkspacesilent, 10"
-      "$mod CTRL, c, movetoworkspace, empty"
-
-			"$mod, bracketleft, movetoworkspace, -1"
-			"$mod, bracketright, movetoworkspace, +1"
+      "$mod CTRL, M, movetoworkspace, empty"
 		];
 		bindm = [
 			"$mod, mouse:273, movewindow"

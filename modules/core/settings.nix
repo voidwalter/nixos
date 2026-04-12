@@ -1,5 +1,8 @@
 { config, lib, pkgs, ... }:
 
+let
+  system = pkgs.stdenv.hostPlatform.system;
+in
 {
 	boot = {
     loader = {
