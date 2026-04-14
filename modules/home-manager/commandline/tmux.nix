@@ -16,40 +16,40 @@
     sensibleOnTop = true;
 
     plugins = with pkgs.tmuxPlugins; [
-			nord
       sensible
+			continuum
 			resurrect
 			fuzzback
-
-      {
-        plugin = tmux-fzf;
-        extraConfig = ''
-          TMUX_FZF_LAUNCH_KEY="C-f"
-          TMUX_FZF_OPTIONS="-m"
-          TMUX_FZF_OPTIONS="-p -w 62% -h 38% -m"
-          TMUX_FZF_PREVIEW=0
-          TMUX_FZF_PREVIEW_FOLLOW=0
-          TMUX_FZF_ORDER="session|window|pane|command|keybinding"
-          TMUX_FZF_PANE_FORMAT="[#{window_name}] #{pane_current_command}  [#{pane_width}x#{pane_height}] [history #{history_size}/#{history_limit}, #{history_bytes} bytes] #{?pane_active,[active],[inactive]}"
-          TMUX_FZF_SWITCH_CURRENT=1
-        '';
-      }
-      { plugin = tmux-sessionx;
-        extraConfig = ''
-        	set -g @sessionx-bind 'o'
-        '';
-      }
-      { plugin = continuum;
-        extraConfig = ''
-          set -g @continuum-restore 'off'
-          set -g @continuum-save-interval '10'
-          set -g @resurrect-restore 'R'
-          set -g @resurrect-save 'S'
-        '';
-      }
+			tmux-fzf
+			tmux-sessionx
+			tokyo-night-tmux
     ];
 
     extraConfig = ''
+			# plugin
+
+			set -g @tokyo-night-tmux_window_id_style "roman"   # or "none", "digital",
+			set -g @tokyo-night-tmux_window_number_position "right"
+			set -g @tokyo-night-tmux_theme storm
+			set @tokyo-night-tmux_pane_id_style hsquare
+			set -g @tokyo-night-tmux_terminal_icon 
+			set -g @tokyo-night-tmux_active_terminal_icon 
+
+      set -g @sessionx-bind 'o'
+      set -g @continuum-restore 'off'
+      set -g @continuum-save-interval '10'
+      set -g @resurrect-restore 'R'
+      set -g @resurrect-save 'S'
+
+			TMUX_FZF_LAUNCH_KEY="C-f"
+      TMUX_FZF_OPTIONS="-m"
+      TMUX_FZF_OPTIONS="-p -w 62% -h 38% -m"
+      TMUX_FZF_PREVIEW=0
+      TMUX_FZF_PREVIEW_FOLLOW=0
+      TMUX_FZF_ORDER="session|window|pane|command|keybinding"
+      TMUX_FZF_PANE_FORMAT="[#{window_name}] #{pane_current_command}  [#{pane_width}x#{pane_height}] [history #{history_size}/#{history_limit}, #{history_bytes} bytes] #{?pane_active,[active],[inactive]}"
+      TMUX_FZF_SWITCH_CURRENT=1
+
 			set -ga terminal-overrides ",alacritty:RGB"
     	set -ga terminal-overrides ",alacritty:Tc"
 
@@ -66,13 +66,11 @@
       set -g status-right ' %H:%M '
       set -g status-style "bg=default,fg=default"
 			setw -g window-status-format "#[bg=brightblack]#[fg=black] #I #[bg=black]#[fg=white] #W "
-      setw -g window-status-current-format "#[bg=brightcyan]#[fg=black] #I #[bg=brightwhite]#[fg=black] #W "
+      setw -g window-status-current-format "#[bg=brightcyan]#[fg=black] #I #[bg=#5c5c5c]#[fg=black] #W "
 
       unbind C-b
       set -g prefix M-Space
       bind M-Space send-prefix
-			bind-key l set-option status		# Toggle status bar
-
 
       bind h select-pane -L
       bind j select-pane -D

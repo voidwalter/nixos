@@ -20,7 +20,6 @@
     };
 
 		interactiveShellInit = ''
-			eval "$(starship init bash)"
 			eval "$(fzf --bash)"
 			eval "$(zoxide init bash)"
 
@@ -35,7 +34,7 @@
       bat_show() {
         local target_bat
         target_bat=$(fzf --preview 'bat --style=numbers --color=always {}' --layout reverse --border --select-1 --exit-0)
-        [[ -n "$file" ]] && bat "$file"
+        [[ -n "$target_bat" ]] && bat "$target_bat"
       }
 
 			####   Keybinds

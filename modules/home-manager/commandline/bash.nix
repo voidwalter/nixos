@@ -33,8 +33,6 @@
       eval "$(zoxide init bash)"
 			eval "$(starship init bash)"
 
-      histor() { history | fzf; }
-
       ofix() {
         local file
         file=$(fzf --preview 'bat --style=numbers --color=always {}' --layout reverse --border --select-1 --exit-0)
@@ -44,24 +42,21 @@
       bat_show() {
         local target_bat
         target_bat=$(fzf --preview 'bat --style=numbers --color=always {}' --layout reverse --border --select-1 --exit-0)
-        [[ -n "$file" ]] && bat "$file"
+        [[ -n "$target_bat" ]] && bat "$target_bat"
       }
 
 			cdir() { cd $(find . -type d | fzf --layout reverse --border); }
 
       # blesh-specific Keybinds
       # Functions
-      ble-bind -x "C-h" histor
       ble-bind -x "C-f" ofix
 			ble-bind -x "C-b" bat_show
       ble-bind -x "C-c" cdir
-      ble-bind -x "C-w" fk
 
       # Shell utilities
-      ble-bind -c "M-C-l" clear-screen
       ble-bind -x "C-x c" clear
-      ble-bind -x "C-x u" "cd .."
-      
+      ble-bind -x "C-x u" "z .."
+
       # Eza binds
       ble-bind -x "C-z l" "eza -la"
       ble-bind -x "C-z d" "eza --only-dirs"

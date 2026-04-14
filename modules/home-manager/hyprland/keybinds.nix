@@ -24,6 +24,7 @@
 			"ALT, Tab, bringactivetotop"
 			"ALT, Escape, exec, hyprlock"
 			"$mod CTRL, A, exec, alacritty msg config window.opacity=1.0"
+			"$mod CTRL, T, exec, alacritty msg config window.opacity=0.65"
 			
 			"$mod, X, exec, vicinae toggle"
 			"$mod, R, exec, rofi -show drun"
@@ -31,7 +32,7 @@
 
 			"$mod CTRL, S, exec, [float; size 1200 800] alacritty -e cliamp"
 			"$mod CTRL, B, exec, [float; size 1300 850] alacritty -e btop"
-			"$mod CTRL, B, exec, [float; size 1500 900] alacritty -e pipes.sh -p 2"
+			"$mod CTRL, P, exec, [float; size 1500 900] alacritty -e pipes.sh -p 2"
 			"$mod CTRL, C, exec, [fullscreen;] alacritty -e cmatrix"
 			
 			", XF86AudioRaiseVolume, exec, pamixer --increase 5"

@@ -10,7 +10,6 @@
 		"awww-daemon"
 		"awww img /home/rafid/customs/assets/b-459.jpg"
     "hyprctl setcursor Bibata-Modern-Ice 20 &"
-		"hyprlock"
 		"hypridle"
 		"hyprcursor"
 		"vicinae server"

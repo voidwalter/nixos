@@ -1,10 +1,6 @@
 { inputs, pkgs, ... }:
 
 {
-  imports = [
-    ./../system/default.nix
-  ];
-
   environment.systemPackages = with pkgs; [
     # CLIs
 		fd
@@ -25,6 +21,17 @@
 		cmatrix
 		vicinae
 		alacritty
+
+		gdb                  # GNU debugger
+    lldb                 # LLVM debugger (alternative)
+    cmake                # Build system generator
+    gnumake							 # Make build system
+		cmake-language-server # CMake LSP (optional)
+    gcc
+    clang
+		clang-tools
+    lld
+    lua
 
 		vim
     curl
@@ -70,8 +77,38 @@
     dunst
     avizo
     #libfido2
+
+		nwg-look
+    bibata-cursors
+    papirus-icon-theme
   ];
+
+	fonts = {
+    enableDefaultPackages = true;
+    packages = with pkgs; [ 
+      noto-fonts
+      noto-fonts-color-emoji
+      noto-fonts-cjk-sans
+      nerd-fonts.fira-code
+      nerd-fonts.fira-mono
+      nerd-fonts.zed-mono
+			nerd-fonts.monofur
+			nerd-fonts.symbols-only
+			nerd-fonts.caskaydia-cove
+      nerd-fonts.code-new-roman
+      nerd-fonts.daddy-time-mono
+    ];
+  };
+
+	programs.direnv = {
+    enable = true;
+    nix-direnv = {
+      enable = true;
+    };
+    enableBashIntegration = true;
+  };
  
+	programs.nix-ld.enable = true;
   programs.dconf.enable = true;
 	programs.hyprland.enable = true;
 }

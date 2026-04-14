@@ -17,7 +17,7 @@
 				settings = {
 					compile_command = {
 						cpp = {
-							exec = "g++";
+							exec = "clang++";
 							args = [
 								"-DLOCAL"
 								"$(FNAME)"

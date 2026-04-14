@@ -17,7 +17,7 @@ in
 
   home.packages = with pkgs; [
     git
-		zola					# SSG
+		lazygit
 		nemo
     blesh
 		cliamp
