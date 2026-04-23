@@ -2,7 +2,6 @@
 
 {
   imports = [
-		./yazi
     ./bat.nix
 		./bash.nix
 		./btop.nix
@@ -44,8 +43,5 @@
 	};
 
 	programs.alacritty.enable = true;
-	xdg.configFile = {
-    "alacritty/alacritty.toml".source = ./alacritty/alacritty.toml;
-  };
 }
 

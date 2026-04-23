@@ -6,17 +6,17 @@ in
 {
 	imports = [
 		./configs
+		./pkgs.nix
 		./programs.nix
 		./hardware-configuration.nix
 	];
-
-	########## Core System Settings
 
 	nix = {
 		enable = true;
 		package = pkgs.nix;
 		daemonUser = "root";
 		daemonGroup = "root";
+		extraOptions = ''warn-dirty = false'';
 		gc = {
 			automatic = true;
 			dates = "weekly";
@@ -33,13 +33,19 @@ in
 		};
   };
 
-  nixpkgs.config.allowUnfree = true;
-	
+  nixpkgs = {
+		config.allowUnfree = true;
+	};
+
   system = {
 		autoUpgrade.enable = false;
 		stateVersion = "25.11";
 	};
-	
+
+	hardware = {
+		i2c.enable = true;
+	};
+
   time.timeZone = "Asia/Dhaka";
   users.users.rafid = {
 		createHome = true;
@@ -78,7 +84,6 @@ in
       ];
     };
 
-    # Enable "Silent boot" :: no kernel/load status
     consoleLogLevel = 3;
     initrd.verbose = false;
     kernelParams = [
@@ -88,7 +93,9 @@ in
     ];
   };
 
-	systemd.network.wait-online.enable = false;
+	systemd = {
+		network.wait-online.enable = false;
+	};
 
 	services = {
 		openssh = {
@@ -98,6 +105,54 @@ in
 				PermitRootLogin = "no";               # Never allow direct root login
 			};
 		};
+
+		httpd = {
+      enable = true;
+      adminAddr = "";
+      virtualHosts =
+			let
+				mkVirtualHost = webroot: {
+					documentRoot = webroot;
+					adminAddr = "alice@example.org";
+					forceSSL = true;
+					enableACME = true;
+				};
+			in
+			{
+				"example.org" = (mkVirtualHost "/webroot/example.org");
+				"example.com" = (mkVirtualHost "/webroot/example.com");
+			};
+    };
+
+		dunst = {
+			enable = true;
+			package = pkgs.dunst;
+			enableWayland = true;
+			settings = {
+				global = {
+					width = 300;
+					height = 300;
+					offset = "30x50";
+					origin = "top-right";
+					transparency = 10;
+					frame_color = "#eceff1";
+					font = "Droid Sans 9";
+				};
+
+				urgency_normal = {
+					background = "#37474f";
+					foreground = "#eceff1";
+					timeout = 10;
+				};
+			};
+		};
+
+		# cliphist = {
+		# 	enable = true;
+		# 	allowImages = true;
+		# 	package = pkgs.cliphist;
+		# 	clipboardPackage = pkgs.wl-clipboard;
+		# };
 
 		greetd = {
 			enable = true;
@@ -131,19 +186,11 @@ in
     networkmanager = {
 			enable = true;
 		};
-    nameservers = [
-      # "8.8.8.8"
-      # "8.8.4.4"
-      # "1.1.1.1"
-    ];
     firewall = {
       enable = true;
       allowedTCPPorts = [
         22
         80
-      ];
-      allowedUDPPorts = [
-        # 59010
       ];
     };
 		useNetworkd = true;
@@ -152,6 +199,7 @@ in
 
   security = {
 		enableWrappers = true;
+		acme.acceptTerms = true;
     rtkit = {
 			enable = true;    # allows Pipewire to use realtime scheduler
 			package = pkgs.rtkit;

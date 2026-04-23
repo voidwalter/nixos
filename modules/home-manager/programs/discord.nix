@@ -8,8 +8,14 @@
         autoUpdate = true;
         autoUpdateNotification = true;
         useQuickCss = true;
+				notifications = {
+          timeout = 500;
+          position = "bottom-right";
+          useNative = "always";
+          logLimit = 50;
+        };
 
-        plugins = {
+				plugins = {
 					useSystem = true;
           CommandsAPI.enabled = true;
           DynamicImageModalAPI.enabled = true;
@@ -36,15 +42,16 @@
           YoutubeAdblock.enabled = true;
           SupportHelper.enabled = true;
           BadgeAPI.enabled = true;
-
+          BetterSettings = { enabled = true; disableFade = true; eagerLoad = true; };
+          CallTimer = { enabled = true; format = "stopwatch"; };
+          Decor = { enabled = true; agreedToGuidelines = true; };
+          NoTrack = { enabled = true; disableAnalytics = true; };
+          WebContextMenus = { enabled = true; addBack = true; };
           BetterSessions = {
             enabled = true;
             backgroundCheck = false;
           };
 
-          BetterSettings = { enabled = true; disableFade = true; eagerLoad = true; };
-          CallTimer = { enabled = true; format = "stopwatch"; };
-          Decor = { enabled = true; agreedToGuidelines = true; };
           FakeNitro = {
             enabled = true;
             enableStickerBypass = true;
@@ -105,22 +112,10 @@
             voiceBackground = true;
             nitroFirst = true;
           };
-
-
-          NoTrack = { enabled = true; disableAnalytics = true; };
-          WebContextMenus = { enabled = true; addBack = true; };
           Settings = {
             enabled = true;
             settingsLocation = "aboveNitro";
           };
-
-        };
-
-        notifications = {
-          timeout = 500;
-          position = "bottom-right";
-          useNative = "always";
-          logLimit = 50;
         };
       };
     };

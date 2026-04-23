@@ -31,7 +31,7 @@
 			set -g @tokyo-night-tmux_window_id_style "roman"   # or "none", "digital",
 			set -g @tokyo-night-tmux_window_number_position "right"
 			set -g @tokyo-night-tmux_theme storm
-			set @tokyo-night-tmux_pane_id_style hsquare
+			set -g @tokyo-night-tmux_pane_id_style hsquare
 			set -g @tokyo-night-tmux_terminal_icon 
 			set -g @tokyo-night-tmux_active_terminal_icon 
 

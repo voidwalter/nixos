@@ -1,14 +1,7 @@
 { config, pkgs, inputs, lib, ... }:
 
 {
-  imports = [
-    ./types.nix
-    ./icons.nix
-    ./manager.nix
-    ./status.nix
-  ];
-
-  home.packages = [ pkgs.exiftool ];
+  # pkgs.exiftool
   programs.yazi = {
     enable = true;
     package = inputs.yazi.packages.${pkgs.stdenv.hostPlatform.system}.default;
@@ -17,11 +10,7 @@
 
     settings = {
       manager = {
-        layout = [
-          2
-          3
-          4
-        ];
+        layout = [ 2 2 4 ];
         sort_by = "alphabetical";
         sort_sensitive = true;
         sort_reverse = false;
@@ -38,12 +27,5 @@
         cache_dir = config.xdg.cacheHome;
       };
     };
-
-    keymap.manager.prepend_keymap = [
-      {
-        on = [ "<C-n>" ];
-        run = ''shell '${lib.getExe pkgs.ripdrag} "$@" -x 2>/dev/null &' --confirm'';
-      }
-    ];
   };
 }

@@ -70,6 +70,7 @@
 				settings = {
 					change_to_vcs_root = true;
 					config = {
+						week_header.enable = false;
 						footer = ["Homo Sapiens!?" ];
 						header = [
 							"███╗   ██╗██╗██╗  ██╗██╗   ██╗██╗███╗   ███╗"
@@ -82,11 +83,11 @@
 						mru = {
 							cwd_only = true;
 							label = " Recents(cwd):";
-							limit = 13;
+							limit = 15;
 						};
 						project = {
 							enable = true;
-							limit = 5;
+							limit = 10;
 							label = " Recents Projects:";
 							icon = "󰏓 ";
 						};
@@ -97,15 +98,15 @@
 								};
 								desc = "Files";
 								group = "Label";
-								icon = " ";
+								icon = "";
 								icon_hl = "@variable";
 								key = "f";
 							}
 							{
-								action = "Telescope app";
-								desc = " Apps";
+								action = "Telescope";
+								desc = "  Telescope";
 								group = "DiagnosticHint";
-								key = "a";
+								key = "t";
 							}
 							{
 								action = "Telescope live_grep";
@@ -114,7 +115,6 @@
 								key = "g";
 							}
 						];
-						week_header.enable = false;
 					};
 				};
 			};

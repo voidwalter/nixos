@@ -20,6 +20,8 @@
       autotag.enable = true;
       folding.enable = true;
       settings = {
+        autoinstall = true;
+        nixvimInjections = true;
         ensure_installed = [
           "bash"
           "c"
@@ -34,16 +36,16 @@
           "nix"
           "vim"
         ];
-        autoinstall = true;
-        nixvimInjections = true;
       };
     };
 
 		conform-nvim = {
 			enable = false;
 			autoLoad = true;
-
 			settings =  {
+				log_level = "warn";
+				notify_on_error = false;
+				notify_no_formatters = false;
 				formatters_by_ft = {
 					bash = [
 						"shellcheck"
@@ -93,9 +95,6 @@
 						return { lsp_fallback = true }
 					end
 				'';
-				log_level = "warn";
-				notify_on_error = false;
-				notify_no_formatters = false;
 			};
 		};
 	};

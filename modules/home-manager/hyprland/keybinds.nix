@@ -9,11 +9,11 @@
 			"$mod, T, exec, alacritty"
 			"$mod, W, exec, zen-twilight"
 			"$mod, B, exec, qutebrowser"
+			"$mod, -, exec, [float; size 1000 700] pcmanfm-qt"
 			"$mod, Return, exec, [float; size 1111 700] alacritty"
-			"$mod, G, exec, [float; size 1111 700] alacritty -e tmux"
-			"$mod, Y, exec, alacritty -e yazi"
+			"$mod, G, exec, [float; size 1111 700] ghostty"
+			"$mod, Y, exec, [float; size 1500 900] yazi"
 			"$mod, N, exec, alacritty -e nvim"
-			"$mod, M, exec, alacritty -e vim"
 			
 			"$mod, Q, killactive"
 			"$mod SHIFT, F, fullscreen, 0"
@@ -55,8 +55,6 @@
 			", F10, exec, $ipc notifications toggle"
 			", F12, exec, $ipc control-center toggle"
 			"CTRL, F12, exec, $ipc powermenu toggle"
-			"CTRL, F9, exec, $ipc wallpaper next"
-			"ALT, F9, exec, $ipc theme toggle"
 			"ALT, F12, exec, $ipc dock toggle"
 			"SHIFT, F12, exec, $ipc bar toggle name \"Main Bar\""
 
