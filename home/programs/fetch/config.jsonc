@@ -1,0 +1,150 @@
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "logo": {
+    "color": {"1": "blue", "2": "white"},
+    "padding": {
+      "top": 4,
+      "right": 5
+    },
+    "height": 14
+  },
+  "display": {
+    "separator": " ▸ " // :
+  },
+"modules": [
+  {
+    "type": "title"
+  },
+"break",
+{
+  "type": "custom",
+  "format": "\u001b[90m┌────────────────────── Operating System ──────────────────────┐"
+},
+{
+  "type": "os",
+  "key": "│ OS:  ",
+  "keyColor": "blue"
+},
+{
+  "type": "kernel",
+  "key": "│ Kernel:  ",
+  "keyColor": "blue"
+},
+{
+  "type": "shell",
+  "key": "│ Shell:  ",
+  "keyColor": "blue"
+},
+{
+  "type": "terminal",
+  "key": "│ Terminal:  ",
+  "keyColor": "blue"
+},
+{
+  "type": "terminalfont",
+  "key": "│ Terminal Font:  ",
+  "keyColor": "blue"
+},
+{
+  "type": "lm",
+  "key": "│ DM: 󰌾 ",
+  "keyColor": "blue"
+},
+{
+  "type": "de",
+  "key": "│ DE:  ",
+  "keyColor": "blue"
+},
+{
+  "type": "wm",
+  "key": "│ WM:  ",
+  "keyColor": "blue"
+},
+{
+  "type": "wmtheme",
+  "key": "│ WM Theme: 󰃣 ",
+  "keyColor": "blue"
+},
+{
+  "type": "packages",
+  "key": "└ Packages: 󰏖 ",
+  "keyColor": "blue"
+},
+{
+  "type": "custom",
+  "format": "\u001b[90m├────────────────────── Device ────────────────────────────────┤"
+},
+{
+  "type": "host",
+  "key": "󰟀 Host:",
+  "keyColor": "cyan"
+},
+{
+  "type": "bios",
+  "key": "│ BIOS:  ",
+  "keyColor": "cyan"
+},
+{
+  "type": "memory",
+  "key": "│ RAM Memory:  ",
+  "keyColor": "cyan"
+},
+{
+  "type": "swap",
+  "key": "│ Swap: 󰾴 ",
+  "keyColor": "cyan"
+},
+{
+  "type": "cpu",
+  "key": "│ Processor: 󰍛 ",
+  "keyColor": "cyan"
+},
+{
+  "type": "gpu",
+  "key": "│ Videocard: 󰢮 ",
+  "keyColor": "cyan"
+},
+{
+  "type": "disk",
+  "key": "│ Storage:  ",
+  "keyColor": "cyan"
+},
+{
+  "type": "battery",
+  "key": "└ Battery: 󰁹 ",
+  "keyColor": "cyan"
+},
+{
+  "type": "custom",
+  "format": "\u001b[90m├────────────────────── Others Configurations ─────────────────┤"
+},
+{
+  "type": "uptime",
+  "key": " Uptime:",
+  "keyColor": "green"
+},
+{
+   "type": "datetime",
+   "key": "│ DateTime:  ",
+   "keyColor": "green"
+},
+{
+  "type": "locale",
+  "key": "└ Locale: 󰇧 ",
+  "keyColor": "green"
+},
+{
+  "type": "custom",
+  "format": "\u001b[90m└──────────────────────────────────────────────────────────────┘"
+},
+{
+  "type": "colors",
+  "paddingLeft": 24,
+  "symbol": "circle",
+  "block": {
+    "width": 10
+  }
+},
+"break",
+]
+}
