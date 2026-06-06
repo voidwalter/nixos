@@ -14,15 +14,6 @@
     historyLimit = 50000;
     escapeTime = 0;
     sensibleOnTop = true;
-    status = {
-      ssh.enable = true;
-      gpg.enable = true;
-      lsyncd = {
-        enable = true;
-        hideOnRemoteSsh = true;
-      };
-      gitmux.enable = true;
-    };
 
     plugins = with pkgs.tmuxPlugins; [
       sensible
@@ -47,8 +38,8 @@
             set -g status on
       			set -g status-justify centre
             set -g status-style "bg=default,fg=default"
-      			setw -g window-status-format "#[bg=brightblack]#[fg=black] #I #[bg=black]#[fg=white] #W "
-            setw -g window-status-current-format "#[bg=brightcyan]#[fg=black] #I #[bg=#5c5c5c]#[fg=black] #W "
+      			setw -g window-status-format "#[bg=default]#[fg=cyan] #I #[bg=default]#[fg=white] #W "
+            setw -g window-status-current-format "#[bg=brightblack]#[fg=white] #I #[bg=default]#[fg=white] #W "
 
             unbind C-b
             set -g prefix M-Space

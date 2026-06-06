@@ -4,6 +4,7 @@ let
 in
 {
   programs.zen-browser.profiles.default = {
+    search = import ./search.nix { inherit pkgs; };
     settings = {
       "zen.workspaces.continue-where-left-off" = true;
       "zen.view.compact.hide-tabbar" = true;
@@ -13,16 +14,17 @@ in
 
     extensions.packages = with firefox-addons; [
       ublock-origin
-      darkreader
       bitwarden
-      raindropio
-      istilldontcareaboutcookies
+      darkreader
     ];
 
     sine = {
       enable = true;
       mods = [
         "context-menu-icons"
+        "zen-command-palette"
+        "quick-search-zen-browser"
+        "Nebula"
         "906c6915-5677-48ff-9bfc-096a02a72379" # Floating Status Bar
         "e122b5d9-d385-4bf8-9971-e137809097d0" # No Top Sites
         "253a3a74-0cc4-47b7-8b82-996a64f030d5" # Floating History
@@ -82,87 +84,5 @@ in
       };
     };
 
-    search = {
-      force = true;
-      default = "brave";
-      bing.metaData.hidden = "true";
-      google.metaData.hidden = "true";
-      engines = {
-        brave = {
-          definedAliases = [ "@b" ];
-          name = "Brave Search";
-          urls = [
-            {
-              template = "https://search.brave.com/search?q={searchTerms}";
-            }
-          ];
-        };
-
-        "ddg" = {
-          definedAliases = [ "@ddg" ];
-          name = "DuckDuckGo";
-          urls = [
-            {
-              template = "https://duckduckgo.com";
-              params = [
-                {
-                  name = "q";
-                  value = "{searchTerms}";
-                }
-              ];
-            }
-          ];
-        };
-
-        mynixos = {
-          icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-          definedAliases = [ "@nx" ];
-          name = "My NixOS";
-          urls = [
-            {
-              template = "https://mynixos.com/search?q={searchTerms}";
-              params = [
-                {
-                  name = "query";
-                  value = "searchTerms";
-                }
-              ];
-            }
-          ];
-        };
-        "Nix Packages" = {
-          icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-          definedAliases = [ "@pkgs" ];
-          urls = [
-            {
-              template = "https://search.nixos.org/packages";
-              params = [
-                {
-                  name = "type";
-                  value = "packages";
-                }
-                {
-                  name = "channel";
-                  value = "unstable";
-                }
-                {
-                  name = "query";
-                  value = "{searchTerms}";
-                }
-              ];
-            }
-          ];
-        };
-        github = {
-          definedAliases = [ "@gh" ];
-          name = "GitHub Search";
-          urls = [
-            {
-              template = "https://github.com/search?q={searchTerms}";
-            }
-          ];
-        };
-      };
-    };
   };
 }
