@@ -3,7 +3,6 @@
   imports = [
     inputs.zen.homeModules.beta
     ./profileDefault.nix
-    # ./profileTwilight.nix
     ./keymaps.nix
   ];
 

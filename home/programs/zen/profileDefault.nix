@@ -24,7 +24,10 @@ in
         "context-menu-icons"
         "zen-command-palette"
         "quick-search-zen-browser"
+        "BetterZenGradientPicker"
+        "unloaded-tabs"
         "Nebula"
+        "Zen Library"
         "906c6915-5677-48ff-9bfc-096a02a72379" # Floating Status Bar
         "e122b5d9-d385-4bf8-9971-e137809097d0" # No Top Sites
         "253a3a74-0cc4-47b7-8b82-996a64f030d5" # Floating History

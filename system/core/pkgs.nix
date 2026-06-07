@@ -65,7 +65,6 @@ let
   ];
 
   common_pkgs = with pkgs; [
-    inputs.zen.packages."${system}".twilight
   ];
 in
 {

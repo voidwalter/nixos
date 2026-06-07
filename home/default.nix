@@ -14,7 +14,7 @@ in
   home = {
     username = "void";
     homeDirectory = "/home/void";
-    stateVersion = "25.05";
+    stateVersion = "26.05";
 
     packages = with pkgs; [
       deno
