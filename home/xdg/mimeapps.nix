@@ -14,7 +14,7 @@
       "text/x-yaml" = "nvim.desktop";
 
       # === Directories & Filesystem ===
-      "inode/directory" = "yazi.desktop";
+      "inode/directory" = "superfile.desktop";
 
       # === Web & URI Handlers ===
       "x-scheme-handler/http" = "zen.desktop";
@@ -33,7 +33,7 @@
       "video/webm" = "mpv.desktop";
       "video/avi" = "mpv.desktop";
       "video/x-matroska" = "mpv.desktop";
-      "video/mp2t" = "mpv.desktop";  # MPEG-TS streams
+      "video/mp2t" = "mpv.desktop"; # MPEG-TS streams
       "audio/mpeg" = "mpv.desktop";
       "audio/ogg" = "mpv.desktop";
       "audio/flac" = "mpv.desktop";
@@ -53,7 +53,8 @@
       # === Documents ===
       "application/pdf" = "org.pwmt.zathura-pdf-mupdf.desktop";
       "application/msword" = "libreoffice-writer.desktop";
-      "application/vnd.openxmlformats-officedocument.wordprocessingml.document" = "libreoffice-writer.desktop";
+      "application/vnd.openxmlformats-officedocument.wordprocessingml.document" =
+        "libreoffice-writer.desktop";
       "application/vnd.ms-excel" = "libreoffice-calc.desktop";
       "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" = "libreoffice-calc.desktop";
       "application/vnd.oasis.opendocument.text" = "libreoffice-writer.desktop";

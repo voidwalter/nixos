@@ -65,6 +65,8 @@ let
   ];
 
   common_pkgs = with pkgs; [
+    superfile
+    quickshell
   ];
 in
 {

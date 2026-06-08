@@ -2,6 +2,7 @@
   description = "NixOS : Flakes";
 
   inputs = {
+    nixpkgs.url = "nixpkgs/nixos-unstable";
     agenix = {
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -29,8 +30,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nixpkgs.url = "nixpkgs/nixos-unstable";
-
     neovim.url = "github:nix-community/neovim-nightly-overlay";
     nur = {
       url = "github:nix-community/NUR";
@@ -38,14 +37,12 @@
     };
 
     shell = {
-      url = "github:voidwalter/Qore/unstable";
+      url = "github:voidwalter/Qore/void";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    yazi.url = "github:sxyazi/yazi/fde563380b45f19da10221e07d5415836313c743";
-
     zen = {
-      url = "github:voidwalter/zen-browser-flake/flake";
+      url = "github:voidwalter/zen-browser-flake/main";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         home-manager.follows = "home-manager";

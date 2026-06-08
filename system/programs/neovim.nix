@@ -1,6 +1,7 @@
-{ inputs, pkgs, ... }: {
+{ inputs, pkgs, ... }:
+{
   programs.neovim = {
     enable = true;
-    package = inputs.neovim.packages.${pkgs.system}.default;
+    package = inputs.neovim.packages.${pkgs.stdenv.hostPlatform.system}.default;
   };
 }

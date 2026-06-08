@@ -3,7 +3,6 @@
 {
   imports = [
     ./cli
-    ./yazi
     ./neovim
     ./zen/zen.nix
     ./zen/zenTwilight.nix
