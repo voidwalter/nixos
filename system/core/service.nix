@@ -9,6 +9,7 @@
   services = {
     openssh = {
       enable = true;
+      startWhenNeeded = true;
       settings = {
         PasswordAuthentication = true;
         PermitRootLogin = "no"; # Never allow direct root login
@@ -20,6 +21,10 @@
       pulse.enable = true;
       alsa.enable = true;
       alsa.support32Bit = true;
+    };
+
+    gvfs = {
+      enable = true;
     };
 
     greetd = {

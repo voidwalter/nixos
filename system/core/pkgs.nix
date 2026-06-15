@@ -38,6 +38,7 @@ let
     mpv-handler # mpv external-url handler
     wf-recorder
     ffmpeg
+    yt-dlp
     mediainfo
     fontpreview
     ffmpegthumbnailer
@@ -65,7 +66,7 @@ let
   ];
 
   common_pkgs = with pkgs; [
-    superfile
+    inputs.superfile.packages.${pkgs.stdenv.hostPlatform.system}.default
     quickshell
   ];
 in

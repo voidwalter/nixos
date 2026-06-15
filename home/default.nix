@@ -30,16 +30,20 @@ in
       cargo
       adw-gtk3
       nwg-look
+      nautilus
       fastfetch
+      cliamp
       zed-editor
       papirus-icon-theme
       qt6Packages.qt6ct
+      qtcreator
     ];
   };
 
   imports = [
     ./xdg
-    ./programs
+    ./programs/core
+    ./programs/applications
     ./service/wayland/default.nix
   ];
 }

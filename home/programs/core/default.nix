@@ -1,0 +1,11 @@
+{ config, pkgs, ... }:
+
+{
+  imports = [
+    ./cli
+    ./editor
+    ./browser/zen.nix
+    ./browser/zenTwilight.nix
+    # ./browser/qutebrowser.nix
+  ];
+}

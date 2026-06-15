@@ -14,11 +14,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprland.url = "github:hyprwm/Hyprland/fcbbd6d4d80033c40e3b702518e1a2ba3f479452";
-    hyprland-plugins = {
-      url = "github:hyprwm/hyprland-plugins";
-      inputs.hyprland.follows = "hyprland";
-    };
+    hyprland.url = "github:hyprwm/Hyprland/e5c721f29ae035881aef1620b2d714da97067883";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -30,14 +26,23 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    neovim.url = "github:nix-community/neovim-nightly-overlay";
-    nur = {
-      url = "github:nix-community/NUR";
+    # nur = {
+    #   url = "github:nix-community/NUR";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
+
+    nixvim = {
+      url = "github:nix-community/nixvim/586286af54a314a24566811ce44eb9f380696e6e";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    shell = {
-      url = "github:voidwalter/Qore/void";
+    noctalia = {
+      url = "github:noctalia-dev/noctalia";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    superfile = {
+      url = "github:voidwalter/superfile";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -50,38 +55,17 @@
     };
   };
 
-  outputs =
-    {
-      self,
-      nixpkgs,
-      agenix,
-      hosts,
-      nur,
-      home-manager,
-      hyprland,
-      nixvim,
-      zen,
-      ...
-    }@inputs:
-    {
-      nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = { inherit inputs; };
-        modules = [
-          ./system
-          hosts.nixosModule
-          nur.modules.nixos.default
-          agenix.nixosModules.default
-          home-manager.nixosModules.home-manager
-          {
-            home-manager = {
-              users.void = import ./home;
-              extraSpecialArgs = { inherit inputs; };
-              useUserPackages = true;
-              backupFileExtension = "backup";
-            };
-          }
-        ];
-      };
+  outputs = inputs: {
+    nixosConfigurations.nixos = inputs.nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      specialArgs = { inherit inputs; };
+      modules = [
+        ./system
+        inputs.hosts.nixosModule
+        # nur.modules.nixos.default
+        inputs.agenix.nixosModules.default
+        inputs.home-manager.nixosModules.home-manager
+      ];
     };
+  };
 }

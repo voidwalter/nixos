@@ -9,12 +9,11 @@
         "hyprland"
         "gtk"
       ];
-      "org.freedesktop.impl.portal.FileChooser" = "kde";
-      "org.freedesktop.impl.portal.Print" = "kde";
+      # "org.freedesktop.impl.portal.FileChooser" = "hyprland";
+      # "org.freedesktop.impl.portal.Print" = "hyprland";
     };
     extraPortals = with pkgs; [
       pkgs.xdg-desktop-portal-gtk
-      kdePackages.xdg-desktop-portal-kde
     ];
   };
 }
