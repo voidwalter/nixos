@@ -1,0 +1,13 @@
+require("config/variables")
+require("config/keymaps")
+require("config/styles")
+require("config/windowrules")
+require("config/workspacerules")
+require("config/misc")
+-- require("config/plugin")
+require("config/permission")
+require("config/animation")
+
+hl.on("hyprland.start", function()
+	hl.exec_cmd("noctalia")
+end)
