@@ -40,6 +40,16 @@
     };
   };
 
+  programs.gh = {
+    enable = true;
+    extensions = with pkgs; [
+      gh-eco
+      gh-dash
+      gh-markdown-preview
+      gh-notify
+    ];
+  };
+
   home.file.".config/git/allowed_signers".text = ''
     ssh-ed25519	AAAAC3NzaC1lZDI1NTE5AAAAIHokJEracfMuM2SZ7c1ZUgxAElCc2wMo+2wEdCpk2GaO	voidwalter@proton.me
   '';

@@ -1,5 +1,9 @@
-{ inputs, config, ... }:
-
+{
+  inputs,
+  config,
+  pkgs,
+  ...
+}:
 {
   imports = [
     ./programs
@@ -12,5 +16,4 @@
     useUserPackages = true;
     backupFileExtension = "backup";
   };
-
 }

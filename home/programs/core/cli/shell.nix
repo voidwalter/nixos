@@ -13,12 +13,6 @@
       enable = true;
       enableBashIntegration = true;
       tmux.enableShellIntegration = true;
-      colors = {
-        bg = "-1";
-        "bg+" = "-1";
-        fg = "#d4d4d4";
-        "fg+" = "#d4d4d4";
-      };
     };
 
     zoxide = {

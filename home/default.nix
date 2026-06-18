@@ -20,7 +20,6 @@ in
       deno
       lux
       dasel
-      gh
       obsidian
       grim
       slurp
@@ -44,6 +43,6 @@ in
     ./xdg
     ./programs/core
     ./programs/applications
-    ./service/wayland/default.nix
+    ./service/quickshell
   ];
 }

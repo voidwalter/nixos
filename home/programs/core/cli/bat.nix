@@ -6,6 +6,7 @@
       pager = "less -FR";
       theme = "Catppuccin-mocha";
     };
+
     themes =
       let
         src = pkgs.fetchFromGitHub {

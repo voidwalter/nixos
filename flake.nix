@@ -46,6 +46,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    stylix = {
+      url = "github:nix-community/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     zen = {
       url = "github:voidwalter/zen-browser-flake/main";
       inputs = {
@@ -64,6 +69,7 @@
         inputs.hosts.nixosModule
         # nur.modules.nixos.default
         inputs.agenix.nixosModules.default
+        inputs.stylix.nixosModules.stylix
         inputs.home-manager.nixosModules.home-manager
       ];
     };
