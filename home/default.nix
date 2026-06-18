@@ -15,6 +15,9 @@ in
     username = "void";
     homeDirectory = "/home/void";
     stateVersion = "26.05";
+    sessionVariables = {
+      QT_QPA_PLATFORMTHEME = "qt5ct";
+    };
 
     packages = with pkgs; [
       deno

@@ -66,6 +66,7 @@ let
   ];
 
   common_pkgs = with pkgs; [
+    inputs.agenix.packages.${pkgs.stdenv.hostPlatform.system}.default
     inputs.superfile.packages.${pkgs.stdenv.hostPlatform.system}.default
     quickshell
   ];
