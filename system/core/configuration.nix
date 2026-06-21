@@ -16,12 +16,12 @@ in
     ./hardware-configuration.nix
   ];
 
-  age.secrets.flake-token = {
-    file = ../../.secrets/flake-token.age;
-    owner = "root";
-    group = "root";
-    mode = "0400";
-  };
+  # age.secrets.flake-token = {
+  #   file = ../../.secrets/flake-token.age;
+  #   owner = "root";
+  #   group = "root";
+  #   mode = "0400";
+  # };
 
   nix = {
     enable = true;
@@ -30,9 +30,9 @@ in
     gc.automatic = true;
     optimise.automatic = true;
     settings = {
-      access-tokens = [
-        "github.com=!include ${config.age.secrets.flake-token.path}"
-      ];
+      # access-tokens = [
+      #   "github.com=!include ${config.age.secrets.flake-token.path}"
+      # ];
       allow-dirty = true;
       allow-dirty-locks = false;
       allowed-users = [

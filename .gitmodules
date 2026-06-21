@@ -1,0 +1,3 @@
+[submodule "extraconfig/nvim"]
+	path = extraconfig/nvim
+	url = git@github.com:voidwalter/nvim.git

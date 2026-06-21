@@ -1,6 +1,6 @@
 {
   imports = [
-    # ./vm.nix
+    ./vm.nix
     ./xdg.nix
     ./bash.nix
     ./fonts.nix

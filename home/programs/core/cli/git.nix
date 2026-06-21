@@ -1,13 +1,11 @@
-{ lib, ... }:
-
-{
+{ lib, pkgs, ... }: {
   programs.git = {
     enable = true;
 
     signing = {
       format = "ssh";
-      key = lib.mkDefault "~/.ssh/getawayy.pub";
-      signByDefault = true;
+      key = lib.mkDefault "~/.ssh/gith.pub";
+      signByDefault = false;
     };
 
     settings = {
@@ -50,7 +48,45 @@
     ];
   };
 
+  programs.lazygit = {
+    enable = true;
+    enableBashIntegration = true;
+    shellWrapperName = "lg";
+    settings = {
+      notARepository = "quit";
+      gui = {
+        theme = {
+          activeBorderColor = [
+            "blue"
+            "bold"
+          ];
+          inactiveBorderColor = [
+            "black"
+          ];
+          lightTheme = true;
+          selectedLineBgColor = [
+            "default"
+          ];
+        };
+      };
+    };
+  };
+
+  programs.delta = {
+    enable = true;
+    enableGitIntegration = true;
+    options = {
+      decorations = {
+        commit-decoration-style = "bold yellow box ul";
+        file-decoration-style = "none";
+        file-style = "bold yellow ul";
+      };
+      features = "decorations";
+      whitespace-error-style = "22 reverse";
+    };
+  };
+
   home.file.".config/git/allowed_signers".text = ''
-    ssh-ed25519	AAAAC3NzaC1lZDI1NTE5AAAAIHokJEracfMuM2SZ7c1ZUgxAElCc2wMo+2wEdCpk2GaO	voidwalter@proton.me
+    ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPkmsU/Z8QBlfZmf3Y/jWU9EbQxavTTwX8zkVJNdBUHe voidwalter@proton.me
   '';
 }
