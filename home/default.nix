@@ -16,7 +16,8 @@ in
     homeDirectory = "/home/void";
     stateVersion = "26.05";
     sessionVariables = {
-      QT_QPA_PLATFORMTHEME = "qt5ct";
+      QT_QPA_PLATFORM = "kvantum";
+      QT_QPA_PLATFORMTHEME = "kvantum";
     };
 
     packages = with pkgs; [
@@ -41,6 +42,8 @@ in
       qtcreator
     ];
   };
+
+  programs.home-manager.enable = true;
 
   imports = [
     ./xdg

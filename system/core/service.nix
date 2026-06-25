@@ -27,15 +27,6 @@
       enable = true;
     };
 
-    greetd = {
-      enable = true;
-      settings = {
-        default_session = {
-          command = "${pkgs.greetd}/bin/agreety --cmd ${pkgs.hyprland}/bin/start-hyprland";
-        };
-      };
-    };
-
     # hyprpolkitagent = {
     #   enable = true;
     #   packages = pkgs.hyprpolkitagent;

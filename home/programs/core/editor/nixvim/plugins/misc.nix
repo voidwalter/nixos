@@ -3,6 +3,13 @@
     which-key.enable = true;
     nvim-autopairs.enable = true;
     lz-n.enable = true;
+    persistence = {
+      enable = true;
+      settings = {
+        branch = true;
+        need = 0;
+      };
+    };
     barbar = {
       enable = true;
       keymaps = {

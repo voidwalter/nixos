@@ -11,6 +11,7 @@ in
 {
   imports = [
     ./pkgs.nix
+    ./boot.nix
     ./service.nix
     ./networking.nix
     ./hardware-configuration.nix
@@ -67,15 +68,5 @@ in
     packages = with pkgs; [
       tree
     ];
-  };
-
-  environment.systemPackages = with pkgs; [
-  ];
-
-  boot = {
-    loader = {
-      efi.canTouchEfiVariables = true;
-      systemd-boot.enable = true;
-    };
   };
 }

@@ -1,6 +1,40 @@
 {
   description = "NixOS : Flakes";
 
+  outputs =
+    inputs@{
+      self,
+      nixpkgs,
+      ...
+    }:
+    let
+      system = "x86_64-linux";
+      pkgs = import nixpkgs {
+        inherit system;
+        config.allowUnfree = true;
+      };
+    in
+    {
+      nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit inputs system; };
+        modules = [
+          ./system
+          inputs.hosts.nixosModule
+          # nur.modules.nixos.default
+          inputs.agenix.nixosModules.default
+          inputs.stylix.nixosModules.stylix
+          inputs.qylock.nixosModules.default
+          inputs.home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.extraSpecialArgs = { inherit inputs; };
+            home-manager.users.void = ./home;
+          }
+        ];
+      };
+    };
+
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
     agenix = {
@@ -41,6 +75,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    qylock.url = "github:Darkkal44/qylock";
+
     superfile = {
       url = "github:voidwalter/superfile";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -51,27 +87,14 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # brave.url = "github:Daniel-42-z/brave-origin-flake";
+
     zen = {
       url = "github:voidwalter/zen-browser-flake/main";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         home-manager.follows = "home-manager";
       };
-    };
-  };
-
-  outputs = inputs: {
-    nixosConfigurations.nixos = inputs.nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      specialArgs = { inherit inputs; };
-      modules = [
-        ./system
-        inputs.hosts.nixosModule
-        # nur.modules.nixos.default
-        inputs.agenix.nixosModules.default
-        inputs.stylix.nixosModules.stylix
-        inputs.home-manager.nixosModules.home-manager
-      ];
     };
   };
 }

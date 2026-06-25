@@ -1,11 +1,12 @@
 {
   imports = [
-    ./vm.nix
+    ./qt.nix
     ./xdg.nix
     ./bash.nix
     ./fonts.nix
     ./neovim.nix
     ./hyprland.nix
+    ./container.nix
   ];
 
   programs = {

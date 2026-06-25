@@ -79,53 +79,53 @@
     ];
 
     shellAliases = {
-      ll = "eza -l --icons";
-      la = "eza -la --icons";
-      xv = "NVIM_APPNAME='xvim' nvim";
+      ll = "eza -l";
+      la = "eza -la";
+      cd = "z";
       nv = "NVIM_APPNAME='neovim' nvim";
       ne = "sudo nvim /etc/nixos";
       g = "git";
-      gclone = "git clone";
+      ns = "nix-shell -p";
     };
 
     initExtra = ''
-            [[ $- == *i* ]] && source ${pkgs.blesh}/share/blesh/ble.sh --attach=none
+      [[ $- == *i* ]] && source ${pkgs.blesh}/share/blesh/ble.sh --attach=none
 
-            eval $(starship init bash)
-       
-            ofix() {
-              local file
-              file=$(fzf --preview 'bat --style=numbers --color=always {}' --layout reverse --border --select-1 --exit-0)
-              [[ -n "$file" ]] && nv "$file"
-            }
-       
-            bat_show() {
-              local target_bat
-              target_bat=$(fzf --preview 'bat --style=numbers --color=always {}' --layout reverse --border --select-1 --exit-0)
-              [[ -n "$target_bat" ]] && bat "$target_bat"
-            }
+      eval $(starship init bash)
 
-      			cdir() { cd $(find . -type d | fzf --height 40% --layout reverse --border); }
+      ofix() {
+        local file
+        file=$(fzf --preview 'bat --style=numbers --color=always {}' --layout reverse --border --select-1 --exit-0)
+        [[ -n "$file" ]] && nv "$file"
+      }
 
-            # keybinds
+      bat_show() {
+        local target_bat
+        target_bat=$(fzf --preview 'bat --style=numbers --color=always {}' --layout reverse --border --select-1 --exit-0)
+        [[ -n "$target_bat" ]] && bat "$target_bat"
+      }
 
-            ble-bind -x "C-f" ofix
-      			ble-bind -x "C-b" bat_show
-            ble-bind -x "C-w" cdir
-            ble-bind -x "C-y" zi
-            ble-bind -x "C-n" nv
-            ble-bind -x "C-x c" clear
-            ble-bind -x "C-x u" "z .."
+      cdir() { cd $(find . -type d | fzf --height 40% --layout reverse --border); }
 
-            # Launch applications
-            ble-bind -x "C-a x" "xv"
-            ble-bind -x "C-a n" "nvim"
-            ble-bind -x "C-a t" "tmux"
-            ble-bind -x "C-a b" "btop"
-            ble-bind -x "C-a c" "pipes.sh -p 2"
-            ble-bind -x "C-s h" "start-hyprland"
+      # keybinds
 
-            [[ $- == *i* ]] && ble-attach
+      ble-bind -x "C-f" ofix
+      ble-bind -x "C-b" bat_show
+      ble-bind -x "C-w" cdir
+      ble-bind -x "C-y" zi
+      ble-bind -x "C-n" nv
+      ble-bind -x "C-x c" clear
+      ble-bind -x "C-x u" "z .."
+
+      # Launch applications
+      ble-bind -x "C-a x" "xv"
+      ble-bind -x "C-a n" "nvim"
+      ble-bind -x "C-a t" "tmux"
+      ble-bind -x "C-a b" "btop"
+      ble-bind -x "C-a c" "pipes.sh -p 2"
+      ble-bind -x "C-s h" "start-hyprland"
+
+      [[ $- == *i* ]] && ble-attach
     '';
   };
 }

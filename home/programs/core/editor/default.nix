@@ -1,7 +1,7 @@
 { config, ... }: {
   imports = [
     ./zed
-    ./neovim
+    ./nixvim
     ./helix.nix
   ];
 }
