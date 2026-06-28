@@ -9,6 +9,12 @@
   services.displayManager.sddm = {
     enable = true;
     wayland.enable = true;
+    settings = {
+      Theme = {
+        CursorTheme = "Bibata-Modern-Ice";
+        CursorSize = 20;
+      };
+    };
   };
 
   # greetd = {
@@ -22,7 +28,7 @@
 
   programs.qylock = {
     enable = true;
-    theme = "Genshin";
+    theme = "sword";
     sddm.enable = true; # installs theme + sets it active (default)
     quickshell.enable = true; # adds `qylock-lock` to PATH (default)
 

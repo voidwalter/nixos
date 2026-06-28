@@ -48,7 +48,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprland.url = "github:hyprwm/Hyprland/e5c721f29ae035881aef1620b2d714da97067883";
+    hyprland.url = "github:hyprwm/Hyprland/afe2c390ab621e7a1dbd06744d33bc123acfe1f9";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -71,7 +71,7 @@
     };
 
     noctalia = {
-      url = "github:noctalia-dev/noctalia";
+      url = "github:noctalia-dev/noctalia/e9edcf8b399ae5bfac5b6f3e3c16e25f925acac8";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

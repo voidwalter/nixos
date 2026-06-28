@@ -7,6 +7,10 @@
 
 {
   services = {
+    dbus = {
+      enable = true;
+      implementation = "broker";
+    };
     openssh = {
       enable = true;
       startWhenNeeded = true;
@@ -32,9 +36,6 @@
     #   packages = pkgs.hyprpolkitagent;
     # };
 
-    dbus = {
-      enable = true;
-      implementation = "broker";
-    };
+    lact.enable = true;
   };
 }

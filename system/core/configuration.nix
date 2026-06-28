@@ -55,8 +55,16 @@ in
   };
 
   hardware = {
+    amdgpu = {
+      initrd.enable = true;
+      overdrive.enable = true;
+      overdrive.ppfeaturemask = "0xffffffff";
+    };
+    graphics = {
+      enable = true;
+      enable32Bit = true;
+    };
     i2c.enable = true;
-    graphics.enable = true;
   };
 
   time.timeZone = "Asia/Dhaka";
