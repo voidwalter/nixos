@@ -15,8 +15,7 @@ in
     homeDirectory = "/home/void";
     stateVersion = "26.05";
     sessionVariables = {
-      QT_QPA_PLATFORM = "kvantum";
-      QT_QPA_PLATFORMTHEME = "kvantum";
+      # QT_QPA_PLATFORM = "wayland";
     };
 
     packages = with pkgs; [
@@ -35,6 +34,9 @@ in
       nautilus
       fastfetch
       cliamp
+      telegram-desktop
+      libreoffice-qt
+      luanti
       zed-editor
       papirus-icon-theme
       qt6Packages.qt6ct
