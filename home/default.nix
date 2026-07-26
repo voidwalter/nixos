@@ -49,7 +49,7 @@ in
   imports = [
     ./xdg
     ./programs/core
-    ./programs/applications
-    ./service/quickshell
+    # ./programs/applications
+    # ./service/quickshell
   ];
 }

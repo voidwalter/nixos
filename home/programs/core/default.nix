@@ -2,11 +2,11 @@
 
 {
   imports = [
-    ./cli
-    ./editor
+    # ./cli
+    # ./editor
     ./browser/zen.nix
-    # ./browser/brave.nix
-    ./browser/zenTwilight.nix
+    ./browser/brave.nix
+    # ./browser/zenTwilight.nix
     # ./browser/qutebrowser.nix
   ];
 }

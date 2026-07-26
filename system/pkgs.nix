@@ -7,7 +7,6 @@
 
 let
   dev_pkgs = with pkgs; [
-    go
     gcc
     gdb
     lua
@@ -36,9 +35,7 @@ let
     libnotify
     bibata-cursors
     mpv-handler # mpv external-url handler
-    wf-recorder
     ffmpeg
-    yt-dlp
     mediainfo
     fontpreview
     ffmpegthumbnailer
@@ -66,8 +63,6 @@ let
   ];
 
   common_pkgs = with pkgs; [
-    inputs.agenix.packages.${pkgs.stdenv.hostPlatform.system}.default
-    inputs.superfile.packages.${pkgs.stdenv.hostPlatform.system}.default
     quickshell
   ];
 in

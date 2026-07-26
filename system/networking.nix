@@ -13,18 +13,22 @@
         22
         80
         443
+				3000
+				8080
+				9090
       ];
       autoLoadConntrackHelpers = false;
       connectionTrackingModules = [ ];
     };
-    # stevenBlackHosts = {
-    # enable = true;
-    # enableIPv6 = true;
-    # blockFakenews = true;
-    # blockGambling = true;
-    # blockPorn = true;
-    # blockSocial = false;
-    # };
+
+    stevenBlackHosts = {
+    	enable = true;
+    	enableIPv6 = true;
+    	blockFakenews = true;
+    	blockGambling = true;
+    	blockPorn = true;
+    	blockSocial = false;
+    };
     useNetworkd = true;
     dhcpcd.enable = false;
   };
