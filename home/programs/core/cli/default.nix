@@ -5,10 +5,10 @@
     ./bat.nix
     ./git.nix
     ./fzf.nix
-    ./ssh.nix
     ./btop.nix
     ./tmux.nix
     ./shell.nix
+    ./zsh.nix
     ./fetch/fastfetch.nix
   ];
 }

@@ -56,9 +56,11 @@ let
     tree
     wget
     dmenu
+    neovim
     ripgrep
     cmatrix
     stylua
+    vicinae
     tree-sitter
   ];
 

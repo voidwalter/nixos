@@ -2,10 +2,11 @@
   imports = [
     ./qt.nix
     ./xdg.nix
-    # ./bash.nix
+    # ./zsh.nix
     ./fonts.nix
     # ./neovim.nix
-    # ./hyprland.nix
+    ./docker.nix
+    ./hyprland.nix
     # ./container.nix
   ];
 
@@ -18,7 +19,7 @@
       enable = true;
       nix-direnv.enable = true;
       loadInNixShell = false;
-      enableBashIntegration = true;
+      enableZshIntegration = true;
       settings = {
         global = {
           log_format = "-";

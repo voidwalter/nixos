@@ -11,8 +11,8 @@ let
 in
 {
   home = {
-    username = "void";
-    homeDirectory = "/home/void";
+    username = "sai";
+    homeDirectory = "/home/sai";
     stateVersion = "26.05";
     sessionVariables = {
       # QT_QPA_PLATFORM = "wayland";
@@ -20,7 +20,6 @@ in
 
     packages = with pkgs; [
       deno
-      lux
       dasel
       obsidian
       grim
@@ -31,13 +30,9 @@ in
       cargo
       adw-gtk3
       nwg-look
-      nautilus
       fastfetch
       cliamp
-      telegram-desktop
       libreoffice-qt
-      luanti
-      zed-editor
       papirus-icon-theme
       qt6Packages.qt6ct
       qtcreator
@@ -50,6 +45,6 @@ in
     ./xdg
     ./programs/core
     # ./programs/applications
-    # ./service/quickshell
+    ./service/quickshell
   ];
 }

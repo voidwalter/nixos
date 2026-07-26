@@ -2,7 +2,7 @@
 
 {
   imports = [
-    # ./cli
+    ./cli
     # ./editor
     ./browser/zen.nix
     ./browser/brave.nix

@@ -18,16 +18,17 @@
       nixosConfigurations.nix = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs system; };
         modules = [
-          ./system
+          ./system/configuration.nix
           inputs.hosts.nixosModule
           # nur.modules.nixos.default
-          # inputs.qylock.nixosModules.default
+          inputs.qylock.nixosModules.default
           inputs.home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.extraSpecialArgs = { inherit inputs; };
-            home-manager.users.void = ./home;
+            home-manager.users.sai = ./home;
+            home-manager.backupFileExtension = "backup";
           }
         ];
       };
@@ -41,7 +42,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # hyprland.url = "github:hyprwm/Hyprland/01f5c9aee4c31e5b782e99eb354ee7230b999821";
+    hyprland.url = "github:hyprwm/Hyprland/453d96e92739a2a0b865cf9166d48ba14ec14b7b";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -63,7 +64,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # qylock.url = "github:Darkkal44/qylock";
+    qylock.url = "github:Darkkal44/qylock";
 
     brave.url = "github:Daniel-42-z/brave-origin-flake";
 

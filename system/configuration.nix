@@ -1,11 +1,17 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
-  imports =
-    [
-      ./hardware-configuration.nix
-      ./programs
-    ];
+  imports = [
+    ./hardware-configuration.nix
+    ./programs
+    ./pkgs.nix
+    ./networking.nix
+  ];
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
@@ -54,7 +60,6 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  # Set your time zone.
   time.timeZone = "Asia/Dhaka";
   services.pipewire = {
     enable = true;
@@ -64,14 +69,29 @@
   services.displayManager.sddm = {
     enable = true;
     wayland.enable = true;
+    settings = {
+      Theme = {
+        CursorTheme = "Bibata-Modern-Ice";
+        CursorSize = 24;
+      };
+    };
   };
-  
-  programs.uwsm.enable = true;
-  programs = {
-    xwayland.enable = true;
-    hyprland = {
-      enable = true;
-      withUWSM = true;
+
+  programs.qylock = {
+    enable = true;
+    theme = "sword";
+    sddm.enable = true; # installs theme + sets it active (default)
+    quickshell.enable = true; # adds `qylock-lock` to PATH (default)
+
+    # Optional per-theme tweaks (replaces the interactive prompts):
+    themeOptions = {
+      terraria.backgroundMode = "time"; # time | random | static
+      Genshin.backgroundMode = "time";
+      clockwork.orbital = {
+        themeMode = "dark";
+        enableWindup = true;
+      };
+      osu.gameMode = "menu"; # menu | game
     };
   };
 
@@ -84,14 +104,6 @@
     ];
   };
 
-  programs = {
-  };
-
   services.openssh.enable = true;
-
-  # system.copySystemConfiguration = true;
-
   system.stateVersion = "26.05";
-
 }
-

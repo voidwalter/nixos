@@ -5,7 +5,8 @@
 {
   programs.fzf = {
     enable = true;
-    enableBashIntegration = true;
+    enableZshIntegration = true;
+    historyWidget.command = "";
     tmux.enableShellIntegration = true;
 
     defaultOptions = [

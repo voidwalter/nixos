@@ -4,7 +4,7 @@
   programs.tmux = {
     enable = true;
     package = pkgs.tmux;
-    mouse = false;
+    mouse = true;
     clock24 = true;
     keyMode = "vi";
     terminal = "$TERM";
@@ -21,41 +21,18 @@
       resurrect
       fuzzback
       tmux-sessionx
+      minimal-tmux-status
     ];
 
     extraConfig = ''
-      set -g default-terminal "xterm-256color"
-      set-option -ga terminal-overrides ',xterm-256color:Tc'
-      set -g terminal-features "xterm*:RGB"
-      set -g @sessionx-bind 'o'
-      set -g @continuum-restore 'off'
-      set -g @continuum-save-interval '10'
-      set -g @resurrect-restore 'R'
-      set -g @resurrect-save 'S'
-
-      set -g detach-on-destroy off
-      set -g renumber-windows on    # renumber if closed a window
-
-      # Status Bar
-      set -g status-position bottom
-      set -g status on
-      set -g status-justify centre
-      set -g status-style "bg=default,fg=default"
-      setw -g window-status-format "#[bg=default]#[fg=cyan] #I #[bg=default]#[fg=white] #W "
-      setw -g window-status-current-format "#[bg=brightblack]#[fg=white] #I #[bg=default]#[fg=white] #W "
-
-      unbind C-b
-      set -g prefix M-Space
-      bind M-Space send-prefix
+      bind | split-window -h -c "#{pane_current_path}"
+      bind - split-window -v -c "#{pane_current_path}"
+      bind c new-window -c "#{pane_current_path}"
 
       bind h select-pane -L
       bind j select-pane -D
       bind k select-pane -U
       bind l select-pane -R
-      bind -r H resize-pane -L 5
-      bind -r J resize-pane -D 5
-      bind -r K resize-pane -U 5
-      bind -r L resize-pane -R 5
       bind -n M-h next-window
       bind -n M-l previous-window
       bind-key -n M-0 select-window -t :=0
@@ -67,6 +44,80 @@
       bind-key -n M-6 select-window -t :=6
       bind-key -n M-7 select-window -t :=7
       bind-key -n M-8 select-window -t :=8
+      bind-key -n M-9 select-window -t :=9
+
+      bind -r H resize-pane -L 5
+      bind -r J resize-pane -D 5
+      bind -r K resize-pane -U 5
+      bind -r L resize-pane -R 5
+
+      setw -g mode-keys vi
+
+      # Enter copy mode: Alt+Space then '[' Select: 'v', Copy: 'y', Exit: 'q'
+      bind-key -T copy-mode-vi v send-keys -X begin-selection
+      bind-key -T copy-mode-vi y send-keys -X copy-selection-and-cancel
+      bind-key -T copy-mode-vi C-v send-keys -X rectangle-toggle
+
+      # APPEARANCE
+      set -g @minimal-tmux-fg "#000000"
+      set -g @minimal-tmux-bg "#698DDA"
+      set -g @minimal-tmux-justify "centre"
+      set -g @minimal-tmux-indicator-str "  tmux  "
+      set -g @minimal-tmux-indicator true
+      set -g @minimal-tmux-status "bottom"
+
+      # Enables or disables the left and right status bar
+      set -g @minimal-tmux-right true
+      set -g @minimal-tmux-left true
+
+      # expanded icon (fullscreen icon)
+      set -g @minimal-tmux-expanded-icon "󰊓 "
+
+      # on all tabs (default is false)
+      # false will make it visible for the current tab only
+      set -g @minimal-tmux-show-expanded-icon-for-all-tabs true
+
+      # To add or remove extra text in status bar
+      set -g @minimal-tmux-status-right-extra ""
+      set -g @minimal-tmux-status-left-extra ""
+
+      # To make the selection box rounded () or edged <>
+      # Default is nothing, when set to true default is edged
+      set -g @minimal-tmux-use-arrow true
+      set -g @minimal-tmux-right-arrow ""
+      set -g @minimal-tmux-left-arrow ""
+
+      # Not recommended to change these values
+      set -g @minimal-tmux-status-right "#S"
+      set -g @minimal-tmux-status-left "What are you doing?"
+
+      # If getting strings cut in left status or right
+      # Here 20 is the length of the characters in the string
+      set -g status-right-length 20
+      set -g status-left-length 20
+
+      # tmux-resurrect: Save pane contents (requires tmux 3.2+)
+      set -g @resurrect-capture-pane-contents 'on'
+      set -g @resurrect-dir "~/.config/tmux/resurrect"
+      set -g @resurrect-save 'S'
+      set -g @resurrect-restore 'R'
+      set -g @continuum-save-interval '15'
+      set -g @continuum-restore 'on'
+
+      set -g @vim_navigator_mapping_left "C-Left C-h"  # use C-h and C-Left
+      set -g @vim_navigator_mapping_right "C-Right C-l"
+      set -g @vim_navigator_mapping_up "C-k"
+      set -g @vim_navigator_mapping_down "C-j"
+      set -g @vim_navigator_mapping_prev ""  # removes the C-\ binding
+
+      # minimal-tmux-status
+      bind-key b set-option status
+
+      set -g @easymotion-hints 'asdfghjkl;'
+
+      set -g @sessionx-bind 'o'
+      set -g @sessionx-tree-mode 'off'
+      set -g @sessionx-window-mode 'on'
     '';
   };
 }

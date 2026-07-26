@@ -1,11 +1,16 @@
-{ lib, pkgs, ... }: {
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+{
   programs.git = {
     enable = true;
 
     signing = {
       format = "ssh";
-      key = lib.mkDefault "~/.ssh/gith.pub";
-      signByDefault = false;
+      signByDefault = true;
     };
 
     settings = {
@@ -13,18 +18,19 @@
         sts = "status --short";
       };
 
+      user = {
+        signingkey = "~/.ssh/signgit.pub";
+        name = lib.mkDefault "elyrisai";
+        email = lib.mkDefault "elyrisai@tutamail.com";
+      };
+
+      gpg.format = "ssh";
       gpg.ssh.allowedSignersFile = "~/.config/git/allowed_signers";
 
-      user.name = lib.mkDefault "Walter";
-      user.email = lib.mkDefault "voidwalter@proton.me";
-
       init.defaultBranch = "main";
-
       commit.verbose = true;
-
       log.date = "iso";
       column.ui = "auto";
-
       pull.rebase = true;
       push.autoSetupRemote = true;
       merge.conflictStyle = "zdiff3";
@@ -35,6 +41,33 @@
       fetch.fsckObjects = true;
       receive.fsckObjects = true;
       transfer.fsckobjects = true;
+    };
+  };
+
+  services.ssh-agent.enable = true;
+  programs.ssh = {
+    enable = true;
+    enableDefaultConfig = false;
+    settings = {
+      "*" = {
+        ForwardAgent = false;
+        AddKeysToAgent = "no";
+        Compression = false;
+        ServerAliveInterval = 0;
+        ServerAliveCountMax = 3;
+        HashKnownHosts = false;
+        UserKnownHostsFile = "~/.ssh/known_hosts";
+        ControlMaster = "no";
+        ControlPath = "~/.ssh/master-%r@%n:%p";
+        ControlPersist = "no";
+      };
+
+      "github.com" = {
+        hostname = "github.com";
+        user = "git";
+        identityFile = "~/.ssh/signgit";
+        identitiesOnly = true;
+      };
     };
   };
 
@@ -50,7 +83,7 @@
 
   programs.lazygit = {
     enable = true;
-    enableBashIntegration = true;
+    enableZshIntegration = true;
     shellWrapperName = "lg";
     settings = {
       notARepository = "quit";
@@ -86,7 +119,6 @@
     };
   };
 
-  home.file.".config/git/allowed_signers".text = ''
-    ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPkmsU/Z8QBlfZmf3Y/jWU9EbQxavTTwX8zkVJNdBUHe voidwalter@proton.me
-  '';
+  xdg.configFile."git/allowed_signers".text =
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPSVKhob8YESeEDLdSPeGVt7hcjorfbm/UnFdPfkf1lt elyrisai@tutamail.com";
 }

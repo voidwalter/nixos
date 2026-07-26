@@ -1,13 +1,23 @@
 { pkgs, ... }:
 {
   force = true;
-  default = "brave";
-  privateDefault = "ddg";
+  default = "searx";
+  privateDefault = "searx";
   engines =
     let
       nixSnowflakeIcon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
     in
     {
+      "searx" = {
+        definedAliases = [ "@sx" ];
+        name = "SearXNG";
+        urls = [
+          {
+            template = "http://localhost:8080/search?q={searchTerms}";
+          }
+        ];
+      };
+
       "brave" = {
         definedAliases = [ "@b" ];
         name = "Brave Search";
