@@ -22,9 +22,11 @@ let
   ];
 
   core_util = with pkgs; [
-    wev # Wayland Event Viewer
-    wtype # xdotool type for wayland
     unzip
+    unrar
+    p7zip
+    ncdu
+    nix-du
     cliphist # clipboard
     wl-clipboard # clip utils
     ddcutil # brightness
@@ -39,6 +41,7 @@ let
     mediainfo
     fontpreview
     ffmpegthumbnailer
+    gpu-screen-recorder
     gnupg
     openssl
     networkmanagerapplet

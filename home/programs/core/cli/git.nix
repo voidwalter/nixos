@@ -68,6 +68,13 @@
         identityFile = "~/.ssh/signgit";
         identitiesOnly = true;
       };
+
+      "codeberg.org" = {
+        hostname = "codeberg.org";
+        user = "git";
+        identityFile = "~/.ssh/signgit";
+        identitiesOnly = true;
+      };
     };
   };
 

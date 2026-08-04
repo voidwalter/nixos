@@ -25,17 +25,18 @@ in
       grim
       slurp
       satty
-      browsh
       pipes
-      cargo
       adw-gtk3
       nwg-look
       fastfetch
-      cliamp
-      libreoffice-qt
+      # wineWow64Packages.full
+      # winetricks
+      # quaternion
+      element-desktop
       papirus-icon-theme
       qt6Packages.qt6ct
-      qtcreator
+      kdePackages.okular
+      kdePackages.dolphin
     ];
   };
 
@@ -44,7 +45,7 @@ in
   imports = [
     ./xdg
     ./programs/core
-    # ./programs/applications
+    ./programs/applications
     ./service/quickshell
   ];
 }

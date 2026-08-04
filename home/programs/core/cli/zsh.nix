@@ -48,16 +48,22 @@
 
     # Shell aliases
     shellAliases = {
-      nv = "NVIM_APPNAME=neovim nvim";
-      ls = "eza --icons";
+      ls = "eza --icons auto";
       ll = "eza -l";
-      g = "git";
-      n = "nvim";
-      tas = "tmux attach-session -t";
-      tns = "tmux new-session -t";
       cd = "z";
       cc = "clear";
+      g = "git";
+      gs = "git status";
+      gl = "git log --oneline";
+      gpo = "git push -u origin";
       pssh = "ssh -T git@github.com";
+      tas = "tmux attach-session -t";
+      tns = "tmux new-session -t";
+      dwn = "docker compose down";
+      dup = "docker compose up -d";
+      ds = "docker ps";
+      n = "nvim";
+      nv = "NVIM_APPNAME=neovim nvim";
     };
 
     history = {

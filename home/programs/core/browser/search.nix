@@ -1,19 +1,19 @@
 { pkgs, ... }:
 {
   force = true;
-  default = "searx";
-  privateDefault = "searx";
+  default = "degoog";
+  privateDefault = "degoog";
   engines =
     let
       nixSnowflakeIcon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
     in
     {
-      "searx" = {
-        definedAliases = [ "@sx" ];
-        name = "SearXNG";
+      "degoog" = {
+        definedAliases = [ "@dg" ];
+        name = "Degoog";
         urls = [
           {
-            template = "http://localhost:8080/search?q={searchTerms}";
+            template = "http://localhost:4444/search?q={searchTerms}";
           }
         ];
       };

@@ -5,7 +5,7 @@
     ./cli
     # ./editor
     ./browser/zen.nix
-    ./browser/brave.nix
+    # ./browser/brave.nix
     # ./browser/zenTwilight.nix
     # ./browser/qutebrowser.nix
   ];

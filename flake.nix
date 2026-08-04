@@ -43,6 +43,10 @@
     };
 
     hyprland.url = "github:hyprwm/Hyprland/453d96e92739a2a0b865cf9166d48ba14ec14b7b";
+    gloview = {
+      url = "github:fedsfarm/gloview";
+      inputs.hyprland.follows = "hyprland";
+    };
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -60,13 +64,13 @@
     # };
 
     noctalia = {
-      url = "github:noctalia-dev/noctalia/313732302e6432d7ce41a9ce2334fdaca879dcd7";
+      url = "github:noctalia-dev/noctalia/c7abdb8e72b1a80bd6f1d8e096b0a93eeb0b32ff";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     qylock.url = "github:Darkkal44/qylock";
 
-    brave.url = "github:Daniel-42-z/brave-origin-flake";
+    # brave.url = "github:Daniel-42-z/brave-origin-flake";
 
     zen = {
       url = "github:voidwalter/zen-browser-flake/main";

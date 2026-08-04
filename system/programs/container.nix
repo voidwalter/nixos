@@ -3,7 +3,7 @@
 {
   programs.dconf.enable = true;
 
-  users.users.void.extraGroups = [
+  users.users.sai.extraGroups = [
     "libvirtd"
     "kvm"
   ];

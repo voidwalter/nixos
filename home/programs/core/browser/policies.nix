@@ -61,7 +61,6 @@ in
     "{74145f27-f039-47ce-a470-a662b129930a}" = "clearurls";
     "{85860b32-02a8-431a-b2b1-40fbd64c9c69}" = "github-file-icons";
     "{a4c4eda4-fb84-4a84-b4a1-f7c1cbf2a1ad}" = "refined-github-";
-    "jid0-adyhmvsP91nUO8pRv0Mn2VKeB84@jetpack" = "raindropio";
     "github-no-more@ihatereality.space" = "github-no-more";
     "github-repository-size@pranavmangal" = "gh-repo-size";
     "jid1-BoFifL9Vbdl2zQ@jetpack" = "decentraleyes";

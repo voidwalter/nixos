@@ -22,6 +22,7 @@ in
     hyprland = {
       enable = true;
       withUWSM = true;
+      plugins = [ inputs.gloview.packages.${pkgs.system}.gloview ];
       # package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
       portalPackage =
         inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;

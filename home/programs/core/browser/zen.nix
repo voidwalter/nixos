@@ -4,6 +4,7 @@
     inputs.zen.homeModules.beta
     ./profileDefault.nix
     ./keymaps.nix
+    ./profileSeco.nix
   ];
 
   programs.zen-browser = {

@@ -8,7 +8,6 @@
       # nerdfonts
       nerd-fonts.fira-code
       nerd-fonts.fira-mono
-      nerd-fonts.zed-mono
       nerd-fonts.monofur
       nerd-fonts.symbols-only
       nerd-fonts.jetbrains-mono
