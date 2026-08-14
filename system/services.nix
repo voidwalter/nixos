@@ -7,7 +7,7 @@
 
 {
   services = {
-    blueman.enable = true;
+    # blueman.enable = true;
     dbus = {
       enable = true;
       implementation = "broker";
@@ -27,6 +27,11 @@
 
     gvfs.enable = true;
     lact.enable = true;
+    mysql = {
+      enable = true;
+      package = pkgs.mysql84;
+      # package = pkgs.mariadb;
+    };
     openssh = {
       enable = true;
       startWhenNeeded = true;

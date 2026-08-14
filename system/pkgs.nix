@@ -18,6 +18,7 @@ let
     gnumake
     clang
     clang-tools
+    python3
     cmake-language-server
   ];
 
@@ -37,6 +38,8 @@ let
     libnotify
     bibata-cursors
     mpv-handler # mpv external-url handler
+    mtpfs
+    libmtp
     ffmpeg
     mediainfo
     fontpreview
@@ -59,6 +62,7 @@ let
     tree
     wget
     dmenu
+    yazi
     neovim
     ripgrep
     cmatrix

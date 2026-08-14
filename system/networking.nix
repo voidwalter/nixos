@@ -37,14 +37,14 @@
 
     nat = {
       enable = true;
-      internalInterfaces = [ "ve-+" ];
-      externalInterface = [ "eth0" ];
+      # internalInterfaces = [ "ve-+" ];
+      # externalInterface = [ "eth0" ];
       enableIPv6 = true;
     };
 
-    hosts = {
-      "192.168.102.1" = [ "forgejo-containers" ];
-    };
+    # hosts = {
+    #   "192.168.102.1" = [ "forgejo-containers" ];
+    # };
   };
 
   # services = {

@@ -32,11 +32,13 @@ in
       # wineWow64Packages.full
       # winetricks
       # quaternion
+      thunar
       element-desktop
+      telegram-desktop
       papirus-icon-theme
       qt6Packages.qt6ct
       kdePackages.okular
-      kdePackages.dolphin
+
     ];
   };
 
